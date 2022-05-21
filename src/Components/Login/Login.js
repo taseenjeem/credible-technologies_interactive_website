@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import logo from '../../Assets/logo.png';
+import loginBanner from '../../Assets/login-banner.png';
 
 const Login = () => {
 
@@ -16,7 +17,7 @@ const Login = () => {
         <div>
             <div className="hero min-h-screen bg-gradient-to-tr from-primary to-secondary">
                 <div className="hero-content">
-                    <div className="card flex-shrink-0 lg:w-96 w-80 shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 lg:relative lg:left-40 lg:w-96 w-80 shadow-2xl bg-base-100">
                         <h1 className='text-center text-2xl font-bold text-primary mt-9'><img className='w-8 inline-block mt-[-6px]' src={logo} alt="" /> Credible Technologies</h1>
                         <p className='text-center font-bold mt-3'>USER LOGIN</p>
                         <div className="card-body">
@@ -74,6 +75,9 @@ const Login = () => {
                             </div>
                             <Link to="/sign-up" className="text-center text-sm label-text-alt link link-hover mt-2">New here? PLease create account</Link>
                         </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <img className='w-3/4 relative left-56' src={loginBanner} alt="" />
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ const Navbar = ({ children }) => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
-                    <div className="flex-1 px-2 mx-2"><Link to="/" className="btn btn-ghost normal-case text-2xl"><img className='w-9 mr-2' src={logo} alt="" /> Credible Technologies Ltd.</Link></div>
+                    <div className="flex-1 lg:px-2 lg:mx-2"><Link to="/" className="btn btn-ghost normal-case lg:text-2xl"><img className='w-9 mr-2' src={logo} alt="" />Credible Technologies Ltd.</Link></div>
                     <div className="flex-none hidden lg:block">
                         <ul className="menu menu-horizontal">
                             <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>

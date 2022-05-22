@@ -10,6 +10,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
 import { Slide } from 'react-reveal';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Login = () => {
 
@@ -41,6 +42,9 @@ const Login = () => {
 
     return (
         <div>
+
+            <PageTitle title="Login" />
+
             {
                 loading || googleLoading ?
 

@@ -10,6 +10,7 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 import { Slide } from 'react-reveal';
+import PageTitle from '../PageTitle/PageTitle';
 
 const SignUp = () => {
 
@@ -31,6 +32,9 @@ const SignUp = () => {
 
     return (
         <div>
+
+            <PageTitle title="Signup" />
+
             {
                 loading || googleLoading || updating ?
 

@@ -8,6 +8,7 @@ import auth from '../../Firebase/firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 import { Slide } from 'react-reveal';
+import PageTitle from '../PageTitle/PageTitle';
 
 const ResetPass = () => {
 
@@ -26,6 +27,9 @@ const ResetPass = () => {
 
     return (
         <div>
+
+            <PageTitle title="Reset Password" />
+
             {
                 sending ?
 

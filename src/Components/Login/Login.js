@@ -79,7 +79,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div class="hidden lg:block w-8/12">
-                        <img className='w-4/5`mx-auto' src={loginBanner} alt="" />
+                        <img className='mx-auto' src={loginBanner} alt="" />
                     </div>
                 </div>
             </div>

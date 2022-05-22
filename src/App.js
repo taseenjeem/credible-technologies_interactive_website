@@ -9,6 +9,7 @@ import ResetPass from './Components/ResetPass/ResetPass';
 import SignUp from './Components/SignUp/SignUp';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='*' element={<InvalidPage />} />
         </Routes>
 
+        <Footer />
       </Navbar>
       <ToastContainer />
     </div>

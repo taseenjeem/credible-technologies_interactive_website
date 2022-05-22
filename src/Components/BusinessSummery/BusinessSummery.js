@@ -44,13 +44,19 @@ const BusinessSummery = () => {
 
             <div className='shadow-2xl bg-white lg:p-14 p-8 rounded-2xl lg:flex lg:justify-evenly lg:items-center mx-auto lg:w-9/12 my-14'>
                 <div className='lg:w-3/6'>
-                    <h1 className='text-2xl font-bold text-primary'>Have any suggestion for us or any improvements?</h1>
+                    <h1 className='text-2xl font-bold text-primary'>Have any suggestion for us or want to know our improvements?</h1>
                     <h2 className='text-xl my-5'>Don't hesitate to contact us</h2>
                 </div>
                 <div className='lg:w-3/6 lg:flex lg:justify-center'>
                     <div>
-                        <button className='btn btn-primary mr-3'>Request For Quote</button>
-                        <button className='btn ml-3 mt-4 lg:mt-0'>Contact Us</button>
+                        <div class="form-control">
+                            <div class="input-group">
+                                <input type="email" placeholder="your email" class="input input-bordered w-full" />
+                                <button class="btn">
+                                    subscribe
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

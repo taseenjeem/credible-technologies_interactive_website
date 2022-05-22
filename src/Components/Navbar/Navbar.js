@@ -1,8 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
+import auth from '../../Firebase/firebase.init';
 
 const Navbar = ({ children }) => {
+
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+    };
+
     return (
 
         <section className="drawer">
@@ -14,7 +24,7 @@ const Navbar = ({ children }) => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
-                    <div className="flex-1 lg:px-2 lg:mx-2"><Link to="/" className="btn btn-ghost normal-case lg:text-2xl"><img className='w-9 mr-2' src={logo} alt="" />Credible Technologies Ltd.</Link></div>
+                    <div className="flex-1 lg:px-2 lg:mx-2"><Link to="/" className="btn btn-ghost normal-case lg:text-2xl text-xl font-bold"><img className='w-9 mr-2' src={logo} alt="" />Credible Technologies Ltd.</Link></div>
                     <div className="flex-none hidden lg:block">
                         <ul className="menu menu-horizontal">
                             <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
@@ -22,7 +32,7 @@ const Navbar = ({ children }) => {
                         </ul>
                     </div>
 
-                    <Link to="/login" className="btn btn-neutral ml-3">LOG IN</Link>
+                    {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block">LOG IN</button></Link> : <button onClick={() => logout()} className="btn btn-neutral ml-3 hidden lg:block">LOG OUT</button>}
 
                 </div>
 
@@ -35,8 +45,9 @@ const Navbar = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
                     <li className='my-2'><NavLink to="/">Sidebar Item 1</NavLink></li>
                     <li className='my-2'><NavLink to="/">Sidebar Item 2</NavLink></li>
-
+                    {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <button onClick={() => logout()} className="btn btn-neutral w-full">LOG OUT</button>}
                 </ul>
+
 
             </div>
         </section>

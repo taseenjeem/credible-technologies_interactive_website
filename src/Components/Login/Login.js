@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import logo from '../../Assets/logo.png';
 import loginBanner from '../../Assets/login-banner.png';
+import auth from '../../Firebase/firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Login = () => {
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -70,7 +74,7 @@ const Login = () => {
 
                                 <div className="divider">OR</div>
                                 <div className="form-control">
-                                    <button className="btn btn-outline" >
+                                    <button onClick={() => signInWithGoogle()} className="btn btn-outline" >
                                         <FcGoogle className='text-2xl mr-2' /> Continue with google
                                     </button>
                                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from '../../Assets/banner.jpg';
+import "../../App.css";
 import logo from '../../Assets/logo.png';
 import { BiWorld } from 'react-icons/bi';
 import { Slide } from 'react-reveal';
@@ -12,7 +13,7 @@ const Header = () => {
                 <div className='max-w-5xl'>
                     <Slide left >
                         <h1 className='text-2xl font-bold underline underline-offset-4'>Welcome to</h1>
-                        <h1 className="my-5 text-6xl lg:text-7xl font-bold"><img className='w-16 inline-block mt-[-10px]' src={logo} alt="" /> Credible Technologies</h1>
+                        <h1 className="my-5 text-6xl lg:text-7xl font-bold"><img className='App-logo lg:w-32 w-16 inline-block mt-[-10px]' src={logo} alt="" /> Credible Technologies</h1>
                     </Slide>
 
                     <Slide right >

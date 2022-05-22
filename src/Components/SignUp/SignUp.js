@@ -6,18 +6,21 @@ import registration from '../../Assets/registration.png';
 import logo from '../../Assets/logo.png';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = async data => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
+        reset();
     };
 
     return (
@@ -89,7 +92,7 @@ const SignUp = () => {
                                 </form>
                                 <p className='text-center'>OR</p>
                                 <div className="form-control">
-                                    <button className="btn btn-outline" >
+                                    <button onClick={() => signInWithGoogle()} className="btn btn-outline" >
                                         <FcGoogle className='text-2xl mr-2' /> Continue with google
                                     </button>
                                 </div>

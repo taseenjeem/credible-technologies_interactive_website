@@ -50,10 +50,10 @@ const BusinessSummery = () => {
                     </div>
                     <div className='lg:w-3/6 lg:flex lg:justify-center'>
                         <div>
-                            <div class="form-control">
-                                <div class="input-group">
-                                    <input type="email" placeholder="your email" class="input input-bordered w-full" />
-                                    <button class="btn">
+                            <div className="form-control">
+                                <div className="input-group">
+                                    <input type="email" placeholder="your email" className="input input-bordered w-full" />
+                                    <button className="btn">
                                         subscribe
                                     </button>
                                 </div>

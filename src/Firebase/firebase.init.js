@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyByVRYbkVpIbCZrUxOQxJL3foa9mutjvrs",
-    authDomain: "credible-technologies.firebaseapp.com",
-    projectId: "credible-technologies",
-    storageBucket: "credible-technologies.appspot.com",
-    messagingSenderId: "870811966539",
-    appId: "1:870811966539:web:80b067470aba3d46df41ce"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);

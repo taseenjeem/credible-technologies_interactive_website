@@ -4,13 +4,20 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import registration from '../../Assets/registration.png';
 import logo from '../../Assets/logo.png';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init';
 
 const SignUp = () => {
 
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = data => {
-        console.log(data)
+    const onSubmit = async data => {
+        console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     };
 
     return (

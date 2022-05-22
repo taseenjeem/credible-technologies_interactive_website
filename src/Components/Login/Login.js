@@ -68,7 +68,7 @@ const Login = () => {
                                     <input type="submit" value='Log in' className="btn text-white w-full mt-3" />
                                 </form>
 
-                                <div class="divider">OR</div>
+                                <div className="divider">OR</div>
                                 <div className="form-control">
                                     <button className="btn btn-outline" >
                                         <FcGoogle className='text-2xl mr-2' /> Continue with google
@@ -78,7 +78,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="hidden lg:block w-8/12">
+                    <div className="hidden lg:block w-8/12">
                         <img className='mx-auto' src={loginBanner} alt="" />
                     </div>
                 </div>

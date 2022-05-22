@@ -90,7 +90,7 @@ const SignUp = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="hidden lg:block w-full ml-14">
+                    <div className="hidden lg:block w-full ml-14">
                         <img className='mx-auto w-full' src={registration} alt="" />
                     </div>
                 </div>

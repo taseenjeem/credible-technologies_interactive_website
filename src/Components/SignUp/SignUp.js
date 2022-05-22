@@ -31,7 +31,7 @@ const SignUp = () => {
     }
 
     return (
-        <div>
+        <section>
 
             <PageTitle title="Signup" />
 
@@ -127,7 +127,7 @@ const SignUp = () => {
                         </div>
                     </div>
             }
-        </div>
+        </section>
     );
 };
 

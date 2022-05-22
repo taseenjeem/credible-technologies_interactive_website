@@ -41,7 +41,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <section>
 
             <PageTitle title="Login" />
 
@@ -125,7 +125,7 @@ const Login = () => {
                         </div>
                     </div>
             }
-        </div>
+        </section>
     );
 };
 

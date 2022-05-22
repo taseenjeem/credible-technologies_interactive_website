@@ -26,7 +26,7 @@ const ResetPass = () => {
     };
 
     return (
-        <div>
+        <section>
 
             <PageTitle title="Reset Password" />
 
@@ -84,7 +84,7 @@ const ResetPass = () => {
                         </div>
                     </div>
             }
-        </div>
+        </section>
     );
 };
 

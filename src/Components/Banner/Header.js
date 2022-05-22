@@ -6,7 +6,7 @@ import { Slide } from 'react-reveal';
 
 const Header = () => {
     return (
-        <div className="hero h-screen" style={{ backgroundImage: `url(${banner})` }}>
+        <section className="hero h-screen" style={{ backgroundImage: `url(${banner})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-white">
                 <div className='max-w-5xl'>
@@ -22,7 +22,7 @@ const Header = () => {
 
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

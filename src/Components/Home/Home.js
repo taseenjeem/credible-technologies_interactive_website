@@ -5,13 +5,13 @@ import PageTitle from '../PageTitle/PageTitle';
 
 const Home = () => {
     return (
-        <div>
+        <section>
 
             <PageTitle title="Home" />
 
             <Banner />
             <BusinessSummery />
-        </div>
+        </section>
     );
 };
 

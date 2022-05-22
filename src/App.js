@@ -7,6 +7,8 @@ import Navbar from './Components/Navbar/Navbar';
 import Products from './Components/Products/Products';
 import ResetPass from './Components/ResetPass/ResetPass';
 import SignUp from './Components/SignUp/SignUp';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
         </Routes>
 
       </Navbar>
-
+      <ToastContainer />
     </div>
   );
 }

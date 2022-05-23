@@ -1,32 +1,15 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
-import auth from '../../Firebase/firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ eachProduct }) => {
 
-    const [user] = useAuthState(auth);
 
-    const { name, img, brand, manufacturer, price, qnt, description, minimumQnt } = eachProduct;
+    const { _id, name, img, brand, manufacturer, price, qnt, description, minimumQnt } = eachProduct;
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const phone = e.target.phone.value;
-        const address = e.target.address.value;
-        const quantity = e.target.qnt.value;
+    const navigate = useNavigate();
 
-        if (quantity < minimumQnt) {
-
-            toast.warning(`Minimum ${minimumQnt} quantity required !!`)
-
-        } else if (quantity > qnt) {
-
-            toast.warning(`We have only ${qnt} items left. Your ordered quantity is beyond our available stock.`);
-
-        }
-
+    const navigateToPurchase = id => {
+        navigate(`/purchase/${id}`);
     }
 
     return (
@@ -42,57 +25,7 @@ const Product = ({ eachProduct }) => {
                     <p className='text-sm'>Minimum Order Quantity: <strong>{minimumQnt}</strong></p>
                     <p className='my-3 text-gray-500'>{description.length > 250 ? description.slice(0, 250) + "..." : description}</p>
                     <div class="card-actions justify-end">
-                        <label for="modal-order" class="btn modal-button">Order now</label>
-                    </div>
-                </div>
-            </div>
-
-            {/* <!-- The button to open modal --> */}
-
-
-            {/* <!-- Put this part before </body> tag-- > */}
-            <input type="checkbox" id="modal-order" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="modal-order" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg text-center my-4">Please confirm your order</h3>
-
-                    <form onSubmit={handleSubmit}>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Name</span>
-                            </label>
-                            <input type="text" name='name' disabled value={user?.displayName} placeholder="your name" class="input input-bordered w-full " />
-                        </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">email</span>
-                            </label>
-                            <input type="email" name='email' disabled value={user?.email} placeholder="your email" class="input input-bordered w-full" />
-                        </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Phone</span>
-                            </label>
-                            <input required type="text" name='phone' placeholder="your phone number" class="input input-bordered w-full" />
-                        </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Delivery address</span>
-                            </label>
-                            <input required type="text" name='address' placeholder="address" class="input input-bordered w-full" />
-                        </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Quantity</span>
-                            </label>
-                            <input required type="number" name='qnt' placeholder="Item quantity" class="input input-bordered w-full" />
-                        </div>
-                        <input for="modal-order" type="submit" className='btn w-full mt-4' value="CONFIRM ORDER" />
-                    </form>
-
-                    <div class="modal-action">
-
+                        <button onClick={() => navigateToPurchase(_id)} class="btn">Order now</button>
                     </div>
                 </div>
             </div>

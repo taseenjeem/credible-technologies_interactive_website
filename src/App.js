@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Footer from './Components/Footer/Footer';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/reset-password' element={<ResetPass />} />
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='*' element={<InvalidPage />} />
           </Routes>
         </ScrollToTop>

@@ -33,6 +33,9 @@ const Navbar = ({ children }) => {
                         <ul className="menu menu-horizontal">
                             <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
                             <li className='mx-1'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
+                            {
+                                user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
+                            }
                         </ul>
                     </div>
 
@@ -71,8 +74,13 @@ const Navbar = ({ children }) => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
-                    <li className='my-2'><NavLink to="/">Sidebar Item 1</NavLink></li>
-                    <li className='my-2'><NavLink to="/">Sidebar Item 2</NavLink></li>
+
+                    <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
+                    <li className='mx-1'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
+                    {
+                        user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
+                    }
+
                     {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <label for="logout-btn-2" class="btn text-white modal-button">Log Out</label>}
                 </ul>
 

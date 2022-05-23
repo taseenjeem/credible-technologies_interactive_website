@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 import auth from '../../Firebase/firebase.init';
+import profile from '../../Assets/Icons/profile-user.png';
 
 const Navbar = ({ children }) => {
 
@@ -33,7 +34,20 @@ const Navbar = ({ children }) => {
                         </ul>
                     </div>
 
-                    {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block">LOG IN</button></Link> : <button onClick={() => logout()} className="btn btn-neutral ml-3 hidden lg:block">LOG OUT</button>}
+                    {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block">LOG IN</button></Link> :
+                        <div class="dropdown dropdown-end">
+                            <label tabindex="0" class="m-1">
+                                <div class="avatar online">
+                                    <div class="w-10 rounded-full">
+                                        <img src={user.photoURL ? user.photoURL : profile} alt='' />
+                                    </div>
+                                </div>
+                            </label>
+                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-64">
+                                <li className='my-2 text-center'>{user?.displayName}</li>
+                                <li><button onClick={() => logout()} className="btn text-white btn-neutral ml-3 hidden lg:block">LOG OUT</button></li>
+                            </ul>
+                        </div>}
 
                 </div>
 

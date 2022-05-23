@@ -20,24 +20,24 @@ const BusinessSummery = () => {
                 <Slide left>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon1} alt="" />
-                        <h3 className='text-6xl font-bold'><CountUp end={86} duration={2.75} /></h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={86} duration={4} /></h3>
                         <p className='text-primary text-xl font-bold'>Countries</p>
                     </div>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon2} alt="" />
-                        <h3 className='text-6xl font-bold'><CountUp end={700} duration={3} suffix="+" /></h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={700} duration={5} suffix="+" /></h3>
                         <p className='text-primary text-xl font-bold'>Feedbacks</p>
                     </div>
                 </Slide>
                 <Slide right>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon3} alt="" />
-                        <h3 className='text-6xl font-bold'><CountUp end={900} duration={4} suffix="+" /></h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={900} duration={6} suffix="+" /></h3>
                         <p className='text-primary text-xl font-bold'>Happy Customers</p>
                     </div>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon4} alt="" />
-                        <h3 className='text-6xl font-bold'><CountUp end={500} duration={5} suffix="+" /></h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={500} duration={7} suffix="+" /></h3>
                         <p className='text-primary text-xl font-bold'>Projects</p>
                     </div>
                 </Slide>

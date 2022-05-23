@@ -5,6 +5,7 @@ import icon2 from '../../Assets/Icons/icon (2).png';
 import icon3 from '../../Assets/Icons/icon (3).png';
 import icon4 from '../../Assets/Icons/icon (4).png';
 import business from '../../Assets/business.png';
+import CountUp from 'react-countup';
 
 const BusinessSummery = () => {
     return (
@@ -19,24 +20,24 @@ const BusinessSummery = () => {
                 <Slide left>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon1} alt="" />
-                        <h3 className='text-6xl font-bold'>86</h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={86} duration={2.75} /></h3>
                         <p className='text-primary text-xl font-bold'>Countries</p>
                     </div>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon2} alt="" />
-                        <h3 className='text-6xl font-bold'>700+</h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={700} duration={3} suffix="+" /></h3>
                         <p className='text-primary text-xl font-bold'>Feedbacks</p>
                     </div>
                 </Slide>
                 <Slide right>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon3} alt="" />
-                        <h3 className='text-6xl font-bold'>900+</h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={900} duration={4} suffix="+" /></h3>
                         <p className='text-primary text-xl font-bold'>Happy Customers</p>
                     </div>
                     <div className='text-center'>
                         <img className='w-28 mx-auto' src={icon4} alt="" />
-                        <h3 className='text-6xl font-bold'>500+</h3>
+                        <h3 className='text-6xl font-bold'><CountUp end={500} duration={5} suffix="+" /></h3>
                         <p className='text-primary text-xl font-bold'>Projects</p>
                     </div>
                 </Slide>

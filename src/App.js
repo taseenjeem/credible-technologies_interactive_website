@@ -14,6 +14,9 @@ import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Purchase from './Components/Purchase/Purchase';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import MyOrders from './Components/Dashboard/MyOrders';
+import AddAReview from './Components/Dashboard/AddAReview';
+import MyProfile from './Components/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -29,7 +32,13 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/reset-password' element={<ResetPass />} />
-            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+
+              <Route index element={<MyOrders />} />
+              <Route path='add-review' element={<AddAReview />} />
+              <Route path='my-profile' element={<MyProfile />} />
+
+            </Route>
             <Route path='/purchase/:id' element={
               <RequireAuth>
                 <Purchase />

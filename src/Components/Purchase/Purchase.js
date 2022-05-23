@@ -12,7 +12,7 @@ const Purchase = () => {
 
     const [product, setProduct] = useState([]);
 
-    const { _id, name, img, brand, manufacturer, price, qnt, description, minimumQnt } = product;
+    const { name, img, qnt, minimumQnt } = product;
 
     useEffect(() => {
         fetch(`http://localhost:5000/purchase/${id}`)
@@ -24,7 +24,6 @@ const Purchase = () => {
         e.preventDefault();
         const name = e.target.name.value;
         const productName = e.target.productName.value;
-        const email = e.target.email.value;
         const phone = e.target.phone.value;
         const address = e.target.address.value;
         const quantity = e.target.qnt.value;
@@ -38,7 +37,36 @@ const Purchase = () => {
             toast.warning(`We have only ${qnt} items left. Your ordered quantity is beyond our available stock.`);
 
         } else {
-            console.log(name);
+
+            const bookings = {
+
+                customerName: name,
+                orderedProduct: productName,
+                productImage: img,
+                customerEmail: user?.email,
+                customerPhone: phone,
+                customerAddress: address,
+                orderedQuantity: quantity
+
+            }
+
+            fetch("http://localhost:5000/order-bookings", {
+
+                method: 'POST',
+
+                headers: {
+                    'content-type': 'application/json'
+                },
+
+                body: JSON.stringify(bookings)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.acknowledged) {
+                        toast.success("Booking successful. We'll contact you soon!")
+                    }
+                })
+
         }
 
     }

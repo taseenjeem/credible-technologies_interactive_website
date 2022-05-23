@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import logo from '../../Assets/logo.png';
 import loginBanner from '../../Assets/login-banner.png';
@@ -39,6 +39,15 @@ const Login = () => {
     const onSubmit = async data => {
         await signInWithEmailAndPassword(data.email, data.password);
     };
+
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
+
+    if (googleUser || user) {
+        navigate(from, { replace: true });
+        toast.success("Login successful")
+    }
 
     return (
         <section>

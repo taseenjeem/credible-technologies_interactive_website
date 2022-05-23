@@ -13,6 +13,7 @@ import Footer from './Components/Footer/Footer';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Purchase from './Components/Purchase/Purchase';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -29,7 +30,10 @@ function App() {
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/reset-password' element={<ResetPass />} />
             <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/purchase/:id' element={<Purchase />} />
+            <Route path='/purchase/:id' element={
+              <RequireAuth>
+                <Purchase />
+              </RequireAuth>} />
             <Route path='*' element={<InvalidPage />} />
           </Routes>
         </ScrollToTop>

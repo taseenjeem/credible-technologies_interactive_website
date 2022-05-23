@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import '../../App.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 import auth from '../../Firebase/firebase.init';
 import profile from '../../Assets/Icons/profile-user.png';
@@ -12,8 +12,11 @@ const Navbar = ({ children }) => {
 
     const [user] = useAuthState(auth);
 
+    const navigate = useNavigate();
+
     const logout = () => {
         signOut(auth);
+        navigate("/")
         toast.success("Logout successful");
     };
 

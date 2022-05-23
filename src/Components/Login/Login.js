@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
@@ -11,6 +11,7 @@ import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
 import { Slide } from 'react-reveal';
 import PageTitle from '../PageTitle/PageTitle';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
 
@@ -44,10 +45,14 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
-    if (googleUser || user) {
-        navigate(from, { replace: true });
-        toast.success("Login successful")
-    }
+    const [token] = useToken(user || googleUser)
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+            toast.success("Login successful")
+        }
+    }, [from, navigate, token])
 
     return (
         <section>

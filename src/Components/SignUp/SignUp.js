@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registration from '../../Assets/registration.png';
 import logo from '../../Assets/logo.png';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -25,10 +25,12 @@ const SignUp = () => {
 
     const [token] = useToken(user || googleUser);
 
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
     if (token) {
-        navigate('/');
+        navigate(from, { replace: true });
         toast.success("Account created successfully")
     }
 

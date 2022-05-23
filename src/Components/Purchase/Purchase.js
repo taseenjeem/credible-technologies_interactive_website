@@ -12,7 +12,7 @@ const Purchase = () => {
 
     const [product, setProduct] = useState([]);
 
-    const { name, img, qnt, minimumQnt } = product;
+    const { name, img, qnt, price, minimumQnt } = product;
 
     useEffect(() => {
         fetch(`http://localhost:5000/purchase/${id}`)
@@ -46,7 +46,8 @@ const Purchase = () => {
                 customerEmail: user?.email,
                 customerPhone: phone,
                 customerAddress: address,
-                orderedQuantity: quantity
+                orderedQuantity: quantity,
+                productPrice: price
 
             }
 

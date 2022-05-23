@@ -63,7 +63,8 @@ const Purchase = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.acknowledged) {
-                        toast.success("Booking successful. We'll contact you soon!")
+                        toast.success("Booking successful. We'll contact you soon!");
+                        e.target.reset();
                     }
                 })
 

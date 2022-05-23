@@ -10,27 +10,30 @@ import SignUp from './Components/SignUp/SignUp';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Footer from './Components/Footer/Footer';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
-    <div>
+    <section>
 
       <Navbar>
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/reset-password' element={<ResetPass />} />
-          <Route path='*' element={<InvalidPage />} />
-        </Routes>
+        <ScrollToTop>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/products' element={<Products />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/sign-up' element={<SignUp />} />
+            <Route path='/reset-password' element={<ResetPass />} />
+            <Route path='*' element={<InvalidPage />} />
+          </Routes>
+        </ScrollToTop>
 
         <Footer />
       </Navbar>
       <ToastContainer />
-    </div>
+    </section>
   );
 }
 

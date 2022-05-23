@@ -3,7 +3,7 @@ import Header from './Header';
 
 const Banner = () => {
     return (
-        <div>
+        <div className='overflow-x-hidden'>
             <Header />
         </div>
     );

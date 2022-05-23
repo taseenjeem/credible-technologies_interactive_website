@@ -50,10 +50,6 @@ const Navbar = ({ children }) => {
                                 <li><label for="logout-btn" class="btn text-white modal-button">Log Out</label></li>
                             </ul>
 
-                            {/* <!-- The button to open modal --> */}
-
-
-                            {/* <!-- Put this part before </body> tag --> */}
                             <input type="checkbox" id="logout-btn" class="modal-toggle" />
                             <div class="modal modal-bottom sm:modal-middle">
                                 <div class="modal-box">
@@ -68,7 +64,6 @@ const Navbar = ({ children }) => {
                         </div>}
 
                 </div>
-                {/* <button onClick={() => logout()} className="btn text-white  ml-3 hidden lg:block">LOG OUT</button> */}
 
                 {children}
 
@@ -78,9 +73,19 @@ const Navbar = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
                     <li className='my-2'><NavLink to="/">Sidebar Item 1</NavLink></li>
                     <li className='my-2'><NavLink to="/">Sidebar Item 2</NavLink></li>
-                    {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <button onClick={() => logout()} className="btn btn-neutral w-full">LOG OUT</button>}
+                    {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <label for="logout-btn-2" class="btn text-white modal-button">Log Out</label>}
                 </ul>
 
+                <input type="checkbox" id="logout-btn-2" class="modal-toggle" />
+                <div class="modal modal-bottom sm:modal-middle cursor-pointer">
+                    <div class="modal-box">
+                        <label for="logout-btn-2" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <h3 class="font-bold text-lg">Are you sure for logout?</h3>
+                        <div class="modal-action">
+                            <button for="logout-btn-2" onClick={() => logout()} class="btn btn-neutral">Log out</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import registration from '../../Assets/registration.png';
 import logo from '../../Assets/logo.png';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 import { Slide } from 'react-reveal';
 import PageTitle from '../PageTitle/PageTitle';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
 
@@ -21,6 +22,15 @@ const SignUp = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+
+    const [token] = useToken(user || googleUser);
+
+    const navigate = useNavigate();
+
+    if (token) {
+        navigate('/');
+        toast.success("Account created successfully")
+    }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);

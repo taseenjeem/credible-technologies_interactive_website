@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 import auth from '../../Firebase/firebase.init';
 import profile from '../../Assets/Icons/profile-user.png';
+import { toast } from 'react-toastify';
 
 const Navbar = ({ children }) => {
 
@@ -13,6 +14,7 @@ const Navbar = ({ children }) => {
 
     const logout = () => {
         signOut(auth);
+        toast.success("Logout successful");
     };
 
     return (
@@ -35,7 +37,7 @@ const Navbar = ({ children }) => {
                     </div>
 
                     {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block">LOG IN</button></Link> :
-                        <div class="dropdown dropdown-end">
+                        <div class="dropdown dropdown-end hidden lg:block">
                             <label tabindex="0" class="m-1">
                                 <div class="avatar online">
                                     <div class="w-10 rounded-full">
@@ -45,12 +47,28 @@ const Navbar = ({ children }) => {
                             </label>
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-64">
                                 <li className='my-2 text-center'>{user?.displayName}</li>
-                                <li><button onClick={() => logout()} className="btn text-white btn-neutral ml-3 hidden lg:block">LOG OUT</button></li>
+                                <li><label for="logout-btn" class="btn text-white modal-button">Log Out</label></li>
                             </ul>
+
+                            {/* <!-- The button to open modal --> */}
+
+
+                            {/* <!-- Put this part before </body> tag --> */}
+                            <input type="checkbox" id="logout-btn" class="modal-toggle" />
+                            <div class="modal modal-bottom sm:modal-middle">
+                                <div class="modal-box">
+                                    <label for="logout-btn" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                    <h3 class="font-bold text-lg">{user?.displayName}, are you sure for logout?</h3>
+                                    <div class="modal-action">
+                                        <button for="logout-btn" onClick={() => logout()} class="btn btn-neutral hidden lg:block">Log out</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>}
 
                 </div>
-
+                {/* <button onClick={() => logout()} className="btn text-white  ml-3 hidden lg:block">LOG OUT</button> */}
 
                 {children}
 

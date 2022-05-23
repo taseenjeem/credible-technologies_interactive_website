@@ -17,7 +17,7 @@ const Header = () => {
                     </Slide>
 
                     <Slide right >
-                        <p className="mb-5">If you are looking for the best computer components shop in the world you must consider Credible Technologies, as it is a leading computer shop and manufacturer platform in the world. Selling computer Accessories and IT products all over the world through its website and worldwide shipping platform. It ensures a fastest , secure, and convenient online shopping experience with a wide range of product offering in categories.</p>
+                        <p className="mb-5">If you are looking for the best computer components manufacturer in the world you must consider Credible Technologies, as it is a leading computer parts and manufacturer company in the world. Selling computer Accessories and IT products all over the world through its website and worldwide shipping platform. It ensures a fastest , secure, and convenient online business experience with a wide range of product offering in many categories.</p>
                         <button className="btn btn-primary">Explore more <BiWorld className='text-xl ml-1' /></button>
                     </Slide>
 

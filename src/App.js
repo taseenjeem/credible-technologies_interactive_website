@@ -17,6 +17,7 @@ import RequireAuth from './Components/RequireAuth/RequireAuth';
 import MyOrders from './Components/Dashboard/MyOrders';
 import AddAReview from './Components/Dashboard/AddAReview';
 import MyProfile from './Components/Dashboard/MyProfile';
+import AllUsers from './Components/Dashboard/AllUsers';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route index element={<MyOrders />} />
               <Route path='add-review' element={<AddAReview />} />
               <Route path='my-profile' element={<MyProfile />} />
+              <Route path='all-users' element={<AllUsers />} />
 
             </Route>
             <Route path='/purchase/:id' element={

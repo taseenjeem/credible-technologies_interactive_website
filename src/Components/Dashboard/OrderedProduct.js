@@ -25,7 +25,7 @@ const OrderedProduct = ({ order }) => {
             <td>
                 {orderedQuantity} PCS
                 <br />
-                <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                <span class="badge badge-ghost badge-sm">Product price : ${productPrice}</span>
             </td>
             <td>${totalPrice}</td>
             <th>

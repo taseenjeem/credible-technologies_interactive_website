@@ -37,6 +37,7 @@ const Navbar = ({ children }) => {
                         <ul className="menu menu-horizontal">
                             <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
                             <li className='mx-1'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
+                            <li className='mx-1'><NavLink className="rounded-3xl" to="/reviews">REVIEWS</NavLink></li>
                             {
                                 user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
                             }

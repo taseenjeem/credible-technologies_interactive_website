@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Slide } from 'react-reveal';
 import quote from '../../Assets/Icons/quote.png';
+import Loading from '../Loading/Loading';
 import Review from './Review';
 
 const Reviews = () => {
 
-    const [reviews, setReviews] = useState([]);
 
-    useEffect(() => {
-        fetch("reviews.json")
-            .then(res => res.json())
-            .then(data => setReviews(data));
-    }, [])
+    const { data: reviews, isLoading } = useQuery("reviewsForHomePage", () => fetch("http://localhost:5000/all-reviews")
+        .then(res => res.json()))
+
+    if (isLoading) {
+        <Loading />
+    }
 
     return (
         <section className='lg:px-24 px-3 mb-32'>
@@ -27,7 +28,7 @@ const Reviews = () => {
             <div className='grid lg:grid-cols-3 lg:gap-7 gap-20 mt-28 lg:mt-20'>
 
                 {
-                    reviews.map(r => <Review key={r.id} review={r} />)
+                    reviews?.map(r => <Review key={r.id} review={r} />)
                 }
 
             </div>

@@ -25,6 +25,7 @@ import AddProduct from './Components/Dashboard/AdminDashboard/AddProduct';
 import useAdmin from './hooks/useAdmin';
 import auth from './Firebase/firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import AllReviews from './AllReviews/AllReviews';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -43,6 +44,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/reset-password' element={<ResetPass />} />
+            <Route path='/reviews' element={<AllReviews />} />
             <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
 
 

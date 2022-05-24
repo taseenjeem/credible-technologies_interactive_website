@@ -1,13 +1,14 @@
 import React from 'react';
+import profile from "../../Assets/Icons/profile-user.png";
 
 const EachReview = ({ review }) => {
 
     const { name, img, location, message } = review;
 
     return (
-        <div class="max-w-md py-4 px-8 bg-white shadow-xl border rounded-lg">
+        <div class="max-w-md py-4 px-8 bg-white shadow-xl border rounded-lg mt-14">
             <div class="flex justify-center md:justify-end -mt-16">
-                <img class="w-20 h-20 object-cover rounded-full border-2 border-primary" src={img} alt="" />
+                <img class="w-20 h-20 object-cover rounded-full border-2 border-primary" src={img ? img : profile} alt="" />
             </div>
             <div>
                 <h2 class="text-gray-800 text-3xl font-semibold">{name}</h2>

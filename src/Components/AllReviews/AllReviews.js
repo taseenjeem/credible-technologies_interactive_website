@@ -1,8 +1,9 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import Loading from '../Components/Loading/Loading';
-import PageTitle from '../Components/PageTitle/PageTitle';
+import Loading from '../Loading/Loading';
+import PageTitle from '../PageTitle/PageTitle';
 import EachReview from './EachReview';
+
 
 const AllReviews = () => {
 

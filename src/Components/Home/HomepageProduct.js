@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HomepageProduct = ({ eachProduct }) => {
 
-    const { name, img, brand, manufacturer, price, qnt, description } = eachProduct;
+    const navigate = useNavigate();
+
+    const navigateToPurchase = id => {
+        navigate(`/purchase/${id}`);
+    }
+
+    const { _id, name, img, brand, manufacturer, price, qnt, description } = eachProduct;
 
     return (
         <div class="card lg:w-96 bg-white shadow-2xl">
@@ -15,7 +22,7 @@ const HomepageProduct = ({ eachProduct }) => {
                 <p className='text-sm'>Available Quantity: <strong>{qnt}</strong></p>
                 <p className='my-3 text-gray-500'>{description.length > 250 ? description.slice(0, 250) + "..." : description}</p>
                 <div class="card-actions justify-end">
-                    <button class="btn">Order Now</button>
+                    <button onClick={() => navigateToPurchase(_id)} class="btn">Order Now</button>
                 </div>
             </div>
         </div>

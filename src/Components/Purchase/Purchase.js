@@ -12,7 +12,7 @@ const Purchase = () => {
 
     const [product, setProduct] = useState([]);
 
-    const { name, img, qnt, price, minimumQnt } = product;
+    const { name, img, qnt, price, minimumQnt, brand } = product;
 
     useEffect(() => {
         fetch(`http://localhost:5000/purchase/${id}`)
@@ -77,7 +77,17 @@ const Purchase = () => {
         <section className='lg:px-28 px-3'>
             <div className='grid lg:grid-cols-2 my-28'>
                 <div className='lg:flex lg:items-center'>
-                    <img className='rounded-3xl shadow-2xl' src={img} alt="" />
+
+                    <div class="card bg-white shadow-2xl">
+                        <div class="card-body">
+                            <h2 class="card-title">{name}</h2>
+                            <h3 className='text-lg'>Brand : <span className='text-3xl font-semibold'>{brand}</span></h3>
+                            <h3 className='text-lg'>Price per unit : <span className='text-3xl font-semibold'>${price}</span></h3>
+                            <h3 className='text-lg'>Minimum ordered quantity : <span className='text-3xl font-semibold'>{minimumQnt}</span> psc</h3>
+                        </div>
+                        <figure><img src={img} className="w-60" alt="Shoes" /></figure>
+                    </div>
+
                 </div>
                 <div className='shadow-2xl rounded-3xl p-7 bg-white'>
                     <h3 class="font-bold text-lg text-center mb-4">Please confirm your order</h3>

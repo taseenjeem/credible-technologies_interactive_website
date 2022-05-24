@@ -13,7 +13,12 @@ const SingleUser = ({ user, refetch }) => {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
-            }).then(res => res.json())
+            }).then(res => {
+                if (res.status === 403) {
+                    toast.error("You can't make admin. Please ask a person who is already an admin")
+                }
+                return res.json()
+            })
             .then(data => {
                 if (data.modifiedCount > 0) {
                     refetch();

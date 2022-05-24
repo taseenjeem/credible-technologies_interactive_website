@@ -17,12 +17,12 @@ const ManageOrders = () => {
 
     return (
         <section className='lg:px-16 px-3 mb-24'>
-            <h1 className='text-center text-2xl font-semibold my-4'>Orders : {allOrders?.length}</h1>
+            <h1 className='text-center text-2xl font-semibold my-4'>Orders from Customers : {allOrders?.length}</h1>
 
             <div className='grid lg:grid-cols-3 gap-6'>
 
                 {
-                    allOrders.map(order => <OrderRow
+                    allOrders?.map(order => <OrderRow
                         key={order._id}
                         order={order}
                         refetch={refetch}

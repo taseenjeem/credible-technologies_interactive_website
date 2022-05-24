@@ -16,7 +16,7 @@ const Products = () => {
     return (
         <section className='lg:px-24 px-3 mb-28'>
 
-            <PageTitle title="products" />
+            <PageTitle title="Products" />
 
             <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
 

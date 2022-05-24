@@ -4,6 +4,7 @@ import { IoMdOptions } from 'react-icons/io';
 import auth from '../../Firebase/firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import useAdmin from '../../hooks/useAdmin';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Dashboard = () => {
 
@@ -13,6 +14,9 @@ const Dashboard = () => {
 
     return (
         <div>
+
+            <PageTitle title="Dashboard" />
+
             <div class="drawer drawer-end drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content">

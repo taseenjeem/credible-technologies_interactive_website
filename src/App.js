@@ -17,10 +17,19 @@ import RequireAuth from './Components/RequireAuth/RequireAuth';
 import MyOrders from './Components/Dashboard/MyOrders';
 import AddAReview from './Components/Dashboard/AddAReview';
 import MyProfile from './Components/Dashboard/MyProfile';
-import AllUsers from './Components/Dashboard/AllUsers';
+import AllUsers from './Components/Dashboard/AdminDashboard/AllUsers';
 import RequireAdmin from './Components/RequireAdmin/RequireAdmin';
+import ManageOrders from './Components/Dashboard/AdminDashboard/ManageOrders';
+import ManageProducts from './Components/Dashboard/AdminDashboard/ManageProducts';
+import AddProduct from './Components/Dashboard/AdminDashboard/AddProduct';
+import useAdmin from './hooks/useAdmin';
+import auth from './Firebase/firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   return (
     <section>
 
@@ -36,10 +45,20 @@ function App() {
             <Route path='/reset-password' element={<ResetPass />} />
             <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
 
-              <Route index element={<MyOrders />} />
+
+
+              {
+                admin ?
+                  <Route index element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
+                  :
+                  <Route index element={<MyOrders />} />
+              }
               <Route path='add-review' element={<AddAReview />} />
               <Route path='my-profile' element={<MyProfile />} />
               <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+              <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+              <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
+              <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
 
             </Route>
             <Route path='/purchase/:id' element={

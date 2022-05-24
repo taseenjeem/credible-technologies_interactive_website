@@ -19,7 +19,7 @@ const RequireAuth = ({ children }) => {
         toast.warning("You need to login first");
     }
 
-    if (user && user.photoURL) {
+    if (user) {
         return children;
     }
     else {

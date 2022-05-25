@@ -30,7 +30,7 @@ const AddAReview = () => {
                         message: data.message
                     }
 
-                    fetch("http://localhost:5000/add-review", {
+                    fetch("https://credible-technologies.herokuapp.com/add-review", {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

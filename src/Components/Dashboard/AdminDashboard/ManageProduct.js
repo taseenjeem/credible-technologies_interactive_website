@@ -6,19 +6,19 @@ const ManageProduct = ({ product }) => {
 
     return (
         <div>
-            <div class="card bg-white shadow-xl">
+            <div className="card bg-white shadow-xl">
                 <figure><img src={img} className="w-40" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title font-bold">{name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title font-bold">{name}</h2>
                     <h3 className='text-xl font-semibold'>Price : ${price}</h3>
                     <p className='text-sm'>Brand: <strong>{brand}</strong></p>
                     <p className='text-sm'>Manufacturer: <strong>{manufacturer}</strong></p>
                     <p className='text-sm'>Available Quantity: <strong>{qnt}</strong></p>
                     <p className='text-sm'>Minimum Order Quantity: <strong>{minimumQnt}</strong></p>
                     <p className='my-3 text-gray-500'>{description?.length > 250 ? description.slice(0, 250) + "..." : description}</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn">Delete</button>
-                        <button class="btn">Update</button>
+                    <div className="card-actions justify-end">
+                        <button className="btn">Delete</button>
+                        <button className="btn">Update</button>
                     </div>
                 </div>
             </div>

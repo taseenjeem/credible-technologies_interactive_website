@@ -15,7 +15,7 @@ const Purchase = () => {
     const { name, img, qnt, price, minimumQnt, brand } = product;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/purchase/${id}`)
+        fetch(`https://credible-technologies.herokuapp.com/purchase/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id]);
@@ -51,7 +51,7 @@ const Purchase = () => {
 
             }
 
-            fetch("http://localhost:5000/order-bookings", {
+            fetch("https://credible-technologies.herokuapp.com/order-bookings", {
 
                 method: 'POST',
 
@@ -78,9 +78,9 @@ const Purchase = () => {
             <div className='grid lg:grid-cols-2 my-28'>
                 <div className='lg:flex lg:items-center'>
 
-                    <div class="card bg-white shadow-2xl">
-                        <div class="card-body">
-                            <h2 class="card-title">{name}</h2>
+                    <div className="card bg-white shadow-2xl">
+                        <div className="card-body">
+                            <h2 className="card-title">{name}</h2>
                             <h3 className='text-lg'>Brand : <span className='text-3xl font-semibold'>{brand}</span></h3>
                             <h3 className='text-lg'>Price per unit : <span className='text-3xl font-semibold'>${price}</span></h3>
                             <h3 className='text-lg'>Minimum ordered quantity : <span className='text-3xl font-semibold'>{minimumQnt}</span> psc</h3>
@@ -90,43 +90,43 @@ const Purchase = () => {
 
                 </div>
                 <div className='shadow-2xl rounded-3xl p-7 bg-white'>
-                    <h3 class="font-bold text-lg text-center mb-4">Please confirm your order</h3>
+                    <h3 className="font-bold text-lg text-center mb-4">Please confirm your order</h3>
                     <form onSubmit={handleSubmit}>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Product</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Product</span>
                             </label>
-                            <input type="text" name='productName' disabled value={name} placeholder="your name" class="input input-bordered w-full " />
+                            <input type="text" name='productName' disabled value={name} placeholder="your name" className="input input-bordered w-full " />
                         </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Name</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' disabled value={user?.displayName} placeholder="your name" class="input input-bordered w-full " />
+                            <input type="text" name='name' disabled value={user?.displayName} placeholder="your name" className="input input-bordered w-full " />
                         </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">email</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">email</span>
                             </label>
-                            <input type="email" name='email' disabled value={user?.email} placeholder="your email" class="input input-bordered w-full" />
+                            <input type="email" name='email' disabled value={user?.email} placeholder="your email" className="input input-bordered w-full" />
                         </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Phone</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Phone</span>
                             </label>
-                            <input required type="text" name='phone' placeholder="your phone number" class="input input-bordered w-full" />
+                            <input required type="text" name='phone' placeholder="your phone number" className="input input-bordered w-full" />
                         </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Delivery address</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Delivery address</span>
                             </label>
-                            <input required type="text" name='address' placeholder="address" class="input input-bordered w-full" />
+                            <input required type="text" name='address' placeholder="address" className="input input-bordered w-full" />
                         </div>
-                        <div class="form-control w-full">
-                            <label class="label">
-                                <span class="label-text">Quantity</span>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Quantity</span>
                             </label>
-                            <input required type="number" name='qnt' placeholder="Item quantity" class="input input-bordered w-full" />
+                            <input required type="number" name='qnt' placeholder="Item quantity" className="input input-bordered w-full" />
                         </div>
                         <input for="modal-order" type="submit" className='btn w-full mt-4' value="CONFIRM ORDER" />
                     </form>

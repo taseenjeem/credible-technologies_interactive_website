@@ -8,10 +8,10 @@ const OrderRow = ({ order }) => {
 
     return (
         <div>
-            <div class="card bg-white shadow-xl">
+            <div className="card bg-white shadow-xl">
                 <figure><img src={productImage} className="w-40" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title mb-4 font-bold">{orderedProduct}</h2>
+                <div className="card-body">
+                    <h2 className="card-title mb-4 font-bold">{orderedProduct}</h2>
                     <p><strong>Ordered by :</strong> {customerName}</p>
                     <p><strong>email :</strong> {customerEmail}</p>
                     <p><strong>Phone :</strong> {customerPhone}</p>
@@ -19,9 +19,9 @@ const OrderRow = ({ order }) => {
                     <p><strong>Quantity :</strong> {orderedQuantity} PCS</p>
                     <p><strong>Price Per Unit :</strong> {productPrice} PCS</p>
                     <p><strong>Total Price :</strong> ${totalPrice}</p>
-                    <div class="card-actions justify-end mt-4">
-                        <button class="btn btn-error text-white">Delete</button>
-                        <button class="btn btn-primary text-white">Proceed</button>
+                    <div className="card-actions justify-end mt-4">
+                        <button className="btn btn-error text-white">Delete</button>
+                        <button className="btn btn-primary text-white">Proceed</button>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import EachReview from './EachReview';
 
 const AllReviews = () => {
 
-    const { data: reviews, isLoading } = useQuery("reviewsForHomePage", () => fetch("http://localhost:5000/all-reviews")
+    const { data: reviews, isLoading } = useQuery("reviewsForHomePage", () => fetch("https://credible-technologies.herokuapp.com/all-reviews")
         .then(res => res.json()))
 
     if (isLoading) {

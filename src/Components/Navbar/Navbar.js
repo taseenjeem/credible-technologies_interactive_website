@@ -45,26 +45,26 @@ const Navbar = ({ children }) => {
                     </div>
 
                     {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block">LOG IN</button></Link> :
-                        <div class="dropdown dropdown-end hidden lg:block">
-                            <label tabindex="0" class="m-1">
-                                <div class="avatar online">
-                                    <div class="w-10 rounded-full">
+                        <div className="dropdown dropdown-end hidden lg:block">
+                            <label tabindex="0" className="m-1">
+                                <div className="avatar online">
+                                    <div className="w-10 rounded-full">
                                         <img src={user.photoURL ? user.photoURL : profile} alt='' />
                                     </div>
                                 </div>
                             </label>
-                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-64">
+                            <ul tabindex="0" className="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-64">
                                 <li className='my-2 text-center'>{user?.displayName}</li>
-                                <li><label for="logout-btn" class="btn text-white modal-button">Log Out</label></li>
+                                <li><label for="logout-btn" className="btn text-white modal-button">Log Out</label></li>
                             </ul>
 
-                            <input type="checkbox" id="logout-btn" class="modal-toggle" />
-                            <div class="modal modal-bottom sm:modal-middle">
-                                <div class="modal-box">
-                                    <label for="logout-btn" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                    <h3 class="font-bold text-lg">{user?.displayName}, are you sure for logout?</h3>
-                                    <div class="modal-action">
-                                        <button for="logout-btn" onClick={() => logout()} class="btn btn-neutral hidden lg:block">Log out</button>
+                            <input type="checkbox" id="logout-btn" className="modal-toggle" />
+                            <div className="modal modal-bottom sm:modal-middle">
+                                <div className="modal-box">
+                                    <label for="logout-btn" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                    <h3 className="font-bold text-lg">{user?.displayName}, are you sure for logout?</h3>
+                                    <div className="modal-action">
+                                        <button for="logout-btn" onClick={() => logout()} className="btn btn-neutral hidden lg:block">Log out</button>
                                     </div>
                                 </div>
                             </div>
@@ -86,16 +86,16 @@ const Navbar = ({ children }) => {
                         user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
                     }
 
-                    {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <label for="logout-btn-2" class="btn text-white modal-button">Log Out</label>}
+                    {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <label for="logout-btn-2" className="btn text-white modal-button">Log Out</label>}
                 </ul>
 
-                <input type="checkbox" id="logout-btn-2" class="modal-toggle" />
-                <div class="modal modal-bottom sm:modal-middle cursor-pointer">
-                    <div class="modal-box">
-                        <label for="logout-btn-2" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 class="font-bold text-lg">Are you sure for logout?</h3>
-                        <div class="modal-action">
-                            <button for="logout-btn-2" onClick={() => logout()} class="btn btn-neutral">Log out</button>
+                <input type="checkbox" id="logout-btn-2" className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle cursor-pointer">
+                    <div className="modal-box">
+                        <label for="logout-btn-2" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <h3 className="font-bold text-lg">Are you sure for logout?</h3>
+                        <div className="modal-action">
+                            <button for="logout-btn-2" onClick={() => logout()} className="btn btn-neutral">Log out</button>
                         </div>
                     </div>
                 </div>

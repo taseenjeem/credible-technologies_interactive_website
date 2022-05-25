@@ -5,7 +5,7 @@ import SingleUser from '../SingleUser';
 
 const AllUsers = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch("http://localhost:5000/all-users",
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch("https://credible-technologies.herokuapp.com/all-users",
         {
             method: 'GET',
             headers: {
@@ -21,8 +21,8 @@ const AllUsers = () => {
         <div>
             <h1 className='text-center text-2xl font-semibold my-4'>All Users : {users?.length}</h1>
 
-            <div class="overflow-x-auto px-3 lg:px-16">
-                <table class="table w-full border">
+            <div className="overflow-x-auto px-3 lg:px-16">
+                <table className="table w-full border">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>

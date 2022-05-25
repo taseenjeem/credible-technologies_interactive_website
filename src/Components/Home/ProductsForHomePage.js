@@ -8,7 +8,7 @@ import { Fade, Zoom } from 'react-reveal';
 
 const ProductsForHomePage = () => {
 
-    const { data: products, isLoading } = useQuery("homePageProducts", () => fetch("http://localhost:5000/all-products").then(res => res.json()));
+    const { data: products, isLoading } = useQuery("homePageProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products").then(res => res.json()));
 
     const productsForHomePage = products?.slice(5, 11);
 

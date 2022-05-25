@@ -5,7 +5,7 @@ import PageTitle from '../../PageTitle/PageTitle';
 import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
-    const { data: products, isLoading } = useQuery("manageProducts", () => fetch("http://localhost:5000/all-products")
+    const { data: products, isLoading } = useQuery("manageProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products")
         .then(res => res.json()));
 
     if (isLoading) {

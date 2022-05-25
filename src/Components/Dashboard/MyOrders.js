@@ -14,7 +14,7 @@ const MyOrders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-orders?customerEmail=${user?.email}`,
+        fetch(`https://credible-technologies.herokuapp.com/my-orders?customerEmail=${user?.email}`,
             {
                 method: 'GET',
                 headers: {
@@ -39,8 +39,8 @@ const MyOrders = () => {
         <section className='lg:px-20 px-3'>
             <h1 className='text-center text-2xl font-semibold my-4'>Your Orders : {orders.length}</h1>
 
-            <div class="overflow-x-auto w-full">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>

@@ -7,7 +7,7 @@ const SingleUser = ({ user, refetch }) => {
 
     const makeAdmin = () => {
 
-        fetch(`http://localhost:5000/user/admin/${email}`,
+        fetch(`https://credible-technologies.herokuapp.com/user/admin/${email}`,
             {
                 method: 'PUT',
                 headers: {
@@ -31,8 +31,8 @@ const SingleUser = ({ user, refetch }) => {
     return (
         <tr>
             <td>{email}</td>
-            <td>{role !== "admin" && <button onClick={makeAdmin} class="btn btn-sm">Make Admin</button>}</td>
-            <td><button class="btn btn-sm">Remove</button></td>
+            <td>{role !== "admin" && <button onClick={makeAdmin} className="btn btn-sm">Make Admin</button>}</td>
+            <td><button className="btn btn-sm">Remove</button></td>
         </tr>
     );
 };

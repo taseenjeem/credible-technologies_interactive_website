@@ -33,7 +33,7 @@ const AddProduct = () => {
                         description: data.description
                     }
 
-                    fetch("http://localhost:5000/add-product", {
+                    fetch("https://credible-technologies.herokuapp.com/add-product", {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

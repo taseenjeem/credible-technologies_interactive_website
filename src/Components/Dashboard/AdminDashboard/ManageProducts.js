@@ -17,7 +17,7 @@ const ManageProducts = () => {
 
             <PageTitle title="Manage-products" />
 
-            <h1 className='text-center text-2xl font-semibold my-4'>Manage Products ({products.length})</h1>
+            <h1 className='text-center text-2xl font-semibold my-4'>Manage Products ({products?.length})</h1>
 
             <div className='grid lg:grid-cols-2 gap-7'>
                 {

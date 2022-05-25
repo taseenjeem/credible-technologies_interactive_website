@@ -19,7 +19,7 @@ const Products = () => {
             <PageTitle title="Products" />
 
             {
-                products.length === 0 ?
+                products?.length === 0 ?
 
                     <Loading />
 

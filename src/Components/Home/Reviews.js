@@ -1,8 +1,10 @@
 import { useQuery } from 'react-query';
 import { Slide } from 'react-reveal';
+import { Link } from 'react-router-dom';
 import quote from '../../Assets/Icons/quote.png';
 import Loading from '../Loading/Loading';
 import Review from './Review';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Reviews = () => {
 
@@ -33,6 +35,9 @@ const Reviews = () => {
                     onlyThreeReview?.map(r => <Review key={r.id} review={r} />)
                 }
 
+            </div>
+            <div className='flex justify-center mt-14'>
+                <Link to="/reviews" className='btn btn-primary text-white'>Show all Reviews<FaArrowRight className='ml-2' /></Link>
             </div>
         </section>
     );

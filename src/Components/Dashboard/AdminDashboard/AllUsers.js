@@ -18,10 +18,10 @@ const AllUsers = () => {
     }
 
     return (
-        <div>
+        <div className='px-3 lg:px-16'>
             <h1 className='text-center text-2xl font-semibold my-4'>All Users : {users?.length}</h1>
 
-            <div className="overflow-x-auto px-3 lg:px-16">
+            <div className="overflow-x-auto mb-28">
                 <table className="table w-full border">
                     {/* <!-- head --> */}
                     <thead>

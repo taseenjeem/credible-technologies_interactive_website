@@ -5,7 +5,7 @@ import PageTitle from '../../PageTitle/PageTitle';
 import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
-    const { data: products, isLoading } = useQuery("manageProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products")
+    const { data: products, isLoading, refetch } = useQuery("manageProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products")
         .then(res => res.json()));
 
     if (isLoading) {
@@ -21,7 +21,7 @@ const ManageProducts = () => {
 
             <div className='grid lg:grid-cols-2 gap-7'>
                 {
-                    products?.map(p => <ManageProduct key={p._id} product={p} />)
+                    products?.map(p => <ManageProduct key={p._id} product={p} refetch={refetch} />)
                 }
             </div>
         </section>

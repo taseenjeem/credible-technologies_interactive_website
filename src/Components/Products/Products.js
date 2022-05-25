@@ -18,13 +18,23 @@ const Products = () => {
 
             <PageTitle title="Products" />
 
-            <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
+            {
+                products.length === 0 ?
 
-            <div className='grid lg:grid-cols-2 gap-7'>
-                {
-                    products?.map(p => <Product key={p._id} eachProduct={p} />)
-                }
-            </div>
+                    <Loading />
+
+                    :
+
+                    <>
+                        <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
+
+                        <div className='grid lg:grid-cols-2 gap-7'>
+                            {
+                                products?.map(p => <Product key={p._id} eachProduct={p} />)
+                            }
+                        </div>
+                    </>
+            }
         </section>
     );
 };

@@ -33,19 +33,19 @@ const ManageProduct = ({ product, refetch }) => {
                     <p className='text-sm'>Minimum Order Quantity: <strong>{minimumQnt}</strong></p>
                     <p className='my-3 text-gray-500'>{description?.length > 250 ? description.slice(0, 250) + "..." : description}</p>
                     <div className="card-actions justify-between">
-                        <label for="delete-modal" class="btn modal-button">Delete</label>
+                        <label htmlFor="delete-modal" className="btn modal-button">Delete</label>
                         <Link to={`/dashboard/update-a-product/${_id}`}><button className="btn">Update Info</button></Link>
-                        <Link to={`/dashboard/update-product-quantity/${_id}`}><button class="btn">Update Quantity</button></Link>
+                        <Link to={`/dashboard/update-product-quantity/${_id}`}><button className="btn">Update Quantity</button></Link>
                     </div>
                 </div>
 
-                <input type="checkbox" id="delete-modal" class="modal-toggle" />
-                <div class="modal modal-bottom sm:modal-middle">
-                    <div class="modal-box">
-                        <label for="delete-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 class="font-bold text-lg">Are you sure for delete the product?</h3>
-                        <div class="modal-action">
-                            <button onClick={() => handleDelete()} for="delete-modal" class="btn">Yes, Delete !!</button>
+                <input type="checkbox" id="delete-modal" className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        <label htmlFor="delete-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <h3 className="font-bold text-lg">Are you sure for delete the product?</h3>
+                        <div className="modal-action">
+                            <button onClick={() => handleDelete()} htmlFor="delete-modal" className="btn">Yes, Delete !!</button>
                         </div>
                     </div>
                 </div>

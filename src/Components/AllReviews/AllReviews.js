@@ -23,7 +23,7 @@ const AllReviews = () => {
 
             <div className='grid lg:grid-cols-3 gap-7 my-28'>
                 {
-                    reviews?.map(r => <EachReview key={r.id} review={r} />)
+                    reviews?.map(r => <EachReview key={r._id} review={r} />)
                 }
             </div>
         </section>

@@ -130,7 +130,7 @@ const Purchase = () => {
                             </label>
                             <input required type="number" name='qnt' placeholder="Item quantity" className="input input-bordered w-full" />
                         </div>
-                        <input for="modal-order" type="submit" className='btn w-full mt-4' value="CONFIRM ORDER" />
+                        <input htmlFor="modal-order" type="submit" className='btn w-full mt-4' value="CONFIRM ORDER" />
                     </form>
                 </div>
             </div>

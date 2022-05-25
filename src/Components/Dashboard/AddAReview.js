@@ -117,7 +117,7 @@ const AddAReview = () => {
                             value: true,
                             message: "Rating is required"
                         }
-                    })} class="select select-bordered w-full">
+                    })} className="select select-bordered w-full">
                         <option disabled selected>Please give us ratings</option>
                         <option>1</option>
                         <option>2</option>

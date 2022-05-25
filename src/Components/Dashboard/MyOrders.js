@@ -33,8 +33,6 @@ const MyOrders = () => {
 
     }, [user, navigate])
 
-    console.log(orders);
-
     return (
         <section className='lg:px-20 px-3'>
             <h1 className='text-center text-2xl font-semibold my-4'>Your Orders : {orders.length}</h1>

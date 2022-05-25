@@ -21,14 +21,14 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
 
-                    <h1 className="text-center flex items-center justify-center text-primary font-bold text-4xl mt-6 underline underline-offset-2">Dashboard<label for="my-drawer-2" className="btn ml-3 btn-outline drawer-button lg:hidden"><IoMdOptions className='text-xl' /></label> </h1>
+                    <h1 className="text-center flex items-center justify-center text-primary font-bold text-4xl mt-6 underline underline-offset-2">Dashboard<label htmlFor="my-drawer-2" className="btn ml-3 btn-outline drawer-button lg:hidden"><IoMdOptions className='text-xl' /></label> </h1>
 
 
                     <Outlet></Outlet>
 
                 </div>
                 <div className="drawer-side shadow-2xl">
-                    <label for="my-drawer-2" className="drawer-overlay"></label>
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     {
                         admin ?
                             <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">

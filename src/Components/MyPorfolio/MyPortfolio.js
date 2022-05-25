@@ -20,53 +20,53 @@ const MyPortfolio = () => {
 
 
 
-        <main class="profile-page">
-            <section class="relative block h-500-px">
-                <div class="absolute top-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url(https://cdn.pixabay.com/photo/2018/11/29/14/01/mountains-3845777_960_720.jpg)" }}>
-                    <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+        <main className="profile-page">
+            <section className="relative block h-500-px">
+                <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url(https://cdn.pixabay.com/photo/2018/11/29/14/01/mountains-3845777_960_720.jpg)" }}>
+                    <span id="blackOverlay" className="w-full h-full absolute opacity-50 bg-black"></span>
                 </div>
-                <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" >
-                    <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                        <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                <div className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" >
+                    <svg className="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                        <polygon className="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
                     </svg>
                 </div>
             </section>
-            <section class="relative py-16 bg-blueGray-200">
-                <div class="container mx-auto px-4 lg:px-28">
-                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-3xl -mt-64">
-                        <div class="px-6">
-                            <div class="flex flex-wrap justify-center">
-                                <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                                    <div class="relative">
-                                        <img alt="..." src={photo} class="shadow-2xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px" />
+            <section className="relative py-16 bg-blueGray-200">
+                <div className="container mx-auto px-4 lg:px-28">
+                    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-3xl -mt-64">
+                        <div className="px-6">
+                            <div className="flex flex-wrap justify-center">
+                                <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                                    <div className="relative">
+                                        <img alt="..." src={photo} className="shadow-2xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px" />
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="text-center mt-28">
-                                <h3 class="text-4xl font-semibold leading-normal  text-blueGray-700 mb-2">
+                            <div className="text-center mt-28">
+                                <h3 className="text-4xl font-semibold leading-normal  text-blueGray-700 mb-2">
                                     Md. Ta-Seen Fuad Jeem
                                 </h3>
-                                <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                     <FaMapMarkerAlt className='text-blueGray-400 -mt-1 mr-2 text-xl inline-block' />
                                     Dhaka, Bangladesh
                                 </div>
-                                <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
+                                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
                                     <MdEmail className='text-blueGray-400 -mt-1 mr-2 text-xl inline-block' />
                                     mdtaseenfuad@gmail.com
                                 </div>
-                                <div class="mb-2 text-blueGray-600 mt-10">
-                                    <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                                <div className="mb-2 text-blueGray-600 mt-10">
+                                    <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
                                     Junior Web-Developer
                                 </div>
-                                <div class="mb-2 text-blueGray-600">
-                                    <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                                <div className="mb-2 text-blueGray-600">
+                                    <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
                                     BSC in Computer Science Engineering, Tejgaon Collage, Dhaka
                                 </div>
                             </div>
-                            <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-                                <div class="flex flex-wrap justify-center">
-                                    <div class="w-full lg:w-9/12 px-4">
+                            <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
+                                <div className="flex flex-wrap justify-center">
+                                    <div className="w-full lg:w-9/12 px-4">
 
                                         <h1 className='text-3xl font-semibold underline underline-offset-8'>Skills Or Technologies</h1>
 
@@ -118,33 +118,33 @@ const MyPortfolio = () => {
 
                                             <div className="grid lg:grid-cols-3 gap-6 mt-16">
 
-                                                <div class="card bg-white shadow-2xl">
+                                                <div className="card bg-white shadow-2xl">
                                                     <figure><img src={project1} alt="Project" /></figure>
-                                                    <div class="card-body">
-                                                        <h2 class="text-center text-xl font-bold">Steve's Lenses</h2>
+                                                    <div className="card-body">
+                                                        <h2 className="text-center text-xl font-bold">Steve's Lenses</h2>
                                                         <p className='my-3'>An independent service provider</p>
-                                                        <div class="card-actions justify-end">
-                                                            <a href="https://photographer-portfolio-8cbb0.web.app/"><button class="btn btn-primary">Visit</button></a>
+                                                        <div className="card-actions justify-end">
+                                                            <a href="https://photographer-portfolio-8cbb0.web.app/"><button className="btn btn-primary">Visit</button></a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="card bg-white shadow-2xl">
+                                                <div className="card bg-white shadow-2xl">
                                                     <figure><img src={project2} alt="Project" /></figure>
-                                                    <div class="card-body">
-                                                        <h2 class="text-center text-xl font-bold">SONY Bangladesh</h2>
+                                                    <div className="card-body">
+                                                        <h2 className="text-center text-xl font-bold">SONY Bangladesh</h2>
                                                         <p className='my-3'>UI, React route based website</p>
-                                                        <div class="card-actions justify-end">
-                                                            <a href="https://sony-bangladesh.netlify.app/"><button class="btn btn-primary">Visit</button></a>
+                                                        <div className="card-actions justify-end">
+                                                            <a href="https://sony-bangladesh.netlify.app/"><button className="btn btn-primary">Visit</button></a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="card bg-white shadow-2xl">
+                                                <div className="card bg-white shadow-2xl">
                                                     <figure><img src={project3} alt="Project" /></figure>
-                                                    <div class="card-body">
-                                                        <h2 class="text-center text-xl font-bold">RealPix</h2>
+                                                    <div className="card-body">
+                                                        <h2 className="text-center text-xl font-bold">RealPix</h2>
                                                         <p className='my-3'>A camera management warehouse website</p>
-                                                        <div class="card-actions justify-end">
-                                                            <a href="https://camera-warehouse-9d161.web.app/"><button class="btn btn-primary">Visit</button></a>
+                                                        <div className="card-actions justify-end">
+                                                            <a href="https://camera-warehouse-9d161.web.app/"><button className="btn btn-primary">Visit</button></a>
                                                         </div>
                                                     </div>
                                                 </div>

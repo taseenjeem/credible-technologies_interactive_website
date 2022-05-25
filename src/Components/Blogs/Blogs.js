@@ -30,7 +30,7 @@ const Blogs = () => {
                 <p className='mt-3'>
                     To get the information by search in your reactive application by the methods of JavaScript, there are methods are available. There are array.includes(), Array indexOf , Array.find() and Array.filter. the includes method returns a Boolean value either it's true or false. You can also search using index of. The index of is returns depends on the array. Using find method you can find anything in an array by giving them array index information. By using filter method you can filter anything from an array. But the search feature is more realistic with includes method. It can work perfectly than other methods. It is easier than others. There is an example of search feature using includes()
                 </p>
-                <div class="mockup-code mt-5">
+                <div className="mockup-code mt-5">
                     <pre data-prefix="$"><code>const array = [10, 11, 3, 20, 5];</code></pre>
                     <pre data-prefix="$"><code>const includesTwenty = array.includes(20);</code></pre>
                     <pre data-prefix="$"><code>console.log(includesTwenty)</code></pre>

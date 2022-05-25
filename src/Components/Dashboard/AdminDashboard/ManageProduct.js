@@ -32,9 +32,10 @@ const ManageProduct = ({ product, refetch }) => {
                     <p className='text-sm'>Available Quantity: <strong>{qnt}</strong></p>
                     <p className='text-sm'>Minimum Order Quantity: <strong>{minimumQnt}</strong></p>
                     <p className='my-3 text-gray-500'>{description?.length > 250 ? description.slice(0, 250) + "..." : description}</p>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions justify-between">
                         <label for="delete-modal" class="btn modal-button">Delete</label>
-                        <Link to={`/dashboard/update-a-product/${_id}`}><button className="btn">Update</button></Link>
+                        <Link to={`/dashboard/update-a-product/${_id}`}><button className="btn">Update Info</button></Link>
+                        <Link to={`/dashboard/update-product-quantity/${_id}`}><button class="btn">Update Quantity</button></Link>
                     </div>
                 </div>
 

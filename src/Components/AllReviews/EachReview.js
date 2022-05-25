@@ -1,9 +1,10 @@
 import React from 'react';
 import profile from "../../Assets/Icons/profile-user.png";
+import { BsStarFill } from 'react-icons/bs';
 
 const EachReview = ({ review }) => {
 
-    const { name, img, location, message } = review;
+    const { name, img, location, message, rate } = review;
 
     return (
         <div className="max-w-md py-4 px-8 bg-white shadow-xl border rounded-lg mt-14">
@@ -12,6 +13,7 @@ const EachReview = ({ review }) => {
             </div>
             <div>
                 <h2 className="text-gray-800 text-3xl font-semibold">{name}</h2>
+                <h2 className="text-gray-800 text-xl font-semibold">{rate} out of 5<BsStarFill className='inline-block -mt-2 ml-2 text-yellow-500' /></h2>
                 <p className="mt-2 text-gray-600">{message}</p>
             </div>
             <div className="flex justify-end mt-4">

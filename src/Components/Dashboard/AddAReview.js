@@ -20,13 +20,14 @@ const AddAReview = () => {
         })
             .then(res => res.json())
             .then(result => {
-                if (result.success) {
+                if (result.success && data.rate !== "Please give us ratings") {
                     const img = result.data.url;
 
                     const review = {
                         name: data.name,
                         img: img,
                         location: data.location,
+                        rate: data.rate,
                         message: data.message
                     }
 
@@ -48,6 +49,8 @@ const AddAReview = () => {
                                 toast.error('Something went wrong! Try again later.');
                             }
                         })
+                } else {
+                    toast.error("Please select 'Rate us' section");
                 }
             })
 
@@ -106,7 +109,30 @@ const AddAReview = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Your review</span>
+                        <span className="label-text">Rate us</span>
+                    </label>
+
+                    <select required {...register('rate', {
+                        required: {
+                            value: true,
+                            message: "Rating is required"
+                        }
+                    })} class="select select-bordered w-full">
+                        <option disabled selected>Please give us ratings</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <label className="label">
+                        {errors.rate?.type === 'required' && <span className="label-text-alt text-red-500">{errors.rate.message}</span>}
+                    </label>
+                </div>
+
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Your thought about us</span>
                     </label>
                     <textarea type="number" placeholder="About the product" className="textarea textarea-bordered" {...register("message", {
                         required: {

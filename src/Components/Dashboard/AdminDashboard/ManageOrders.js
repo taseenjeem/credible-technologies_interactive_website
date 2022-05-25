@@ -10,7 +10,7 @@ const ManageOrders = () => {
     )
 
     if (isLoading) {
-        <Loading />
+        return <Loading />
     }
 
     console.log(allOrders);

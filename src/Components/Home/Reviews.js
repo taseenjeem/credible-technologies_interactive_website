@@ -13,7 +13,7 @@ const Reviews = () => {
     const onlyThreeReview = reviews?.slice(0, 3);
 
     if (isLoading) {
-        <Loading />
+        return <Loading />
     }
 
     return (

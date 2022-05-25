@@ -10,7 +10,7 @@ const Products = () => {
         .then(res => res.json()));
 
     if (isLoading) {
-        <Loading />
+        return <Loading />
     }
 
     return (
@@ -18,23 +18,13 @@ const Products = () => {
 
             <PageTitle title="Products" />
 
-            {
-                products?.length === 0 ?
+            <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
 
-                    <Loading />
-
-                    :
-
-                    <>
-                        <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
-
-                        <div className='grid lg:grid-cols-2 gap-7'>
-                            {
-                                products?.map(p => <Product key={p._id} eachProduct={p} />)
-                            }
-                        </div>
-                    </>
-            }
+            <div className='grid lg:grid-cols-2 gap-7'>
+                {
+                    products?.map(p => <Product key={p._id} eachProduct={p} />)
+                }
+            </div>
         </section>
     );
 };

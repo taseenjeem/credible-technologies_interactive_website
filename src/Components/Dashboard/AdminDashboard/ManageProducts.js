@@ -9,7 +9,7 @@ const ManageProducts = () => {
         .then(res => res.json()));
 
     if (isLoading) {
-        <Loading />
+        return <Loading />
     }
 
     return (

@@ -13,7 +13,7 @@ const ProductsForHomePage = () => {
     const productsForHomePage = products?.slice(5, 11);
 
     if (isLoading) {
-        <Loading />
+        return <Loading />
     }
 
     return (

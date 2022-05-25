@@ -30,11 +30,13 @@ const Purchase = () => {
 
         if (quantity < minimumQnt) {
 
-            toast.warning(`Minimum ${minimumQnt} quantity required !!`)
+            toast.warning(`Minimum ${minimumQnt} quantity required !!`);
+            e.target.reset();
 
         } else if (quantity > qnt) {
 
             toast.warning(`We have only ${qnt} items left. Your ordered quantity is beyond our available stock.`);
+            e.target.reset();
 
         } else {
 

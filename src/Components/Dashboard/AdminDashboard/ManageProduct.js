@@ -6,8 +6,8 @@ const ManageProduct = ({ product, refetch }) => {
 
     const { _id, name, img, brand, manufacturer, price, qnt, description, minimumQnt } = product;
 
-    const handleDelete = id => {
-        const url = `http://localhost:5000/delete-product/${id}`;
+    const handleDelete = () => {
+        const url = `http://localhost:5000/delete-product/${_id}`;
 
         fetch(url, {
             method: 'DELETE'
@@ -44,7 +44,7 @@ const ManageProduct = ({ product, refetch }) => {
                         <label for="delete-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <h3 class="font-bold text-lg">Are you sure for delete the product?</h3>
                         <div class="modal-action">
-                            <label onClick={() => handleDelete(_id)} for="delete-modal" class="btn">Yes, Delete !!</label>
+                            <button onClick={() => handleDelete()} for="delete-modal" class="btn">Yes, Delete !!</button>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ const Reviews = () => {
     const { data: reviews, isLoading } = useQuery("reviewsForHomePage", () => fetch("http://localhost:5000/all-reviews")
         .then(res => res.json()))
 
-    const onlyThreeReview = reviews.slice(0, 3);
+    const onlyThreeReview = reviews?.slice(0, 3);
 
     if (isLoading) {
         <Loading />

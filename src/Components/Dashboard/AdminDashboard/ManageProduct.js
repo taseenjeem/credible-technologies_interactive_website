@@ -7,7 +7,7 @@ const ManageProduct = ({ product, refetch }) => {
     const { _id, name, img, brand, manufacturer, price, qnt, description, minimumQnt } = product;
 
     const handleDelete = () => {
-        const url = `http://localhost:5000/delete-product/${_id}`;
+        const url = `https://credible-technologies.herokuapp.com/delete-product/${_id}`;
 
         fetch(url, {
             method: 'DELETE'

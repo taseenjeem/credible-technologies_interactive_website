@@ -11,7 +11,7 @@ const UpdateQuantity = () => {
 
     const onSubmit = data => {
 
-        const url = `http://localhost:5000/update-product-quantity/${id}`;
+        const url = `https://credible-technologies.herokuapp.com/update-product-quantity/${id}`;
 
         if (data.qnt < 0) {
             toast.error("Enter a positive number");

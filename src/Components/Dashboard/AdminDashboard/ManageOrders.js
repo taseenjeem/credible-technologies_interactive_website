@@ -13,8 +13,6 @@ const ManageOrders = () => {
         return <Loading />
     }
 
-    console.log(allOrders);
-
     return (
         <section className='lg:px-16 px-3 mb-24'>
             <h1 className='text-center text-2xl font-semibold my-4'>Orders from Customers : {allOrders?.length}</h1>

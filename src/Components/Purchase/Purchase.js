@@ -78,7 +78,7 @@ const Purchase = () => {
             <div className='grid lg:grid-cols-2 my-28'>
                 <div className='lg:flex lg:items-center'>
 
-                    <div className="card bg-white shadow-2xl">
+                    <div className="card lg:w-10/12 bg-white shadow-2xl">
                         <div className="card-body">
                             <h2 className="card-title">{name}</h2>
                             <h3 className='text-lg'>Brand : <span className='text-3xl font-semibold'>{brand}</span></h3>

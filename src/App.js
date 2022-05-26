@@ -31,6 +31,7 @@ import UpdateQuantity from './Components/Dashboard/AdminDashboard/UpdateQuantity
 import Blogs from './Components/Blogs/Blogs';
 import MyPortfolio from './Components/MyPorfolio/MyPortfolio';
 import Payment from './Components/Payment/Payment';
+import UpdateProfile from './Components/Dashboard/UpdateProfile';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -63,6 +64,7 @@ function App() {
               }
               <Route path='add-review' element={<AddAReview />} />
               <Route path='my-profile' element={<MyProfile />} />
+              <Route path='update-profile/:id' element={<UpdateProfile />} />
               <Route path='payment/:id' element={<Payment />} />
               <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
               <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />

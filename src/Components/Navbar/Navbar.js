@@ -51,7 +51,7 @@ const Navbar = ({ children }) => {
                             <label tabIndex="0" className="m-1">
                                 <div className="avatar online">
                                     <div className="w-10 rounded-full">
-                                        <img src={user.photoURL ? user.photoURL : profile} alt='' />
+                                        <img src={user?.photoURL ? user.photoURL : profile} alt='' />
                                     </div>
                                 </div>
                             </label>

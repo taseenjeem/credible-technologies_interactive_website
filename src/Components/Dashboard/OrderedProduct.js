@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const OrderedProduct = ({ order }) => {
 
-    const { orderedProduct, orderedQuantity, productImage, productPrice } = order;
+    const { _id, orderedProduct, orderedQuantity, productImage, productPrice } = order;
 
     const totalPrice = Number(orderedQuantity) * Number(productPrice);
 
@@ -29,7 +30,7 @@ const OrderedProduct = ({ order }) => {
             </td>
             <td>${totalPrice}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success btn-xs">Pay $</button></Link>
             </th>
         </tr>
 

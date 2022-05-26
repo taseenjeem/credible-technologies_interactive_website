@@ -30,6 +30,7 @@ import UpdateProduct from './Components/Dashboard/AdminDashboard/UpdateProduct';
 import UpdateQuantity from './Components/Dashboard/AdminDashboard/UpdateQuantity';
 import Blogs from './Components/Blogs/Blogs';
 import MyPortfolio from './Components/MyPorfolio/MyPortfolio';
+import Payment from './Components/Payment/Payment';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -62,6 +63,7 @@ function App() {
               }
               <Route path='add-review' element={<AddAReview />} />
               <Route path='my-profile' element={<MyProfile />} />
+              <Route path='payment/:id' element={<Payment />} />
               <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
               <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
               <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />

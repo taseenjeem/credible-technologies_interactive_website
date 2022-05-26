@@ -1,11 +1,31 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-const Checkout = () => {
+const Checkout = ({ price, productDetails }) => {
 
     const stripe = useStripe();
     const elements = useElements();
+    const [clientSecret, setClientSecret] = useState('');
+    const [transactionId, setTransactionId] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ price })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.clientSecret) {
+                    setClientSecret(data.clientSecret);
+                }
+            });
+
+    }, [price])
 
     const handleSubmit = async (event) => {
 
@@ -28,6 +48,26 @@ const Checkout = () => {
 
         if (error) {
             toast.error(`${error?.message}`)
+        };
+
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: productDetails?.customerName,
+                        email: productDetails?.customerEmail
+                    },
+                },
+            },
+        );
+
+        if (intentError) {
+            toast.error(`${intentError?.message}`);
+        } else {
+            setTransactionId(paymentIntent?.id)
+            toast.success("Congratulation!! Your payment completed")
         }
 
     };
@@ -50,9 +90,14 @@ const Checkout = () => {
                     },
                 }}
             />
-            <button type="submit" className='btn btn-success btn-sm mt-4' disabled={!stripe}>
+            <button type="submit" className='btn btn-success btn-sm mt-4' disabled={!stripe || !clientSecret}>
                 Continue payment
             </button>
+            {
+                transactionId !== "" && <div className='text-green-500 mt-3'>
+                    <p>Your transaction ID : <span className="font-bold">{transactionId}</span> </p>
+                </div>
+            }
         </form>
     );
 };

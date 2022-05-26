@@ -52,20 +52,20 @@ const OrderedProduct = ({ order, orders, setOrders }) => {
                         <>
                             <div className='flex justify-evenly'>
                                 <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success btn-sm">Pay $</button></Link>
-                                <label for="delete-order" className="btn btn-error btn-sm">Delete</label>
+                                <label htmlFor="delete-order" className="btn btn-error btn-sm">Delete</label>
                             </div>
 
 
 
 
 
-                            <input type="checkbox" id="delete-order" class="modal-toggle" />
-                            <div class="modal modal-bottom sm:modal-middle">
-                                <div class="modal-box">
-                                    <label for="delete-order" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                    <h3 class="font-bold text-lg">Are you sure for delete?</h3>
-                                    <div class="modal-action">
-                                        <label onClick={() => handleDelete()} for="delete-order" class="btn">yes! delete</label>
+                            <input type="checkbox" id="delete-order" className="modal-toggle" />
+                            <div className="modal modal-bottom sm:modal-middle">
+                                <div className="modal-box">
+                                    <label htmlFor="delete-order" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                    <h3 className="font-bold text-lg">Are you sure for delete?</h3>
+                                    <div className="modal-action">
+                                        <label onClick={() => handleDelete()} for="delete-order" className="btn">yes! delete</label>
                                     </div>
                                 </div>
                             </div>

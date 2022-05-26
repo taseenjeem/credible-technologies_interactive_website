@@ -8,7 +8,7 @@ const Checkout = ({ price, productDetails }) => {
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
-    const [processing, setProcessing] = useState(false);
+    console.log(price);
 
     useEffect(() => {
         fetch('https://credible-technologies.herokuapp.com/create-payment-intent', {
@@ -51,7 +51,7 @@ const Checkout = ({ price, productDetails }) => {
             toast.error(`${error?.message}`)
         };
 
-        setProcessing(true);
+
 
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
@@ -68,7 +68,7 @@ const Checkout = ({ price, productDetails }) => {
 
         if (intentError) {
             toast.error(`${intentError?.message}`);
-            setProcessing(false)
+
         } else {
             setTransactionId(paymentIntent?.id)
             toast.success("Congratulation!! Your payment completed")
@@ -86,7 +86,6 @@ const Checkout = ({ price, productDetails }) => {
                 body: JSON.stringify(payment)
             }).then(res => res.json())
                 .then(data => {
-                    setProcessing(false);
                     console.log(data);
                 })
 

@@ -31,11 +31,11 @@ const Payment = () => {
 
     return (
         <div>
-            <div class="card card-side lg:w-3/4 mx-auto mt-12 bg-white shadow-2xl">
+            <div className="card card-side lg:w-3/4 mx-auto mt-12 bg-white shadow-2xl">
                 <figure><img src={data?.productImage} className="w-72 p-5" alt="product" /></figure>
                 <div className='py-5'>
                     <p>Hey, <strong>{data?.customerName}</strong></p>
-                    <h2 class="text-xl my-2 font-semibold">{data?.orderedProduct}</h2>
+                    <h2 className="text-xl my-2 font-semibold">{data?.orderedProduct}</h2>
                     <p><strong>Quantity : </strong>{data?.orderedQuantity} units</p>
                     <p><strong>Price per unit : </strong>$ {data?.productPrice}</p>
                     <p><strong>Total price : </strong>$ {totalPrice}</p>
@@ -43,7 +43,7 @@ const Payment = () => {
                     <p><strong>Customer phone : </strong>{data?.customerPhone}</p>
                     <p><strong>Delivery address : </strong>{data?.customerAddress}</p>
 
-                    <div class="card-body border-2 lg:w-5/6 mt-4 rounded-3xl">
+                    <div className="card-body border-2 lg:w-5/6 mt-4 rounded-3xl">
 
                         <Elements stripe={stripePromise}>
                             <Checkout price={totalPrice} productDetails={data} />

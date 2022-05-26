@@ -12,7 +12,7 @@ const Payment = () => {
 
     const { id } = useParams();
 
-    const url = `http://localhost:5000/get-payment/${id}`;
+    const url = `https://credible-technologies.herokuapp.com/get-payment/${id}`;
 
     const { data, isLoading } = useQuery(["getPayment", id], () => fetch(url,
         {

@@ -10,7 +10,7 @@ const OrderedProduct = ({ order, orders, setOrders }) => {
     const totalPrice = Number(orderedQuantity) * Number(productPrice);
 
     const handleDelete = () => {
-        const url = `http://localhost:5000/delete-order/${_id}`;
+        const url = `https://credible-technologies.herokuapp.com/delete-order/${_id}`;
 
 
         fetch(url, {

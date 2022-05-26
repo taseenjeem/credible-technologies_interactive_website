@@ -2,6 +2,9 @@
 
 Credible Technologies is a manufactures company, who build their own products by different brand names. Buyers can order online from this website and they deliver it globally. Check out the website [Credible Technologies Ltd.](https://credible-technologies.web.app/).
 
+## Credible Technologies Ltd. Server Side
+Credible Technologies server side repository link. [click here](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-TaseenFuadJeem)
+
 ## Tools and Technologies
 
 * React JS - JavaScript Library.
@@ -16,3 +19,4 @@ Credible Technologies is a manufactures company, who build their own products by
 * React Firebase Hook - Simplify the Google firebase.
 * React Hook Form - To make form powerful and simplicity.
 * React Query - Enhance the power of data fetching.
+* Stripe - Payment gateway.

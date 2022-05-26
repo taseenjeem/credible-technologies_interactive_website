@@ -20,7 +20,7 @@ const MyProfile = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/user?email=${user?.email}`,
+        fetch(`https://credible-technologies.herokuapp.com/user?email=${user?.email}`,
             {
                 method: 'GET',
                 headers: {

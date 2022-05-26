@@ -11,7 +11,7 @@ const Checkout = ({ price, productDetails }) => {
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://credible-technologies.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -77,7 +77,7 @@ const Checkout = ({ price, productDetails }) => {
                 product: productDetails?._id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/payment/${productDetails?._id}`, {
+            fetch(`https://credible-technologies.herokuapp.com/payment/${productDetails?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

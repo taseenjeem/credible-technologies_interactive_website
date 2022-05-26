@@ -52,7 +52,7 @@ const MyOrders = () => {
                     <tbody>
 
                         {
-                            orders.map(order => <OrderedProduct key={order._id} order={order} />)
+                            orders.map(order => <OrderedProduct key={order._id} order={order} orders={orders} setOrders={setOrders} />)
                         }
 
                     </tbody>

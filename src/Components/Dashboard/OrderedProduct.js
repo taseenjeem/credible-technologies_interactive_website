@@ -1,12 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
-const OrderedProduct = ({ order }) => {
+const OrderedProduct = ({ order, orders, setOrders }) => {
 
-    const { _id, orderedProduct, orderedQuantity, productImage, productPrice, paid, customerName, customerEmail, customerAddress, transactionId } = order;
+    const { _id, orderedProduct, orderedQuantity, productImage, productPrice, paid, transactionId } = order;
 
     const totalPrice = Number(orderedQuantity) * Number(productPrice);
+
+    const handleDelete = () => {
+        const url = `http://localhost:5000/delete-order/${_id}`;
+
+
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success("Order deleted successfully");
+                const remaining = orders.filter(p => p._id !== _id);
+                setOrders(remaining);
+            })
+    }
 
     return (
 
@@ -33,7 +49,28 @@ const OrderedProduct = ({ order }) => {
             <th>
                 {
                     !paid ?
-                        <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success w-full btn-sm">Pay $</button></Link>
+                        <>
+                            <div className='flex justify-evenly'>
+                                <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success btn-sm">Pay $</button></Link>
+                                <label for="delete-order" className="btn btn-error btn-sm">Delete</label>
+                            </div>
+
+
+
+
+
+                            <input type="checkbox" id="delete-order" class="modal-toggle" />
+                            <div class="modal modal-bottom sm:modal-middle">
+                                <div class="modal-box">
+                                    <label for="delete-order" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                    <h3 class="font-bold text-lg">Are you sure for delete?</h3>
+                                    <div class="modal-action">
+                                        <label onClick={() => handleDelete()} for="delete-order" class="btn">yes! delete</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </>
                         :
                         <>
                             <div className='flex flex-col'>

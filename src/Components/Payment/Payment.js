@@ -43,7 +43,7 @@ const Payment = () => {
                     <p><strong>Customer phone : </strong>{data?.customerPhone}</p>
                     <p><strong>Delivery address : </strong>{data?.customerAddress}</p>
 
-                    <div class="card-body">
+                    <div class="card-body border-2 lg:w-5/6 mt-4 rounded-3xl">
 
                         <Elements stripe={stripePromise}>
                             <Checkout price={totalPrice} productDetails={data} />

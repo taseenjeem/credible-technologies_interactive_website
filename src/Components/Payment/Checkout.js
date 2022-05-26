@@ -8,6 +8,7 @@ const Checkout = ({ price, productDetails }) => {
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
+    const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -50,6 +51,8 @@ const Checkout = ({ price, productDetails }) => {
             toast.error(`${error?.message}`)
         };
 
+        setProcessing(true);
+
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -65,9 +68,28 @@ const Checkout = ({ price, productDetails }) => {
 
         if (intentError) {
             toast.error(`${intentError?.message}`);
+            setProcessing(false)
         } else {
             setTransactionId(paymentIntent?.id)
             toast.success("Congratulation!! Your payment completed")
+
+            const payment = {
+                product: productDetails?._id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`http://localhost:5000/payment/${productDetails?._id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
+
         }
 
     };

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const OrderedProduct = ({ order }) => {
 
-    const { _id, orderedProduct, orderedQuantity, productImage, productPrice } = order;
+    const { _id, orderedProduct, orderedQuantity, productImage, productPrice, paid } = order;
 
     const totalPrice = Number(orderedQuantity) * Number(productPrice);
 
@@ -30,7 +30,12 @@ const OrderedProduct = ({ order }) => {
             </td>
             <td>${totalPrice}</td>
             <th>
-                <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success btn-xs">Pay $</button></Link>
+                {
+                    !paid ?
+                        <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success btn-xs">Pay $</button></Link>
+                        :
+                        <button className='btn btn-ghost btn-xs'>PAID</button>
+                }
             </th>
         </tr>
 

@@ -145,7 +145,7 @@ const AddAReview = () => {
                     </label>
                 </div>
 
-                <input type="submit" value='ADD PRODUCT' className="btn text-white w-full mt-3" />
+                <input type="submit" value='ADD Review' className="btn text-white w-full mt-3" />
             </form>
 
         </div>

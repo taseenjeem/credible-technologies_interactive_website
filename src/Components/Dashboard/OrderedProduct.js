@@ -2,8 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
+import Modal from 'react-modal';
 
 const OrderedProduct = ({ order, orders, setOrders }) => {
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            borderRadius: '20px',
+            width: "500px"
+        },
+    };
+
+    Modal.setAppElement('#root');
+
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
 
     const { _id, orderedProduct, orderedQuantity, productImage, productPrice, paid, transactionId } = order;
 
@@ -52,23 +78,30 @@ const OrderedProduct = ({ order, orders, setOrders }) => {
                         <>
                             <div className='flex justify-evenly'>
                                 <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-success btn-sm">Pay $</button></Link>
-                                <label htmlFor="delete-order" className="btn btn-error btn-sm">Delete</label>
+                                <button onClick={openModal} className="btn btn-error btn-sm">Delete</button>
                             </div>
 
+                            <Modal
+                                isOpen={modalIsOpen}
+                                onRequestClose={closeModal}
+                                style={customStyles}
+                                contentLabel="Example Modal"
+                            >
 
+                                <h1 className='text-center  text-xl font-bold'>Are you sure for delete?</h1>
 
+                                <div className='flex justify-evenly mt-10'>
 
+                                    <button className="btn" onClick={() => {
+                                        handleDelete(_id);
+                                        closeModal();
+                                    }} >Yes!!</button>
 
-                            <input type="checkbox" id="delete-order" className="modal-toggle" />
-                            <div className="modal modal-bottom sm:modal-middle">
-                                <div className="modal-box">
-                                    <label htmlFor="delete-order" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                    <h3 className="font-bold text-lg">Are you sure for delete?</h3>
-                                    <div className="modal-action">
-                                        <label onClick={() => handleDelete()} for="delete-order" className="btn">yes! delete</label>
-                                    </div>
+                                    <button className="btn" onClick={closeModal}>cancel</button>
+
                                 </div>
-                            </div>
+
+                            </Modal>
 
                         </>
                         :

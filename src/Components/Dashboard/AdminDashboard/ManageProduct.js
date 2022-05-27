@@ -1,16 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Modal from 'react-modal';
 
 const ManageProduct = ({ product, refetch }) => {
 
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            borderRadius: '20px',
+            width: "500px"
+        },
+    };
+
+    Modal.setAppElement('#root');
+
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     const { _id, name, img, brand, manufacturer, price, qnt, description, minimumQnt } = product;
 
-    const handleDelete = () => {
-        const url = `https://credible-technologies.herokuapp.com/delete-product/${_id}`;
+    const handleDelete = id => {
+        const url = `https://credible-technologies.herokuapp.com/delete-product/${id}`;
 
         fetch(url, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -33,22 +62,33 @@ const ManageProduct = ({ product, refetch }) => {
                     <p className='text-sm'>Minimum Order Quantity: <strong>{minimumQnt}</strong></p>
                     <p className='my-3 text-gray-500'>{description?.length > 250 ? description.slice(0, 250) + "..." : description}</p>
                     <div className="card-actions justify-between">
-                        <label htmlFor="delete-modal" className="btn modal-button">Delete</label>
+                        <button onClick={openModal} className="btn modal-button">Delete</button>
                         <Link to={`/dashboard/update-a-product/${_id}`}><button className="btn">Update Info</button></Link>
                         <Link to={`/dashboard/update-product-quantity/${_id}`}><button className="btn">Update Quantity</button></Link>
                     </div>
                 </div>
 
-                <input type="checkbox" id="delete-modal" className="modal-toggle" />
-                <div className="modal modal-bottom sm:modal-middle">
-                    <div className="modal-box">
-                        <label htmlFor="delete-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="font-bold text-lg">Are you sure for delete the product?</h3>
-                        <div className="modal-action">
-                            <button onClick={() => handleDelete()} htmlFor="delete-modal" className="btn">Yes, Delete !!</button>
-                        </div>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+
+                    <h1 className='text-center  text-xl font-bold'>Are you sure for delete?</h1>
+
+                    <div className='flex justify-evenly mt-10'>
+
+                        <button className="btn" onClick={() => {
+                            handleDelete(_id);
+                            closeModal();
+                        }} >Yes!!</button>
+
+                        <button className="btn" onClick={closeModal}>cancel</button>
+
                     </div>
-                </div>
+
+                </Modal>
 
             </div>
         </div>

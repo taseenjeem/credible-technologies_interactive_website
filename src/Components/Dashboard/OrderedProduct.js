@@ -14,24 +14,30 @@ const OrderedProduct = ({ order, orders, setOrders }) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            borderRadius: '20px',
-            width: "500px"
+            borderRadius: '30px'
         },
     };
 
     Modal.setAppElement('#root');
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpen2, setIsOpen2] = React.useState(false);
 
     function openModal() {
         setIsOpen(true);
+    }
+    function openModal2() {
+        setIsOpen2(true);
     }
 
     function closeModal() {
         setIsOpen(false);
     }
+    function closeModal2() {
+        setIsOpen2(false);
+    }
 
-    const { _id, orderedProduct, orderedQuantity, productImage, productPrice, paid, transactionId } = order;
+    const { _id, orderedProduct, orderedQuantity, productImage, productPrice, paid, transactionId, customerName, customerEmail, customerPhone, customerAddress } = order;
 
     const totalPrice = Number(orderedQuantity) * Number(productPrice);
 
@@ -106,10 +112,38 @@ const OrderedProduct = ({ order, orders, setOrders }) => {
                         </>
                         :
                         <>
-                            <div className='flex flex-col'>
+                            <div className='flex'>
                                 <p className='mx-auto text-green-600 mb-2'>PAID<BsFillCheckCircleFill className='text-green-600 inline-block -mt-1 text-lg ml-2' /></p>
-                                <p className='text-xs'>Transaction ID : <span className='text-green-600'>{transactionId}</span></p>
+                                <button onClick={openModal2} className='btn btn-xs ml-2'>Details</button>
                             </div>
+
+                            <Modal
+                                isOpen={modalIsOpen2}
+                                onRequestClose={closeModal}
+                                style={customStyles}
+                                contentLabel="Example Modal"
+                            >
+
+                                <div className='w-[300px] lg:w-[500px]'>
+                                    <div className='flex items-center justify-between'>
+                                        <h1 className='text-xl lg:text-2xl text-center font-bold'>Order Details</h1>
+                                        <button onClick={closeModal2} className='btn btn-circle btn-sm'>✕</button>
+                                    </div>
+                                    <img className='w-52 mx-auto my-4' src={productImage} alt="" />
+                                    <h1 className='text-xl font-semibold'>{orderedProduct}</h1>
+                                    <h2 className='text-xl font-semibold mt-2'>Order no : #{_id}</h2>
+                                    <p className='mt-2'><strong>Transaction ID : </strong><span className='text-green-600 font-bold'>{transactionId}</span></p>
+                                    <p className='mt-2'><strong>Name : </strong>{customerName}</p>
+                                    <p className='mt-2'><strong>Email : </strong>{customerEmail}</p>
+                                    <p className='mt-2'><strong>Phone : </strong>{customerPhone}</p>
+                                    <p className='mt-2'><strong>Ordered Quantity : </strong>{orderedQuantity} units</p>
+                                    <p className='mt-2'><strong>Price per unit : </strong>$ {productPrice}</p>
+                                    <p className='mt-2'><strong>Total Price : </strong>$ {totalPrice}</p>
+                                    <p className='mt-2'><strong>Delivery Address : </strong>{customerAddress}</p>
+                                </div>
+
+                            </Modal>
+
                         </>
                 }
 

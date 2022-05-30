@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import auth from '../../Firebase/firebase.init';
 import Loading from '../Loading/Loading';
 import Modal from 'react-modal';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Purchase = () => {
 
@@ -103,7 +104,7 @@ const Purchase = () => {
 
     return (
         <>
-
+            <PageTitle title="Purchase" />
             <div className="md:flex h-screen lg:my-16 mb-48 justify-center items-center z-50 py-12 2xl:px-20 md:px-6 px-4">
                 <div className="xl:w-2/6 lg:w-2/5 w-full">
                     <img className="w-full rounded-3xl shadow-2xl lg:mb-0 mb-16" alt="" src={product?.img} />
@@ -147,7 +148,9 @@ const Purchase = () => {
 
 
                     <div>
-                        <p data-tip={product?.description} className="tooltip mt-7">{product?.description?.length > 250 ? product?.description.slice(0, 250) + "..." : product?.description}</p>
+                        <div className='mt-7 h-32 p-4 overflow-y-auto'>
+                            <p>{product?.description}</p>
+                        </div>
                         <p className="text-base leading-4 mt-7 text-gray-600"><strong>Manufacturer :</strong> {product?.manufacturer}</p>
                         <p className="text-base leading-4 mt-4 text-gray-600"><strong>Brand Name :</strong> {product?.brand}</p>
                         <p className="text-base leading-4 mt-1 text-gray-600"><strong>Price per unit :</strong> <span className='text-3xl font-bold'>${product?.price}</span></p>

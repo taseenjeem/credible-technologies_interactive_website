@@ -4,7 +4,7 @@ import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import Modal from 'react-modal';
 
-const OrderedProduct = ({ order, orders, setOrders }) => {
+const OrderedProduct = ({ order, refetch }) => {
 
     const customStyles = {
         content: {
@@ -51,8 +51,7 @@ const OrderedProduct = ({ order, orders, setOrders }) => {
             .then(res => res.json())
             .then(data => {
                 toast.success("Order deleted successfully");
-                const remaining = orders.filter(p => p._id !== _id);
-                setOrders(remaining);
+                refetch();
             })
     }
 

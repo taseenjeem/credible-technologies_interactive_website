@@ -1,24 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/firebase.init';
+import Loading from '../Loading/Loading';
+import Modal from 'react-modal';
 
 const Purchase = () => {
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            border: "0"
+        },
+    };
+
+    Modal.setAppElement('#root');
+
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
 
     const [user] = useAuthState(auth);
 
     const { id } = useParams();
 
-    const [product, setProduct] = useState([]);
+    const { data: product, isLoading } = useQuery("productCheckout", () => fetch(`https://credible-technologies.herokuapp.com/purchase/${id}`).then(res => res.json()))
 
-    const { name, img, qnt, price, minimumQnt, brand } = product;
 
-    useEffect(() => {
-        fetch(`https://credible-technologies.herokuapp.com/purchase/${id}`)
-            .then(res => res.json())
-            .then(data => setProduct(data))
-    }, [id]);
+    if (isLoading) {
+        return <Loading />
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -28,14 +52,14 @@ const Purchase = () => {
         const address = e.target.address.value;
         const quantity = e.target.qnt.value;
 
-        if (quantity < minimumQnt) {
+        if (quantity < product?.minimumQnt) {
 
-            toast.warning(`Minimum ${minimumQnt} quantity required !!`);
+            toast.warning(`Minimum ${product?.minimumQnt} quantity required !!`);
             e.target.reset();
 
-        } else if (quantity > qnt) {
+        } else if (quantity > product?.qnt) {
 
-            toast.warning(`We have only ${qnt} items left. Your ordered quantity is beyond our available stock.`);
+            toast.warning(`We have only ${product?.qnt} items left. Your ordered quantity is beyond our available stock.`);
             e.target.reset();
 
         } else {
@@ -44,12 +68,12 @@ const Purchase = () => {
 
                 customerName: name,
                 orderedProduct: productName,
-                productImage: img,
+                productImage: product?.img,
                 customerEmail: user?.email,
                 customerPhone: phone,
                 customerAddress: address,
                 orderedQuantity: quantity,
-                productPrice: price
+                productPrice: product?.price
 
             }
 
@@ -66,8 +90,9 @@ const Purchase = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.acknowledged) {
-                        toast.success("Booking successful. We'll contact you soon!");
+                        toast.success("Booking successful. You can checkout your order in dashboard");
                         e.target.reset();
+                        closeModal();
                     }
                 })
 
@@ -76,65 +101,118 @@ const Purchase = () => {
     }
 
     return (
-        <section className='lg:px-28 px-3'>
-            <div className='grid lg:grid-cols-2 my-28'>
-                <div className='lg:flex lg:items-center'>
+        <>
 
-                    <div className="card lg:w-10/12 bg-white shadow-2xl">
-                        <div className="card-body">
-                            <h2 className="card-title">{name}</h2>
-                            <h3 className='text-lg'>Brand : <span className='text-3xl font-semibold'>{brand}</span></h3>
-                            <h3 className='text-lg'>Price per unit : <span className='text-3xl font-semibold'>${price}</span></h3>
-                            <h3 className='text-lg'>Minimum ordered quantity : <span className='text-3xl font-semibold'>{minimumQnt}</span> psc</h3>
+            <div className="md:flex h-screen my-16 justify-center items-center py-12 2xl:px-20 md:px-6 px-4">
+                <div className="xl:w-2/6 lg:w-2/5 w-80">
+                    <img className="w-full rounded-3xl shadow-2xl" alt="" src={product?.img} />
+
+                </div>
+
+                <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
+                    <div className="border-b border-gray-200 pb-6">
+                        <p className="text-sm leading-none text-gray-600">Credible Technologies Ltd.</p>
+                        <h1
+                            className="
+							lg:text-2xl
+							text-xl
+							font-semibold
+							lg:leading-6
+							leading-7
+							text-gray-800
+							mt-2
+						"
+                        >
+                            {product?.name}
+                        </h1>
+                    </div>
+                    <div className="py-4 border-b border-gray-200 flex items-center justify-between">
+                        <p className="text-base leading-4 text-gray-800">Available Quantity</p>
+                        <div className="flex items-center justify-center">
+                            <p className="text-sm leading-none text-gray-600">{product?.qnt} units</p>
                         </div>
-                        <figure><img src={img} className="w-60" alt="Shoes" /></figure>
+                    </div>
+                    <div className="py-4 border-b border-gray-200 flex items-center justify-between">
+                        <p className="text-base leading-4 text-gray-800">Minimum Order Quantity</p>
+                        <div className="flex items-center justify-center">
+                            <p className="text-sm leading-none text-gray-600 mr-3">{product?.minimumQnt} units</p>
+                        </div>
+                    </div>
+
+
+                    <button onClick={openModal} className="btn w-full my-3">
+                        Confirm your order
+                    </button>
+
+
+                    <div>
+                        <p data-tip={product?.description} className="tooltip mt-7">{product?.description?.length > 250 ? product?.description.slice(0, 250) + "..." : product?.description}</p>
+                        <p className="text-base leading-4 mt-7 text-gray-600"><strong>Manufacturer :</strong> {product?.manufacturer}</p>
+                        <p className="text-base leading-4 mt-4 text-gray-600"><strong>Brand Name :</strong> {product?.brand}</p>
+                        <p className="text-base leading-4 mt-1 text-gray-600"><strong>Price per unit :</strong> <span className='text-3xl font-bold'>${product?.price}</span></p>
                     </div>
 
                 </div>
-                <div className='shadow-2xl rounded-3xl p-7 bg-white'>
-                    <h3 className="font-bold text-lg text-center mb-4">Please confirm your order</h3>
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Product</span>
-                            </label>
-                            <input type="text" name='productName' disabled value={name} placeholder="your name" className="input input-bordered w-full " />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text" name='name' disabled value={user?.displayName} placeholder="your name" className="input input-bordered w-full " />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">email</span>
-                            </label>
-                            <input type="email" name='email' disabled value={user?.email} placeholder="your email" className="input input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Phone</span>
-                            </label>
-                            <input required type="text" name='phone' placeholder="your phone number" className="input input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Delivery address</span>
-                            </label>
-                            <input required type="text" name='address' placeholder="address" className="input input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Quantity</span>
-                            </label>
-                            <input required type="number" name='qnt' placeholder="Item quantity" className="input input-bordered w-full" />
-                        </div>
-                        <input htmlFor="modal-order" type="submit" className='btn w-full mt-4' value="CONFIRM ORDER" />
-                    </form>
-                </div>
             </div>
-        </section>
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+            >
+
+                <section className='lg:w-[500px]'>
+                    <div className='mx-auto my-28'>
+                        <div className='rounded-3xl p-7 bg-white'>
+                            <div className='flex items-center justify-between'>
+                                <h3 className="font-bold lg:text-2xl text-lg text-center mb-4">Please confirm your order</h3>
+                                <button onClick={closeModal} className='btn btn-circle btn-sm mt-[-8px]'>✕</button>
+                            </div>
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text">Product</span>
+                                    </label>
+                                    <input type="text" name='productName' disabled value={product?.name} placeholder="your name" className="input input-bordered w-full " />
+                                </div>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" name='name' disabled value={user?.displayName} placeholder="your name" className="input input-bordered w-full " />
+                                </div>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text">email</span>
+                                    </label>
+                                    <input type="email" name='email' disabled value={user?.email} placeholder="your email" className="input input-bordered w-full" />
+                                </div>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text">Phone</span>
+                                    </label>
+                                    <input required type="text" name='phone' placeholder="your phone number" className="input input-bordered w-full" />
+                                </div>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text">Delivery address</span>
+                                    </label>
+                                    <input required type="text" name='address' placeholder="address" className="input input-bordered w-full" />
+                                </div>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text">Quantity</span>
+                                    </label>
+                                    <input required type="number" name='qnt' placeholder="Item quantity" className="input input-bordered w-full" />
+                                </div>
+                                <input type="submit" className='btn w-full mt-4' value="Place Order" />
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+            </Modal>
+        </>
     );
 };
 

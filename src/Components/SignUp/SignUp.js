@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -29,10 +29,12 @@ const SignUp = () => {
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
-    if (token) {
-        navigate(from, { replace: true });
-        toast.success("Account created successfully")
-    }
+    useEffect(() => {
+        if (user || googleUser || token) {
+            navigate(from, { replace: true });
+            toast.success("Account created successful");
+        }
+    }, [from, user, googleUser, navigate, token]);
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);

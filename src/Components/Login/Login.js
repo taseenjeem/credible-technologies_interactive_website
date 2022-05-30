@@ -48,11 +48,11 @@ const Login = () => {
     const [token] = useToken(user || googleUser)
 
     useEffect(() => {
-        if (token) {
+        if (user || googleUser || token) {
             navigate(from, { replace: true });
             toast.success("Login successful")
         }
-    }, [from, navigate, token])
+    }, [from, user, googleUser, navigate, token])
 
     return (
         <section>

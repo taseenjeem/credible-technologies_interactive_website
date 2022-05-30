@@ -8,7 +8,7 @@ const OrderRow = ({ order }) => {
 
     return (
         <div>
-            <div className="card bg-white shadow-xl">
+            <div className="card bg-white shadow-xl lg:h-[700px]">
                 <figure><img src={productImage} className="w-40" alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title mb-4 font-bold">{orderedProduct}</h2>

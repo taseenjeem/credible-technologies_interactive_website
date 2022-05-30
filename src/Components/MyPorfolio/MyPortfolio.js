@@ -14,6 +14,7 @@ import express from '../../Assets/Icons/Expressjs.png';
 import project1 from '../../Assets/project (1).png';
 import project2 from '../../Assets/project (2).png';
 import project3 from '../../Assets/project (3).png';
+import PageTitle from '../PageTitle/PageTitle';
 
 const MyPortfolio = () => {
     return (
@@ -21,6 +22,9 @@ const MyPortfolio = () => {
 
 
         <main className="profile-page">
+
+            <PageTitle title='My Portfolio' />
+
             <section className="relative block h-500-px">
                 <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url(https://cdn.pixabay.com/photo/2018/11/29/14/01/mountains-3845777_960_720.jpg)" }}>
                     <span id="blackOverlay" className="w-full h-full absolute opacity-50 bg-black"></span>

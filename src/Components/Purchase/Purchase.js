@@ -17,7 +17,8 @@ const Purchase = () => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            border: "0"
+            border: "0",
+            padding: '0'
         },
     };
 
@@ -103,9 +104,9 @@ const Purchase = () => {
     return (
         <>
 
-            <div className="md:flex h-screen my-16 justify-center items-center py-12 2xl:px-20 md:px-6 px-4">
-                <div className="xl:w-2/6 lg:w-2/5 w-80">
-                    <img className="w-full rounded-3xl shadow-2xl" alt="" src={product?.img} />
+            <div className="md:flex h-screen lg:my-16 mb-48 justify-center items-center z-50 py-12 2xl:px-20 md:px-6 px-4">
+                <div className="xl:w-2/6 lg:w-2/5 w-full">
+                    <img className="w-full rounded-3xl shadow-2xl lg:mb-0 mb-16" alt="" src={product?.img} />
 
                 </div>
 
@@ -161,9 +162,9 @@ const Purchase = () => {
                 style={customStyles}
             >
 
-                <section className='lg:w-[500px]'>
+                <section className='lg:w-[500px] w-[350px]'>
                     <div className='mx-auto my-28'>
-                        <div className='rounded-3xl p-7 bg-white'>
+                        <div className='rounded-3xl p-7 border-2 border-gray-500 bg-white'>
                             <div className='flex items-center justify-between'>
                                 <h3 className="font-bold lg:text-2xl text-lg text-center mb-4">Please confirm your order</h3>
                                 <button onClick={closeModal} className='btn btn-circle btn-sm mt-[-8px]'>✕</button>

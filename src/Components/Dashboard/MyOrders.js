@@ -34,43 +34,53 @@ const MyOrders = () => {
     };
 
     return (
-        <section className='lg:px-20 px-3'>
-            <h1 className='text-center text-2xl font-semibold my-4'>Your Orders : {orders?.length}</h1>
+        <>
+            {
+                orders.length === 0 ?
 
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    {/* <!-- head --> */}
-                    <thead>
-                        <tr>
 
-                            <th>Product</th>
-                            <th>Ordered Quantity</th>
-                            <th>Total Price</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <h1 className='text-2xl lg:text-5xl lg:mt-40 mt-56 text-center'>Sorry! You do not placed any order yet. 😥</h1>
 
-                        {
-                            orders?.map(order => <OrderedProduct key={order._id} order={order} refetch={refetch} />)
-                        }
 
-                    </tbody>
-                    {/* <!-- foot --> */}
-                    <tfoot>
-                        <tr>
+                    :
 
-                            <th>Product</th>
-                            <th>Ordered Quantity</th>
-                            <th>Total Price</th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
+                    <section className='lg:px-20 px-3'>
+                        <h1 className='text-center text-2xl font-semibold my-4'>Your Orders : {orders?.length}</h1>
 
-                </table>
-            </div>
+                        <div className="overflow-x-auto w-full">
+                            <table className="table w-full">
+                                <thead>
+                                    <tr>
 
-        </section>
+                                        <th>Product</th>
+                                        <th>Ordered Quantity</th>
+                                        <th>Total Price</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {
+                                        orders?.map(order => <OrderedProduct key={order._id} order={order} refetch={refetch} />)
+                                    }
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <th>Product</th>
+                                        <th>Ordered Quantity</th>
+                                        <th>Total Price</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+
+                            </table>
+                        </div>
+
+                    </section>
+            }
+        </>
     );
 };
 

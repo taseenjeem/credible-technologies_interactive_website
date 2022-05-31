@@ -10,8 +10,6 @@ const MyOrders = () => {
 
     const [user] = useAuthState(auth);
 
-    // const [orders, setOrders] = useState([]);
-
     const navigate = useNavigate();
 
     const { data: orders, isLoading, refetch } = useQuery("getMyOrders", () => fetch(`https://credible-technologies.herokuapp.com/my-orders?customerEmail=${user?.email}`, {

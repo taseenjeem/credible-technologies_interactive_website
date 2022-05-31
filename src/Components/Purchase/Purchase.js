@@ -52,14 +52,14 @@ const Purchase = () => {
         const productName = e.target.productName.value;
         const phone = e.target.phone.value;
         const address = e.target.address.value;
-        const quantity = e.target.qnt.value;
+        const quantity = Number(e.target.qnt.value);
 
-        if (quantity < product?.minimumQnt) {
+        if (quantity < Number(product?.minimumQnt)) {
 
             toast.warning(`Minimum ${product?.minimumQnt} quantity required !!`);
             e.target.reset();
 
-        } else if (quantity > product?.qnt) {
+        } else if (quantity > Number(product?.qnt)) {
 
             toast.warning(`We have only ${product?.qnt} items left. Your ordered quantity is beyond our available stock.`);
             e.target.reset();

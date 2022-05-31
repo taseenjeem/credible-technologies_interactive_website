@@ -83,15 +83,15 @@ const Navbar = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
 
                     <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
-                    <li className='mx-1'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
-                    <li className='mx-1'><NavLink className="rounded-3xl" to="/reviews">REVIEWS</NavLink></li>
-                    <li className='mx-1'><NavLink className="rounded-3xl" to="/blogs">BLOGS</NavLink></li>
-                    <li className='mx-1'><NavLink className="rounded-3xl" to="/my-portfolio">MY PORTFOLIO</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/reviews">REVIEWS</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/blogs">BLOGS</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/my-portfolio">MY PORTFOLIO</NavLink></li>
                     {
-                        user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
+                        user && <li className='mx-1 mt'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
                     }
 
-                    {!user ? <Link to="/login"><button to="/login" className="btn btn-neutral w-full">LOG IN</button></Link> : <label htmlFor="logout-btn-2" className="btn text-white modal-button">Log Out</label>}
+                    {!user ? <Link to="/login"><button to="/login" className="btn mt-2 btn-neutral w-full">LOG IN</button></Link> : <label htmlFor="logout-btn-2" className="btn mt-2 text-white modal-button">Log Out</label>}
                 </ul>
 
                 <input type="checkbox" id="logout-btn-2" className="modal-toggle" />

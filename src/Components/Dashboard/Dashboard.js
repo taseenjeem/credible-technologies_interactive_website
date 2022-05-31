@@ -33,17 +33,17 @@ const Dashboard = () => {
                         admin ?
                             <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                                 <li><Link to="/dashboard/manage-all-orders">Manage Orders</Link></li>
-                                <li><Link to="/dashboard/add-product">Add a Product</Link></li>
-                                <li><Link to="/dashboard/manage-all-products">Manage products</Link></li>
-                                <li><Link to="/dashboard/all-users">All Users</Link></li>
-                                <li><Link to="/dashboard/my-profile">My Profile</Link></li>
+                                <li className='mt-2'><Link to="/dashboard/add-product">Add a Product</Link></li>
+                                <li className='mt-2'><Link to="/dashboard/manage-all-products">Manage products</Link></li>
+                                <li className='mt-2'><Link to="/dashboard/all-users">All Users</Link></li>
+                                <li className='mt-2'><Link to="/dashboard/my-profile">My Profile</Link></li>
 
                             </ul>
                             :
                             <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-                                <li><Link to="/dashboard">My Orders</Link></li>
-                                <li><Link to="/dashboard/add-review">Add a Reviews</Link></li>
-                                <li><Link to="/dashboard/my-profile">My Profile</Link></li>
+                                <li className='mt-2'><Link to="/dashboard">My Orders</Link></li>
+                                <li className='mt-2'><Link to="/dashboard/add-review">Add a Reviews</Link></li>
+                                <li className='mt-2'><Link to="/dashboard/my-profile">My Profile</Link></li>
 
                             </ul>
                     }

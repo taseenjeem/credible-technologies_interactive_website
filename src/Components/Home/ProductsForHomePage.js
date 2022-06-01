@@ -18,18 +18,14 @@ const ProductsForHomePage = () => {
 
     return (
         <section className='lg:px-24 px-3 my-32'>
-            <Zoom>
-                <h1 className='text-primary text-center text-3xl lg:text-6xl font-semibold my-14'>Our Best Selling Products</h1>
-            </Zoom>
-            <Fade top>
-                <div className='grid lg:grid-cols-3 gap-7'>
 
-                    {
-                        productsForHomePage?.map(p => <HomepageProduct key={p._id} eachProduct={p} />)
-                    }
-                </div>
-            </Fade>
+            <h1 className='text-primary text-center text-3xl lg:text-6xl font-semibold my-14'>Our Best Selling Products</h1>
+            <div className='grid lg:grid-cols-3 gap-7'>
 
+                {
+                    productsForHomePage?.map(p => <HomepageProduct key={p._id} eachProduct={p} />)
+                }
+            </div>
             <div className='flex justify-center mt-14'>
                 <Link to="/products" className='btn btn-primary text-white'>Show all Products<FaArrowRight className='ml-2' /></Link>
             </div>

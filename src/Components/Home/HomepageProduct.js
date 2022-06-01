@@ -13,7 +13,7 @@ const HomepageProduct = ({ eachProduct }) => {
 
     return (
         <div className="card shadow-2xl">
-            <figure><img src={img} className="w-72" alt="Shoes" /></figure>
+            <figure><img src={img} className='w-full' alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title font-bold">{name}</h2>
                 <h3 className='text-xl font-semibold'>Price : ${price}</h3>

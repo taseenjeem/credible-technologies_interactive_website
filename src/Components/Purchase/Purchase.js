@@ -105,7 +105,7 @@ const Purchase = () => {
     return (
         <>
             <PageTitle title="Purchase" />
-            <div className="md:flex h-screen lg:my-16 mb-48 justify-center items-center z-50 py-12 2xl:px-20 md:px-6 px-4">
+            <div className="md:flex h-screen lg:my-16 lg:mb-16 mb-96 justify-center items-center z-50 py-12 2xl:px-20 md:px-6 px-4">
                 <div className="xl:w-2/6 lg:w-2/5 w-full">
                     <img className="w-full rounded-3xl shadow-2xl lg:mb-0 mb-16" alt="" src={product?.img} />
 
@@ -138,7 +138,10 @@ const Purchase = () => {
 
 
                     <div>
-                        <div className='mt-7 h-32 p-4 overflow-y-auto'>
+                        <label class="label">
+                            <span class="label-text font-bold">Description :</span>
+                        </label>
+                        <div className='mb-7 h-32 p-4 border-2 rounded-2xl overflow-y-auto'>
                             <p>{product?.description}</p>
                         </div>
                         <p className="text-base leading-4 mt-7 text-gray-600"><strong>Manufacturer :</strong> {product?.manufacturer}</p>

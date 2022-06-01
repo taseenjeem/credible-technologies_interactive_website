@@ -34,7 +34,7 @@ const MyOrders = () => {
     return (
         <>
             {
-                orders.length === 0 ?
+                orders?.length === 0 ?
 
 
                     <h1 className='text-2xl lg:text-5xl lg:mt-40 mt-56 text-center'>Sorry! You do not placed any order yet. 😥</h1>

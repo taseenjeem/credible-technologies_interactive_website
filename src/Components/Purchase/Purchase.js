@@ -138,8 +138,8 @@ const Purchase = () => {
 
 
                     <div>
-                        <label class="label">
-                            <span class="label-text font-bold">Description :</span>
+                        <label className="label">
+                            <span className="label-text font-bold">Description :</span>
                         </label>
                         <div className='mb-7 h-32 p-4 border-2 rounded-2xl overflow-y-auto'>
                             <p>{product?.description}</p>

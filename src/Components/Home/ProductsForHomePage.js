@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import HomepageProduct from './HomepageProduct';
 import { FaArrowRight } from 'react-icons/fa';
-import { Fade, Zoom } from 'react-reveal';
 
 const ProductsForHomePage = () => {
 

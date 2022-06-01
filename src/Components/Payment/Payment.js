@@ -30,9 +30,9 @@ const Payment = () => {
     }
 
     return (
-        <div>
-            <div className="card card-side lg:w-3/4 mx-auto mt-12 bg-white shadow-2xl">
-                <figure><img src={data?.productImage} className="w-72 p-5" alt="product" /></figure>
+        <div className='px-3 lg:px-28'>
+            <div className="card lg:card-side my-20">
+                <figure><img src={data?.productImage} className='rounded-3xl mr-0 lg:mr-10' alt="Album" /></figure>
                 <div className='py-5'>
                     <p>Hey, <strong>{data?.customerName}</strong></p>
                     <h2 className="text-xl my-2 font-semibold">{data?.orderedProduct}</h2>
@@ -51,7 +51,6 @@ const Payment = () => {
 
                     </div>
                 </div>
-
             </div>
 
         </div>

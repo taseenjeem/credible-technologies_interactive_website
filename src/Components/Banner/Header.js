@@ -10,10 +10,10 @@ const Header = () => {
         <section className="hero h-screen" style={{ backgroundImage: `url(${banner})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-white">
-                <div className='max-w-5xl'>
+                <div>
                     <Slide left >
                         <h1 className='text-2xl font-bold underline underline-offset-4'>Welcome to</h1>
-                        <h1 className="my-5 text-6xl lg:text-7xl font-bold"><img className='App-logo lg:w-32 w-16 inline-block mt-[-10px]' src={logo} alt="" /> Credible Technologies</h1>
+                        <h1 className="my-5 text-5xl lg:text-7xl font-bold"><img className='App-logo lg:w-32 w-16 inline-block mt-[-10px]' src={logo} alt="" /> Credible Technologies</h1>
                     </Slide>
 
                     <Slide right >

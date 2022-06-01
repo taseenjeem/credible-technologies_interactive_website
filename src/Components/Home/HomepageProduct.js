@@ -12,7 +12,7 @@ const HomepageProduct = ({ eachProduct }) => {
     const { _id, name, img, brand, manufacturer, price, qnt, description } = eachProduct;
 
     return (
-        <div className="card lg:w-96 bg-white shadow-2xl">
+        <div className="card shadow-2xl">
             <figure><img src={img} className="w-72" alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title font-bold">{name}</h2>

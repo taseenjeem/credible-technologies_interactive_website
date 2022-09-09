@@ -5,7 +5,7 @@ import footerBg from '../../Assets/footer.png';
 
 const Footer = () => {
     return (
-        <section className='bg-cover' style={{ backgroundImage: `url(${footerBg})` }}>
+        <section className='bg-cover bg-no-repeat' style={{ backgroundImage: `url(${footerBg})` }}>
             <footer className="footer p-10 text-base-content lg:px-24 px-3 grid lg:grid-cols-3 grid-cols-2">
                 <div className='mx-auto'>
                     <span className="footer-title">Services</span>

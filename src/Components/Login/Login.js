@@ -96,7 +96,7 @@ const Login = () => {
 
                     :
 
-                    <div className="h-screen my-16 bg-cover bg-no-repeat pt-16" style={{ backgroundImage: `url(${loginBg})` }}>
+                    <div className="h-screen my-16 bg-cover bg-no-repeat pt-10" style={{ backgroundImage: `url(${loginBg})` }}>
 
                         <div className='lg:w-[27%] w-[90%] mx-auto glass p-9 rounded-xl'>
 

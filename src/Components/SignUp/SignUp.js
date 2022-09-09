@@ -74,7 +74,7 @@ const SignUp = () => {
                         <div className='lg:w-[27%] w-[90%] mx-auto glass p-9 rounded-xl '>
 
                             <h1 className='text-center lg:text-2xl text-xl font-bold text-primary'><img className='w-8 App-logo inline-block mt-[-6px]' src={logo} alt="" /> Credible Technologies</h1>
-                            <p className='text-center font-bold mt-3 text-white uppercase'>Create Account</p>
+                            <p className='text-center font-bold my-3 text-white uppercase'>Create Account</p>
 
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">

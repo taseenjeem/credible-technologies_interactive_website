@@ -3,15 +3,15 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import logo from '../../Assets/logo.png';
-import loginBanner from '../../Assets/login-banner.png';
+import loginBg from '../../Assets/login-bg.jpg';
 import auth from '../../Firebase/firebase.init';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
-import { Slide } from 'react-reveal';
 import PageTitle from '../PageTitle/PageTitle';
 import useToken from '../../hooks/useToken';
 import Swal from 'sweetalert2';
+import '../../App.css';
 
 const Login = () => {
 
@@ -96,77 +96,68 @@ const Login = () => {
 
                     :
 
-                    <div className="hero min-h-screen bg-gradient-to-tr from-primary to-secondary overflow-x-hidden">
-                        <div className="hero-content">
-                            <Slide left>
-                                <div className='lg:w-3/6 lg:flex lg:justify-end'>
-                                    <div className="card flex-shrink-0 lg:w-96 w-80 shadow-2xl bg-base-100">
-                                        <h1 className='text-center text-2xl font-bold text-primary mt-9'><img className='w-8 inline-block mt-[-6px]' src={logo} alt="" /> Credible Technologies</h1>
-                                        <p className='text-center font-bold mt-3'>USER LOGIN</p>
-                                        <div className="card-body">
+                    <div className="h-screen my-16 bg-cover bg-no-repeat pt-16" style={{ backgroundImage: `url(${loginBg})` }}>
 
-                                            <form onSubmit={handleSubmit(onSubmit)}>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Email</span>
-                                                    </label>
-                                                    <input type="email" placeholder="email" className="input input-bordered" {...register("email", {
-                                                        required: {
-                                                            value: true,
-                                                            message: "Email is required"
-                                                        },
-                                                        pattern: {
-                                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                                            message: "Provide a valid email"
-                                                        }
-                                                    })} />
-                                                    <label className="label">
-                                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                                    </label>
-                                                </div>
+                        <div className='lg:w-[27%] w-[90%] mx-auto glass p-9 rounded-xl'>
 
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Password</span>
-                                                    </label>
-                                                    <input type="password" placeholder="password" className="input input-bordered" {...register("password", {
-                                                        required: {
-                                                            value: true,
-                                                            message: "Password is required"
-                                                        },
-                                                        minLength: {
-                                                            value: 6,
-                                                            message: "Minimum 6 characters required"
-                                                        }
-                                                    })} />
-                                                    <label className="label">
-                                                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                                        <Link to="/reset-password"><span className="label-text-alt link-hover link">Forget Password?</span></Link>
-                                                    </label>
-                                                </div>
+                            <h1 className='text-center lg:text-2xl text-xl font-bold text-primary'><img className='w-8 App-logo inline-block mt-[-6px]' src={logo} alt="" /> Credible Technologies</h1>
+                            <p className='text-center font-bold mt-3 text-white'>USER LOGIN</p>
 
-                                                <input type="submit" value='Log in' className="btn text-white w-full mt-3" />
-                                            </form>
-
-                                            <div className="divider">OR</div>
-                                            <div className="form-control">
-                                                <button onClick={() => signInWithGoogle()} className="btn btn-outline" >
-                                                    <FcGoogle className='text-2xl mr-2' /> Continue with google
-                                                </button>
-                                            </div>
-                                            <Link to="/sign-up" className="text-center text-sm label-text-alt link link-hover mt-2">New here? Please create account</Link>
-                                        </div>
-                                    </div>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text text-white">Email</span>
+                                    </label>
+                                    <input type="email" placeholder="email" className="input input-bordered" {...register("email", {
+                                        required: {
+                                            value: true,
+                                            message: "Email is required"
+                                        },
+                                        pattern: {
+                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                            message: "Provide a valid email"
+                                        }
+                                    })} />
+                                    <label className="label">
+                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                    </label>
                                 </div>
-                            </Slide>
-                            <Slide right>
-                                <div className="hidden lg:block w-8/12">
-                                    <img className='mx-auto' src={loginBanner} alt="" />
+
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text text-white">Password</span>
+                                    </label>
+                                    <input type="password" placeholder="password" className="input input-bordered" {...register("password", {
+                                        required: {
+                                            value: true,
+                                            message: "Password is required"
+                                        },
+                                        minLength: {
+                                            value: 6,
+                                            message: "Minimum 6 characters required"
+                                        }
+                                    })} />
+                                    <label className="label">
+                                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                        <Link to="/reset-password"><span className="label-text-alt link-hover link text-white">Forget Password?</span></Link>
+                                    </label>
                                 </div>
-                            </Slide>
+
+                                <input type="submit" value='Log in' className="btn text-white w-full mt-3" />
+                            </form>
+
+                            <div className="divider text-white">OR</div>
+                            <div className="form-control">
+                                <button onClick={() => signInWithGoogle()} className="btn btn-outline text-white" >
+                                    <FcGoogle className='text-2xl mr-2' /> Continue with google
+                                </button>
+                            </div>
+                            <Link to="/sign-up" className="text-sm link link-hover flex justify-center mt-4 text-white">New here? Please create account</Link>
+
                         </div>
+
                     </div>
             }
         </section>

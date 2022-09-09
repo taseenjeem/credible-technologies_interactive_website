@@ -2,6 +2,7 @@ import React from 'react';
 import PageTitle from '../PageTitle/PageTitle';
 import contact from '../../Assets/contactus.png'
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const ContactUs = () => {
 
@@ -49,7 +50,7 @@ const ContactUs = () => {
 
                 <div className='flex justify-center mt-7'>
                     <button className='btn text-white capitalize mx-3'>Frequently Asked Questions</button>
-                    <button className='btn text-white capitalize mx-3'>Privacy Policy</button>
+                    <Link to="/terms-and-conditions" className='btn text-white capitalize mx-3'>Privacy Policy</Link>
                 </div>
 
             </div>

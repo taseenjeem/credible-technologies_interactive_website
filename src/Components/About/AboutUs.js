@@ -18,7 +18,7 @@ const AboutUs = () => {
                 <p className='text-center lg:w-2/5 mx-auto my-5'>A significant part of people's lives now is the network, as a result of raising people's standards of living.</p>
 
                 <div className='flex justify-center mt-7'>
-                    <button className='btn text-white capitalize mx-3'>Get Started</button>
+                    <Link to="/products" className='btn text-white capitalize mx-3'>Get Started</Link>
                     <Link to="/terms-and-conditions" className='btn text-white capitalize mx-3'>Privacy Policy</Link>
                 </div>
 

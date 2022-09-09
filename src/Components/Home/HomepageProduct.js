@@ -20,9 +20,11 @@ const HomepageProduct = ({ eachProduct }) => {
                 <p className='text-sm'>Brand: <strong>{brand}</strong></p>
                 <p className='text-sm'>Manufacturer: <strong>{manufacturer}</strong></p>
                 <p className='text-sm'>Available Quantity: <strong>{qnt}</strong></p>
-                <p className='my-3 text-gray-500'>{description.length > 250 ? description.slice(0, 250) + "..." : description}</p>
-                <div className="card-actions justify-end">
-                    <button onClick={() => navigateToPurchase(_id)} className="btn">Order Now</button>
+                <div className='overflow-y-auto h-40'>
+                    <p className='my-3 text-gray-500'>{description}</p>
+                </div>
+                <div className="card-actions justify-end mt-5">
+                    <button onClick={() => navigateToPurchase(_id)} className="btn text-white">Order Now</button>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ const Faq = () => {
     return (
         <Fade top>
             <section className='my-28'>
-                <h1 className='lg:text-6xl text-3xl font-semibold text-primary text-center'>Frequently Asked Questions</h1>
+                <h1 className='lg:text-5xl text-3xl font-semibold text-primary text-center mb-16'>Frequently Asked Questions</h1>
                 <div className="hero">
                     <div className="hero-content flex-col lg:flex-row">
                         <img src={faq} className="lg:w-3/6" alt="" />

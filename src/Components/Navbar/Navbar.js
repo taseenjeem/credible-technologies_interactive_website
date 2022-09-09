@@ -41,7 +41,7 @@ const Navbar = ({ children }) => {
                             <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/about-us">About Us</NavLink></li>
                             <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/contact-us">Contact Us</NavLink></li>
                             {
-                                user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
+                                user && <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/dashboard">Dashboard</NavLink></li>
                             }
                         </ul>
                     </div>
@@ -88,7 +88,7 @@ const Navbar = ({ children }) => {
                     <li className='mx-1 mt-2'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/about-us">About Us</NavLink></li>
                     <li className='mx-1 mt-2'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/contact-us">Contact Us</NavLink></li>
                     {
-                        user && <li className='mx-1 mt'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
+                        user && <li className='mx-1 mt'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/dashboard">Dashboard</NavLink></li>
                     }
 
                     {!user ? <Link to="/login"><button to="/login" className="btn mt-2 btn-neutral w-full">LOG IN</button></Link> : <label htmlFor="logout-btn-2" className="btn mt-2 text-white modal-button">Log Out</label>}

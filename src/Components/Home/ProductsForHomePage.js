@@ -18,8 +18,8 @@ const ProductsForHomePage = () => {
     return (
         <section className='lg:px-24 px-3 my-32'>
 
-            <h1 className='text-primary text-center text-3xl lg:text-6xl font-semibold my-14'>Our Best Selling Products</h1>
-            <div className='grid lg:grid-cols-3 gap-7'>
+            <h1 className='text-primary text-center text-3xl lg:text-5xl font-semibold my-20'>Our Best Selling Products</h1>
+            <div className='grid lg:grid-cols-3 gap-24'>
 
                 {
                     productsForHomePage?.map(p => <HomepageProduct key={p._id} eachProduct={p} />)

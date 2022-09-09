@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 import PageTitle from '../PageTitle/PageTitle';
 import Product from './Product';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const Products = () => {
 
@@ -14,18 +15,20 @@ const Products = () => {
     }
 
     return (
-        <section className='lg:px-24 px-3 mb-28'>
+        <ScrollToTop>
+            <section className='lg:px-24 px-3 mb-28'>
 
-            <PageTitle title="Products" />
+                <PageTitle title="Products" />
 
-            <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
+                <h1 className='text-primary text-center text-4xl font-semibold my-14'>Our Products</h1>
 
-            <div className='grid lg:grid-cols-3 gap-10'>
-                {
-                    products?.map(p => <Product key={p._id} eachProduct={p} />)
-                }
-            </div>
-        </section>
+                <div className='grid lg:grid-cols-3 gap-10'>
+                    {
+                        products?.map(p => <Product key={p._id} eachProduct={p} />)
+                    }
+                </div>
+            </section>
+        </ScrollToTop>
     );
 };
 

@@ -28,10 +28,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import AllReviews from './Components/AllReviews/AllReviews';
 import UpdateProduct from './Components/Dashboard/AdminDashboard/UpdateProduct';
 import UpdateQuantity from './Components/Dashboard/AdminDashboard/UpdateQuantity';
-import Blogs from './Components/Blogs/Blogs';
-import MyPortfolio from './Components/MyPorfolio/MyPortfolio';
 import Payment from './Components/Payment/Payment';
 import UpdateProfile from './Components/Dashboard/UpdateProfile';
+import AboutUs from './Components/About/AboutUs';
+import ContactUs from './Components/Contact/ContactUs';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -40,51 +40,53 @@ function App() {
   return (
     <section>
 
-      <Navbar>
+      <Navbar />
 
-        <ScrollToTop>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/products' element={<Products />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/sign-up' element={<SignUp />} />
-            <Route path='/reset-password' element={<ResetPass />} />
-            <Route path='/reviews' element={<AllReviews />} />
-            <Route path='/blogs' element={<Blogs />} />
-            <Route path='/my-portfolio' element={<MyPortfolio />} />
+      <ScrollToTop>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/reset-password' element={<ResetPass />} />
+          <Route path='/reviews' element={<AllReviews />} />
+          <Route path='/about-us' element={<AboutUs />} />
+          <Route path='/contact-us' element={<ContactUs />} />
+          {/* <Route path='/blogs' element={<Blogs />} />
+            <Route path='/my-portfolio' element={<MyPortfolio />} /> */}
 
-            <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
 
-              {
-                admin ?
-                  <Route index element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
-                  :
-                  <Route index element={<MyOrders />} />
-              }
-              <Route path='add-review' element={<AddAReview />} />
-              <Route path='my-profile' element={<MyProfile />} />
-              <Route path='update-profile/:id' element={<UpdateProfile />} />
-              <Route path='payment/:id' element={<Payment />} />
-              <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-              <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
-              <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
-              <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
-              <Route path='update-a-product/:id' element={<RequireAdmin><UpdateProduct /></RequireAdmin>} />
-              <Route path='update-product-quantity/:id' element={<RequireAdmin><UpdateQuantity /></RequireAdmin>} />
+            {
+              admin ?
+                <Route index element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
+                :
+                <Route index element={<MyOrders />} />
+            }
+            <Route path='add-review' element={<AddAReview />} />
+            <Route path='my-profile' element={<MyProfile />} />
+            <Route path='update-profile/:id' element={<UpdateProfile />} />
+            <Route path='payment/:id' element={<Payment />} />
+            <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+            <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+            <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
+            <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
+            <Route path='update-a-product/:id' element={<RequireAdmin><UpdateProduct /></RequireAdmin>} />
+            <Route path='update-product-quantity/:id' element={<RequireAdmin><UpdateQuantity /></RequireAdmin>} />
 
-            </Route>
+          </Route>
 
-            <Route path='/purchase/:id' element={
-              <RequireAuth>
-                <Purchase />
-              </RequireAuth>} />
-            <Route path='*' element={<InvalidPage />} />
-          </Routes>
-        </ScrollToTop>
+          <Route path='/purchase/:id' element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>} />
+          <Route path='*' element={<InvalidPage />} />
+        </Routes>
+      </ScrollToTop>
 
-        <Footer />
-      </Navbar>
+      <Footer />
+
       <ToastContainer />
     </section>
   );

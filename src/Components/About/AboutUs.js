@@ -19,7 +19,7 @@ const AboutUs = () => {
 
                 <div className='flex justify-center mt-7'>
                     <button className='btn text-white capitalize mx-3'>Get Started</button>
-                    <button className='btn text-white capitalize mx-3'>Privacy Policy</button>
+                    <Link to="/terms-and-conditions" className='btn text-white capitalize mx-3'>Privacy Policy</Link>
                 </div>
 
                 <div className='absolute top-[30%] left-[80%] h-[15px] w-[15px] rounded-full bg-[#452473]'></div>

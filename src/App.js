@@ -32,6 +32,7 @@ import Payment from './Components/Payment/Payment';
 import UpdateProfile from './Components/Dashboard/UpdateProfile';
 import AboutUs from './Components/About/AboutUs';
 import ContactUs from './Components/Contact/ContactUs';
+import Terms from './Components/Term/Terms';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -53,6 +54,7 @@ function App() {
           <Route path='/reviews' element={<AllReviews />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/terms-and-conditions' element={<Terms />} />
           {/* <Route path='/blogs' element={<Blogs />} />
             <Route path='/my-portfolio' element={<MyPortfolio />} /> */}
 

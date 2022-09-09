@@ -1,8 +1,12 @@
 import React from 'react';
+import PageTitle from '../PageTitle/PageTitle';
+import mission from '../../Assets/mission.png';
 
 const AboutUs = () => {
     return (
         <section className='lg:px-24 px-3 my-28'>
+
+            <PageTitle title="About Us" />
 
             <div className='bg-white p-7 rounded-lg shadow-lg'>
                 <h1 className='lg:text-5xl text-3xl text-center lg:leading-relaxed font-semibold capitalize'>The Game Is Being <br />Changed by Us</h1>
@@ -51,6 +55,30 @@ const AboutUs = () => {
                         <p className='text-[14px] text-[#0B1B28] ml-6 mb-5'>Our founders had a solution. This is your Email marketing specilist, newsslatter service, and campaign manager, all rolled into one.</p>
                         <h4 className='text-[18px] text-[#0B1B28] font-bold mb-2'>03. Contact monitoring</h4>
                         <p className='text-[14px] text-[#0B1B28] ml-6'>Our founders had a solution. This is your Email marketing specilist, newsslatter service, and campaign manager, all rolled into one.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero min-h-screen mt-16 lg:mt-0">
+                <div class="hero-content flex-col lg:flex-row-reverse">
+                    <img src={mission} class="rounded-lg lg:w-3/6" alt='' />
+                    <div>
+                        <h1 className='text-5xl text-neutral capitalize font-bold mb-2 text-left leading-[70px]'>our mission</h1>
+                        <p className='text-base text-neutral text-left mb-8 leading-relaxed'>Our mission is to provide quality but affordable electronics for education, entertainment, self-development and self-fulfillment; to all when the need arises by: Providing a wide range of technologies to satisfy our clients. Exceeding our customer's expectation in their requirements.</p>
+                        <div className='flex justify-between items-center '>
+                            <div className='relative'>
+                                <h4 className='text-[18px] text-[#7D52F4] font-bold text-center '>94%</h4>
+                                <p className='text-[12px] text-[#0B1B28] uppercase'>customer attention</p>
+                            </div>
+                            <div>
+                                <h4 className='text-[18px] text-[#65C3C8] text-center font-bold'>72k</h4>
+                                <p className='text-[12px] text-[#0B1B28] uppercase'>customer attention</p>
+                            </div>
+                            <div>
+                                <h4 className='text-[18px] text-[#7D52F4] text-center font-bold'>10k</h4>
+                                <p className='text-[12px] text-[#0B1B28] uppercase'>customer attention</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

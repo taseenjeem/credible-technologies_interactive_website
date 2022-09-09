@@ -1,13 +1,41 @@
 import React from 'react';
 import PageTitle from '../PageTitle/PageTitle';
 import contact from '../../Assets/contactus.png'
+import Swal from 'sweetalert2';
 
 const ContactUs = () => {
 
     const formControl = e => {
         e.preventDefault();
-        e.target.reset();
-        console.log('click')
+
+        const firstName = e.target.fname.value;
+        const lastName = e.target.lname.value;
+        const email = e.target.email.value;
+        const message = e.target.msg.value;
+
+        if (firstName === "" || lastName === "" || email === "" || message === "") {
+
+            Swal.fire(
+                'Alert!!',
+                'You might not have remembered to add massages.',
+                'info'
+            );
+
+            e.target.reset();
+
+        } else {
+
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Message Sent Successfully',
+                showConfirmButton: false,
+                timer: 2000
+            })
+
+            e.target.reset();
+
+        }
     }
 
     return (

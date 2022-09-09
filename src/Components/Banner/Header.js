@@ -16,7 +16,7 @@ const Header = () => {
                     </Slide>
 
                     <Slide right >
-                        <div className='lg:w-3/4 mx-auto mb-5'>
+                        <div className='lg:w-3/4 mx-auto mb-5 lg:leading-loose'>
                             <p>If you are looking for the best computer components manufacturer in the world you must consider Credible Technologies, as it is a leading computer parts and manufacturer company in the world. Selling computer Accessories and IT products all over the world through its website and worldwide shipping platform. It ensures a fastest , secure, and convenient online business experience with a wide range of product offering in many categories.</p>
                         </div>
                     </Slide>

@@ -16,7 +16,7 @@ const Product = ({ eachProduct }) => {
         <div className="card shadow-2xl">
             <figure><img src={img} className='w-full' alt="Shoes" /></figure>
             <div className="card-body">
-                <h2 className="card-title font-bold">{name}</h2>
+                <h2 className="card-title font-bold leading-relaxed">{name}</h2>
                 <div className='my-3'>
                     <h3 className='text-xl font-semibold'>Price : $ {price}</h3>
                     <p className='text-sm my-1'>Brand: <strong>{brand}</strong></p>
@@ -25,7 +25,7 @@ const Product = ({ eachProduct }) => {
                     <p className='text-sm'>Minium Order Quantity: <strong>{minimumQnt}</strong></p>
                 </div>
                 <div className='overflow-y-auto h-40'>
-                    <p className='text-gray-500'>{description}</p>
+                    <p className='text-gray-500 leading-relaxed'>{description}</p>
                 </div>
             </div>
             <div className="card-actions justify-end px-8 pb-3">

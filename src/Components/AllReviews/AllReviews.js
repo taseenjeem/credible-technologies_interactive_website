@@ -15,13 +15,13 @@ const AllReviews = () => {
     }
 
     return (
-        <section className='lg:px-28 px-3'>
+        <section className='lg:px-28 px-3 my-28'>
 
             <PageTitle title="Reviews" />
 
-            <h1 className='text-primary text-center text-4xl font-semibold my-14'>Customer Reviews</h1>
+            <h1 className='text-primary text-center text-4xl font-semibold mt-14'>Customer Reviews</h1>
 
-            <div className='grid lg:grid-cols-3 gap-7 my-28'>
+            <div className='grid lg:grid-cols-3 gap-7 mt-16'>
                 {
                     reviews?.map(r => <EachReview key={r._id} review={r} />)
                 }

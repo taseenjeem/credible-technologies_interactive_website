@@ -13,7 +13,7 @@ const EachReview = ({ review }) => {
             </div>
             <div>
                 <h2 className="text-gray-800 text-3xl font-semibold">{name}</h2>
-                <h2 className="text-gray-800 text-xl font-semibold">{rate} out of 5<BsStarFill className='inline-block -mt-2 ml-2 text-yellow-500' /></h2>
+                <h2 className="text-gray-800 text-lg my-2 font-semibold">{rate} out of 5<BsStarFill className='inline-block -mt-2 ml-2 text-yellow-500' /></h2>
                 <p className="mt-2 text-gray-600">{message}</p>
             </div>
             <div className="flex justify-end mt-4">

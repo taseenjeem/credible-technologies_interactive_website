@@ -19,7 +19,7 @@ const Reviews = () => {
     }
 
     return (
-        <section className='lg:px-24 px-3 mb-32'>
+        <section className='lg:px-24 px-3 mt-28'>
             <div className='flex justify-between items-center'>
                 <Slide left>
                     <div>

@@ -16,7 +16,7 @@ const Products = () => {
 
     return (
         <ScrollToTop>
-            <section className='lg:px-24 px-3 mb-28'>
+            <section className='lg:px-24 px-3 mb-28 mt-28'>
 
                 <PageTitle title="Products" />
 

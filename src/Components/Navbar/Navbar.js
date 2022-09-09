@@ -42,7 +42,7 @@ const Navbar = () => {
                         {!user ? <Link to="/login"><button to="/login" className="btn mt-2 btn-neutral w-full">LOG IN</button></Link> : <label htmlFor="logout-btn-2" className="btn mt-2 text-white modal-button">Log Out</label>}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost p-2 normal-case lg:text-2xl text-xl font-bold" style={{ fontFamily: "Ubuntu" }}><img className='w-9 mr-2 App-logo' src={logo} alt="" />Credible Technologies Ltd.</Link>
+                <Link to="/" className="flex items-center p-2 normal-case lg:text-2xl text-xl font-bold" style={{ fontFamily: "Ubuntu" }}><img className='w-9 mr-2 App-logo' src={logo} alt="" />Credible Technologies Ltd.</Link>
             </div>
 
             <div className="navbar-end">

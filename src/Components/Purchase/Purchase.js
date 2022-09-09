@@ -49,7 +49,7 @@ const Purchase = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const name = e.target.name.value;
-        const productName = e.target.productName.value;
+        const productName = product?.name;
         const phone = e.target.phone.value;
         const address = e.target.address.value;
         const quantity = Number(e.target.qnt.value);
@@ -106,7 +106,7 @@ const Purchase = () => {
                     if (data.acknowledged) {
                         Swal.fire({
                             position: 'center',
-                            icon: 'error',
+                            icon: 'success',
                             title: 'Booking successful. You can checkout your order in dashboard',
                             showConfirmButton: false,
                             timer: 2000
@@ -132,7 +132,7 @@ const Purchase = () => {
                 <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
                     <div className="border-b border-gray-200 pb-6">
                         <p className="text-sm leading-none text-gray-600">Credible Technologies Ltd.</p>
-                        <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2">
+                        <h1 className="lg:text-2xl text-xl font-semibold lg:leading-relaxed leading-relaxed text-gray-800 mt-2">
                             {product?.name}
                         </h1>
                     </div>
@@ -159,12 +159,12 @@ const Purchase = () => {
                         <label className="label">
                             <span className="label-text font-bold">Description :</span>
                         </label>
-                        <div className='mb-7 h-32 p-4 border-2 rounded-2xl overflow-y-auto'>
+                        <div className='mb-7 h-32 p-4 border-2 rounded-2xl overflow-y-auto leading-relaxed'>
                             <p>{product?.description}</p>
                         </div>
                         <p className="text-base leading-4 mt-7 text-gray-600"><strong>Manufacturer :</strong> {product?.manufacturer}</p>
-                        <p className="text-base leading-4 mt-4 text-gray-600"><strong>Brand Name :</strong> {product?.brand}</p>
-                        <p className="text-base leading-4 mt-1 text-gray-600"><strong>Price per unit :</strong> <span className='text-3xl font-bold'>${product?.price}</span></p>
+                        <p className="text-base leading-4 my-5 text-gray-600"><strong>Brand Name :</strong> {product?.brand}</p>
+                        <p className="text-base leading-4 text-gray-600"><strong>Price per unit :</strong> <span className='text-3xl font-bold'>${product?.price}</span></p>
                     </div>
 
                 </div>
@@ -178,18 +178,13 @@ const Purchase = () => {
 
                 <section className='lg:w-[500px] w-[350px]'>
                     <div className='mx-auto my-28'>
-                        <div className='rounded-3xl p-7 border-2 border-gray-500 bg-white'>
+                        <div className='rounded-3xl p-5 border-2 border-gray-500 bg-white'>
                             <div className='flex items-center justify-between'>
                                 <h3 className="font-bold lg:text-2xl text-lg text-center mb-4">Please confirm your order</h3>
                                 <button onClick={closeModal} className='btn btn-circle btn-sm mt-[-8px]'>✕</button>
                             </div>
                             <form onSubmit={handleSubmit}>
-                                <div className="form-control w-full">
-                                    <label className="label">
-                                        <span className="label-text">Product</span>
-                                    </label>
-                                    <input type="text" name='productName' disabled value={product?.name} placeholder="your name" className="input input-bordered w-full " />
-                                </div>
+
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Name</span>

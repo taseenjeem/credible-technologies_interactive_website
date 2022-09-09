@@ -2,11 +2,11 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../Firebase/firebase.init';
 import Loading from '../Loading/Loading';
 import Modal from 'react-modal';
 import PageTitle from '../PageTitle/PageTitle';
+import Swal from 'sweetalert2';
 
 const Purchase = () => {
 
@@ -56,12 +56,24 @@ const Purchase = () => {
 
         if (quantity < Number(product?.minimumQnt)) {
 
-            toast.warning(`Minimum ${product?.minimumQnt} quantity required !!`);
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: `Minimum ${product?.minimumQnt} quantity required !!`,
+                showConfirmButton: false,
+                timer: 2000
+            })
             e.target.reset();
 
         } else if (quantity > Number(product?.qnt)) {
 
-            toast.warning(`We have only ${product?.qnt} items left. Your ordered quantity is beyond our available stock.`);
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: `We have only ${product?.qnt} items left. Your ordered quantity is beyond our available stock.`,
+                showConfirmButton: false,
+                timer: 2000
+            })
             e.target.reset();
 
         } else {
@@ -92,7 +104,13 @@ const Purchase = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.acknowledged) {
-                        toast.success("Booking successful. You can checkout your order in dashboard");
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Booking successful. You can checkout your order in dashboard',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
                         e.target.reset();
                         closeModal();
                     }

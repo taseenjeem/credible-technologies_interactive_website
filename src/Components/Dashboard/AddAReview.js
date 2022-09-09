@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const AddAReview = () => {
 
@@ -42,15 +42,31 @@ const AddAReview = () => {
                         .then(res => res.json())
                         .then(inserted => {
                             if (inserted.insertedId) {
-                                toast.success('Thanks for your feedback !!')
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'Review added successfully',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                })
                                 reset();
                             }
                             else {
-                                toast.error('Something went wrong! Try again later.');
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'error',
+                                    title: 'Something went wrong',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
                             }
                         })
                 } else {
-                    toast.error("Please select 'Rate us' section");
+                    Swal.fire(
+                        'Error',
+                        'Please select "Rate Us" section',
+                        'error'
+                    );
                 }
             })
 

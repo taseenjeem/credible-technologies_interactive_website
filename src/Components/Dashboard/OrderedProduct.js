@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
-import { toast } from 'react-toastify';
 import Modal from 'react-modal';
+import Swal from 'sweetalert2';
 
 const OrderedProduct = ({ order, refetch }) => {
 
@@ -50,7 +50,13 @@ const OrderedProduct = ({ order, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success("Order deleted successfully");
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Order Deleted Successfully',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
                 refetch();
             })
     }

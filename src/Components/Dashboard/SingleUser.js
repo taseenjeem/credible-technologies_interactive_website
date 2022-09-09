@@ -1,5 +1,5 @@
 import React from 'react';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const SingleUser = ({ user, refetch }) => {
 
@@ -15,14 +15,26 @@ const SingleUser = ({ user, refetch }) => {
                 }
             }).then(res => {
                 if (res.status === 403) {
-                    toast.error("You can't make admin. Please ask a person who is already an admin")
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: "You can't make admin.Please ask a person who is already an admin",
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 }
                 return res.json()
             })
             .then(data => {
                 if (data.modifiedCount > 0) {
                     refetch();
-                    toast.success('Successfully you made an admin');
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Successfully you made and admin',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 }
             })
 

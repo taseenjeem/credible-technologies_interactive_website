@@ -6,7 +6,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 import auth from '../../Firebase/firebase.init';
 import profile from '../../Assets/Icons/profile-user.png';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
@@ -18,7 +18,13 @@ const Navbar = () => {
         signOut(auth);
         localStorage.removeItem('accessToken');
         navigate("/");
-        toast.success("Logout successful");
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Logout Successful',
+            showConfirmButton: false,
+            timer: 2000
+        })
     };
 
     return (

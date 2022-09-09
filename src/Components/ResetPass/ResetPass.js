@@ -5,10 +5,10 @@ import logo from '../../Assets/logo.png';
 import resetPass from '../../Assets/reset-pass.png';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
-import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 import { Slide } from 'react-reveal';
 import PageTitle from '../PageTitle/PageTitle';
+import Swal from 'sweetalert2';
 
 const ResetPass = () => {
 
@@ -17,12 +17,24 @@ const ResetPass = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     if (error) {
-        toast.error("Something went wrong. Please check your email and try again");
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Something went wrong. Please check your email and try again',
+            showConfirmButton: false,
+            timer: 2000
+        })
     };
 
     const onSubmit = async data => {
         await sendPasswordResetEmail(data.email);
-        toast.success('Reset link sent successfully. Please check your email !!');
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Reset link sent successfully. Please check your email !!',
+            showConfirmButton: false,
+            timer: 2000
+        })
     };
 
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const UpdateQuantity = () => {
 
@@ -14,7 +14,11 @@ const UpdateQuantity = () => {
         const url = `https://credible-technologies.herokuapp.com/update-product-quantity/${id}`;
 
         if (data.qnt < 0) {
-            toast.error("Enter a positive number");
+            Swal.fire(
+                'Error',
+                'Please enter a positive number',
+                'error'
+            )
             reset()
         } else {
             fetch(url, {
@@ -26,7 +30,13 @@ const UpdateQuantity = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast.success("New stock added");
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'New Stock Added Successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                     reset();
                 })
         }

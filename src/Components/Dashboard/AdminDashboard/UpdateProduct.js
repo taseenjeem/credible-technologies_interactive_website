@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const UpdateProduct = () => {
 
@@ -26,7 +26,13 @@ const UpdateProduct = () => {
             .then(result => {
                 console.log(result);
                 reset();
-                toast.success("Data updated successfully 😄");
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Data Updated Successfully',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
             });
 
 

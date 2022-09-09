@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import auth from '../../Firebase/firebase.init';
 import Loading from '../Loading/Loading';
 
@@ -16,7 +16,13 @@ const RequireAuth = ({ children }) => {
     }
 
     if (!user) {
-        toast.warning("You need to login first");
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'You need to login first',
+            showConfirmButton: false,
+            timer: 2000
+        })
     }
 
     if (user) {

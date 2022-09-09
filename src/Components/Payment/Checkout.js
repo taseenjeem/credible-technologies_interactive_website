@@ -1,6 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Checkout = ({ price, productDetails }) => {
 
@@ -48,7 +48,13 @@ const Checkout = ({ price, productDetails }) => {
         });
 
         if (error) {
-            toast.error(`${error?.message}`)
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: `${error?.message}`,
+                showConfirmButton: false,
+                timer: 2000
+            })
         };
 
 
@@ -67,11 +73,23 @@ const Checkout = ({ price, productDetails }) => {
         );
 
         if (intentError) {
-            toast.error(`${intentError?.message}`);
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: `${intentError?.message}`,
+                showConfirmButton: false,
+                timer: 2000
+            })
 
         } else {
             setTransactionId(paymentIntent?.id)
-            toast.success("Congratulation!! Your payment completed")
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Payment Completed Successfully',
+                showConfirmButton: false,
+                timer: 2000
+            })
 
             const payment = {
                 product: productDetails?._id,

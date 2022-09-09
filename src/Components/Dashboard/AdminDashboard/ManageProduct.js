@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Modal from 'react-modal';
+import Swal from 'sweetalert2';
 
 const ManageProduct = ({ product, refetch }) => {
 
@@ -44,7 +44,13 @@ const ManageProduct = ({ product, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast.success("Data deleted successfully");
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Data Deleted Successfully',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
                 refetch();
             })
     }

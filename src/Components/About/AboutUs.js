@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../PageTitle/PageTitle';
 import mission from '../../Assets/mission.png';
+import vision from '../../Assets/vission.png';
 
 const AboutUs = () => {
     return (
@@ -79,6 +80,16 @@ const AboutUs = () => {
                                 <p className='text-[12px] text-[#0B1B28] uppercase'>customer attention</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero min-h-screen mt-16 lg:mt-0">
+                <div class="hero-content flex-col lg:flex-row">
+                    <img src={vision} class="rounded-lg lg:w-[43%]" alt='' />
+                    <div>
+                        <h2 className='text-5xl text-neutral text-left capitalize font-bold leading-[70px] mb-2'>Our Vision</h2>
+                        <p className='text-base text-neutral text-left mb-8 leading-relaxed'>People love their electronics, and Credible Technologies Ltd claims to make the best, even going so far as to imply that they'll have more to offer than just entertainment value. Credible Technologies's vision is to "inspire the world with our innovative technologies, products, and design that enrich people's lives and contribute to social prosperity.</p>
                     </div>
                 </div>
             </div>

@@ -23,30 +23,30 @@ const Navbar = ({ children }) => {
 
     return (
 
-        <section className="drawer">
+        <section className="drawer pt-12">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
-                <div className="w-full navbar bg-base-100 lg:px-24 shadow-2xl">
+                <div className="w-full navbar bg-base-100 lg:px-24 fixed top-0 z-50">
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
-                    <div className="flex-1 lg:px-2 lg:mx-2"><Link to="/" className="btn btn-ghost p-2 normal-case lg:text-2xl text-xl font-bold"><img className='w-9 mr-2 App-logo' src={logo} alt="" />Credible Technologies Ltd.</Link></div>
+                    <div className="flex-1 lg:px-2 lg:mx-2"><Link to="/" className="btn btn-ghost p-2 normal-case lg:text-2xl text-xl font-bold" style={{ fontFamily: "Ubuntu" }}><img className='w-9 mr-2 App-logo' src={logo} alt="" />Credible Technologies Ltd.</Link></div>
                     <div className="flex-none hidden lg:block">
                         <ul className="menu menu-horizontal">
-                            <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
-                            <li className='mx-1'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
-                            <li className='mx-1'><NavLink className="rounded-3xl" to="/reviews">REVIEWS</NavLink></li>
-                            <li className='mx-1'><NavLink className="rounded-3xl" to="/blogs">BLOGS</NavLink></li>
-                            <li className='mx-1'><NavLink className="rounded-3xl" to="/my-portfolio">MY PORTFOLIO</NavLink></li>
+                            <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/home">Home</NavLink></li>
+                            <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/products">Products</NavLink></li>
+                            <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/reviews">Reviews</NavLink></li>
+                            <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/about-us">About Us</NavLink></li>
+                            <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/contact-us">Contact Us</NavLink></li>
                             {
                                 user && <li className='mx-1'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
                             }
                         </ul>
                     </div>
 
-                    {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block">LOG IN</button></Link> :
+                    {!user ? <Link to="/login"><button className="btn btn-neutral ml-3 hidden lg:block text-white">LOG IN</button></Link> :
                         <div className="dropdown dropdown-end hidden lg:block">
                             <label tabIndex="0" className="m-1">
                                 <div className="avatar online">
@@ -82,11 +82,11 @@ const Navbar = ({ children }) => {
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
 
-                    <li className='mx-1'><NavLink className="rounded-3xl" to="/home">HOME</NavLink></li>
-                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/products">PRODUCTS</NavLink></li>
-                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/reviews">REVIEWS</NavLink></li>
-                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/blogs">BLOGS</NavLink></li>
-                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl" to="/my-portfolio">MY PORTFOLIO</NavLink></li>
+                    <li className='mx-1'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/home">Home</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/products">Products</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/reviews">Reviews</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/about-us">About Us</NavLink></li>
+                    <li className='mx-1 mt-2'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/contact-us">Contact Us</NavLink></li>
                     {
                         user && <li className='mx-1 mt'><NavLink className="rounded-3xl" to="/dashboard">DASHBOARD</NavLink></li>
                     }

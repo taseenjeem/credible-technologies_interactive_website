@@ -13,23 +13,24 @@ const Product = ({ eachProduct }) => {
     }
 
     return (
-        <div>
-            <div className="card lg:card-side bg-white lg:h-[600px] shadow-2xl">
-                <figure><img src={img} alt="Album" className='p-6 lg:w-72' /></figure>
-                <div className="card-body">
-                    <h2 className="card-title font-bold">{name}</h2>
-                    <h3 className='text-xl font-semibold'>Price : ${price}</h3>
-                    <p className='text-sm'>Brand: <strong>{brand}</strong></p>
+        <div className="card shadow-2xl">
+            <figure><img src={img} className='w-full' alt="Shoes" /></figure>
+            <div className="card-body">
+                <h2 className="card-title font-bold">{name}</h2>
+                <div className='my-3'>
+                    <h3 className='text-xl font-semibold'>Price : $ {price}</h3>
+                    <p className='text-sm my-1'>Brand: <strong>{brand}</strong></p>
                     <p className='text-sm'>Manufacturer: <strong>{manufacturer}</strong></p>
-                    <p className='text-sm'>Available Quantity: <strong>{qnt}</strong></p>
-                    <p className='text-sm'>Minimum Order Quantity: <strong>{minimumQnt}</strong></p>
-                    <p className='my-3 text-gray-500'>{description.length > 250 ? description.slice(0, 250) + "..." : description}</p>
-                    <div className="card-actions justify-end">
-                        <button onClick={() => navigateToPurchase(_id)} className="btn">Order now</button>
-                    </div>
+                    <p className='text-sm my-1'>Available Quantity: <strong>{qnt}</strong></p>
+                    <p className='text-sm'>Minium Order Quantity: <strong>{minimumQnt}</strong></p>
+                </div>
+                <div className='overflow-y-auto h-40'>
+                    <p className='text-gray-500'>{description}</p>
                 </div>
             </div>
-
+            <div className="card-actions justify-end px-8 pb-3">
+                <button onClick={() => navigateToPurchase(_id)} className="btn w-full text-white">Order Now</button>
+            </div>
         </div>
     );
 };

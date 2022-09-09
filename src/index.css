@@ -5,3 +5,7 @@
 body {
     font-family: 'Be Vietnam Pro';
 }
+
+a.active {
+    color: white;
+}

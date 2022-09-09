@@ -2,6 +2,10 @@ import React from 'react';
 import PageTitle from '../PageTitle/PageTitle';
 import mission from '../../Assets/mission.png';
 import vision from '../../Assets/vission.png';
+import { Link } from 'react-router-dom';
+import { BsTelephoneFill } from 'react-icons/bs';
+import { IoLocationSharp } from 'react-icons/io5';
+import { MdEmail } from 'react-icons/md';
 
 const AboutUs = () => {
     return (
@@ -90,6 +94,44 @@ const AboutUs = () => {
                     <div>
                         <h2 className='text-5xl text-neutral text-left capitalize font-bold leading-[70px] mb-2'>Our Vision</h2>
                         <p className='text-base text-neutral text-left mb-8 leading-relaxed'>People love their electronics, and Credible Technologies Ltd claims to make the best, even going so far as to imply that they'll have more to offer than just entertainment value. Credible Technologies's vision is to "inspire the world with our innovative technologies, products, and design that enrich people's lives and contribute to social prosperity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className='container mx-auto my-[100px]'>
+                <h2 className='text-3xl text-[#0B1B28] font-bold mb-4 text-center'>Beliving neglected so so allowance</h2>
+                <p className='text-[14px] text-[#0B1B28] text-center mb-4'>We so opinion friends me message delight. Whole front do of <br /> plate heard oh ought. His defective convinced residence own.</p>
+                <div className='flex justify-center'>
+                    <Link to='/contact-us' className='btn-sm btn capitalize border-none text-white mx-auto rounded-3xl'>give us your thoughts</Link>
+                </div>
+
+                <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto mt-12'>
+                    <div class="card w-full bg-white shadow-lg text-primary-content max-h-60">
+                        <div className="p-4 text-left">
+                            <div className='bg-[#65C3C8] p-3 w-10 rounded mb-4'>
+                                <BsTelephoneFill className='text-white text-lg' />
+                            </div>
+                            <h2 class="text-[#0B1B28] font-bold text-[18px] capitalize mb-3">Ask a potential mistress</h2>
+                            <p className='text-[#0B1B28] text-[14px]'>If you have any queries then you can direct contact us through our phone number. We give 24/7 customer support.</p>
+                        </div>
+                    </div>
+                    <div class="card w-full bg-white shadow-lg text-primary-content max-h-60">
+                        <div className="p-4 text-left">
+                            <div className='bg-[#65C3C8] p-3 w-10 rounded mb-4'>
+                                <IoLocationSharp className='text-white text-lg' />
+                            </div>
+                            <h2 class="text-[#0B1B28] font-bold text-[18px] capitalize mb-3">Over 80 official outlets</h2>
+                            <p className='text-[#0B1B28] text-[14px]'>We are available in 86 countries in the world. They can issue warranty any where from our outlets. Because we provide international warranty.</p>
+                        </div>
+                    </div>
+                    <div class="card w-full bg-white shadow-lg text-primary-content max-h-60">
+                        <div className="p-4 text-left">
+                            <div className='bg-[#65C3C8] p-3 w-10 rounded mb-4'>
+                                <MdEmail className='text-white text-lg' />
+                            </div>
+                            <h2 class="text-[#0B1B28] font-bold text-[18px] mb-3">24/7 Customer Support</h2>
+                            <p className='text-[#0B1B28] text-[14px]'>You can email us for contact. Our email is helpdesk@credible.tech to reach us and you can also take career options.</p>
+                        </div>
                     </div>
                 </div>
             </div>

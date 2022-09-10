@@ -6,8 +6,43 @@ import icon3 from '../../Assets/Icons/icon (3).png';
 import icon4 from '../../Assets/Icons/icon (4).png';
 import business from '../../Assets/business.png';
 import CountUp from 'react-countup';
+import Swal from 'sweetalert2';
 
 const BusinessSummery = () => {
+
+    const handleSubmit = e => {
+
+        e.preventDefault();
+        const email = e.target.mail.value;
+
+        if (email === "") {
+
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Please enter your email.',
+                showConfirmButton: true,
+                timer: false
+            })
+
+            e.target.reset();
+
+        } else {
+
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'You have successfully subscriber to our newsletter services.',
+                showConfirmButton: true,
+                timer: false
+            })
+
+            e.target.reset();
+
+        }
+
+    }
+
     return (
         <section className='lg:px-24 px-3 my-36 bg-cover object-cover ' style={{ backgroundImage: `url(${business})` }}>
 
@@ -49,18 +84,16 @@ const BusinessSummery = () => {
                         <h1 className='text-2xl font-bold text-primary'>Have any suggestion for us or want to know our improvements?</h1>
                         <h2 className='text-xl my-5'>to get updated, subscribe us</h2>
                     </div>
-                    <div className='lg:w-3/6 lg:flex lg:justify-center'>
+                    <form onSubmit={handleSubmit} className='lg:w-3/6 lg:flex lg:justify-center'>
                         <div>
                             <div className="form-control">
                                 <div className="input-group">
-                                    <input type="email" placeholder="your email" className="input input-bordered w-full" />
-                                    <button className="btn">
-                                        subscribe
-                                    </button>
+                                    <input type="email" name='mail' placeholder="your email" className="input input-bordered w-full" />
+                                    <input type="submit" className='btn text-white' value="subscribe" />
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </Zoom>
 

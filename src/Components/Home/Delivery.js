@@ -5,7 +5,7 @@ import shipping from "../../Assets/Icons/shipping.png";
 
 const Delivery = () => {
     return (
-        <section className='mb-36'>
+        <section className='mb-16'>
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row">
                     <Slide left><img src={delivery} className="lg:w-3/6 drop-shadow-xl" alt='' /></Slide>

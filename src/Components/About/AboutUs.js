@@ -64,12 +64,12 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            <div class="hero min-h-screen mt-16 lg:mt-0">
+            <div class="hero my-24">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                     <img src={mission} class="rounded-lg lg:w-3/6" alt='' />
                     <div>
                         <h1 className='text-5xl text-neutral capitalize font-bold mb-2 text-left leading-[70px]'>our mission</h1>
-                        <p className='text-base text-neutral text-left mb-8 leading-relaxed'>Our mission is to provide quality but affordable electronics for education, entertainment, self-development and self-fulfillment; to all when the need arises by: Providing a wide range of technologies to satisfy our clients. Exceeding our customer's expectation in their requirements.</p>
+                        <p className='text-base text-neutral mb-8 leading-relaxed text-justify'>Our mission is to provide quality but affordable electronics for education, entertainment, self-development and self-fulfillment; to all when the need arises by: Providing a wide range of technologies to satisfy our clients. Exceeding our customer's expectation in their requirements.</p>
                         <div className='flex justify-between items-center '>
                             <div className='relative'>
                                 <h4 className='text-[18px] text-[#7D52F4] font-bold text-center '>94%</h4>
@@ -88,17 +88,17 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            <div class="hero min-h-screen mt-16 lg:mt-0">
+            <div class="hero mt-16 lg:mt-0">
                 <div class="hero-content flex-col lg:flex-row">
                     <img src={vision} class="rounded-lg lg:w-[43%]" alt='' />
                     <div>
                         <h2 className='text-5xl text-neutral text-left capitalize font-bold leading-[70px] mb-2'>Our Vision</h2>
-                        <p className='text-base text-neutral text-left mb-8 leading-relaxed'>People love their electronics, and Credible Technologies Ltd claims to make the best, even going so far as to imply that they'll have more to offer than just entertainment value. Credible Technologies's vision is to "inspire the world with our innovative technologies, products, and design that enrich people's lives and contribute to social prosperity.</p>
+                        <p className='text-base text-neutral mb-8 leading-relaxed text-justify'>People love their electronics, and Credible Technologies Ltd claims to make the best, even going so far as to imply that they'll have more to offer than just entertainment value. Credible Technologies's vision is to "inspire the world with our innovative technologies, products, and design that enrich people's lives and contribute to social prosperity.</p>
                     </div>
                 </div>
             </div>
 
-            <div className='container mx-auto my-[100px]'>
+            <div className='container mx-auto lg:my-[100px] my-10'>
                 <h2 className='text-3xl text-[#0B1B28] font-bold mb-4 text-center'>Beliving neglected so so allowance</h2>
                 <p className='text-[14px] text-[#0B1B28] text-center mb-4'>We so opinion friends me message delight. Whole front do of <br /> plate heard oh ought. His defective convinced residence own.</p>
                 <div className='flex justify-center'>
@@ -107,30 +107,30 @@ const AboutUs = () => {
 
                 <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto mt-12'>
                     <div class="card w-full bg-white shadow-lg text-primary-content max-h-60">
-                        <div className="p-4 text-left">
+                        <div className="p-6 text-left">
                             <div className='bg-[#65C3C8] p-3 w-10 rounded mb-4'>
                                 <BsTelephoneFill className='text-white text-lg' />
                             </div>
                             <h2 class="text-[#0B1B28] font-bold text-[18px] capitalize mb-3">Ask a potential mistress</h2>
-                            <p className='text-[#0B1B28] text-[14px]'>If you have any queries then you can direct contact us through our phone number. We give 24/7 customer support.</p>
+                            <p className='text-[#0B1B28] text-[14px] text-justify'>If you have any queries then you can direct contact us through our phone number. We give 24/7 customer support.</p>
                         </div>
                     </div>
                     <div class="card w-full bg-white shadow-lg text-primary-content max-h-60">
-                        <div className="p-4 text-left">
+                        <div className="p-6 text-left">
                             <div className='bg-[#65C3C8] p-3 w-10 rounded mb-4'>
                                 <IoLocationSharp className='text-white text-lg' />
                             </div>
                             <h2 class="text-[#0B1B28] font-bold text-[18px] capitalize mb-3">Over 80 official outlets</h2>
-                            <p className='text-[#0B1B28] text-[14px]'>We are available in 86 countries in the world. They can issue warranty any where from our outlets. Because we provide international warranty.</p>
+                            <p className='text-[#0B1B28] text-[14px] text-justify'>We are available in 86 countries in the world. They can issue warranty any where from our outlets. Because we provide international warranty.</p>
                         </div>
                     </div>
                     <div class="card w-full bg-white shadow-lg text-primary-content max-h-60">
-                        <div className="p-4 text-left">
+                        <div className="p-6 text-left">
                             <div className='bg-[#65C3C8] p-3 w-10 rounded mb-4'>
                                 <MdEmail className='text-white text-lg' />
                             </div>
                             <h2 class="text-[#0B1B28] font-bold text-[18px] mb-3">24/7 Customer Support</h2>
-                            <p className='text-[#0B1B28] text-[14px]'>You can email us for contact. Our email is helpdesk@credible.tech to reach us and you can also take career options.</p>
+                            <p className='text-[#0B1B28] text-[14px] text-justify'>You can email us for contact. Our email is helpdesk@credible.tech to reach us and you can also take career options.</p>
                         </div>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ import PageTitle from '../PageTitle/PageTitle';
 import Community from './Community';
 import Delivery from './Delivery';
 import Faq from './Faq';
+import OtherServices from './OtherServices';
 import ProductsForHomePage from './ProductsForHomePage';
 import Reviews from './Reviews';
 
@@ -16,6 +17,7 @@ const Home = () => {
 
             <Banner />
             <BusinessSummery />
+            <OtherServices />
             <ProductsForHomePage />
             <Delivery />
             <Reviews />

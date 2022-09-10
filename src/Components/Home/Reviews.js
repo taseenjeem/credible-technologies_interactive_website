@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query';
-import { Slide } from 'react-reveal';
 import { Link } from 'react-router-dom';
 import quote from '../../Assets/Icons/quote.png';
 import Loading from '../Loading/Loading';
@@ -21,13 +20,11 @@ const Reviews = () => {
     return (
         <section className='lg:px-24 px-3 mt-28'>
             <div className='flex justify-between items-center'>
-                <Slide left>
-                    <div>
-                        <h3 className='text-primary text-xl font-bold'>Reviews</h3>
-                        <h1 className='text-4xl font-semibold my-2'>What Our Customer Say</h1>
-                    </div>
-                </Slide>
-                <Slide right><img className='lg:w-48 w-24' src={quote} alt="" /></Slide>
+                <div>
+                    <h3 className='text-primary text-xl font-bold'>Reviews</h3>
+                    <h1 className='text-4xl font-semibold my-2'>What Our Customer Say</h1>
+                </div>
+                <img className='lg:w-48 w-24' src={quote} alt="" />
             </div>
             <div className='grid lg:grid-cols-3 lg:gap-7 gap-20 mt-28 lg:mt-20'>
 

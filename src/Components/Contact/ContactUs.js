@@ -40,7 +40,7 @@ const ContactUs = () => {
     }
 
     return (
-        <section className='lg:px-24 px-3 my-28'>
+        <section className='mx-auto max-w-screen-xl px-3 my-28'>
 
             <PageTitle title="Contact Us" />
 

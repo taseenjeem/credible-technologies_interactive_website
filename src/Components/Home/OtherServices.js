@@ -10,7 +10,7 @@ import icon8 from '../../Assets/Icons/8-1.png';
 
 const OtherServices = () => {
     return (
-        <section className='lg:px-24 px-3 my-32'>
+        <section className='mx-auto max-w-screen-xl px-3 my-32'>
 
             <div>
 

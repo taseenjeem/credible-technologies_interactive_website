@@ -18,7 +18,7 @@ const Reviews = () => {
     }
 
     return (
-        <section className='lg:px-24 px-3 mt-28'>
+        <section className='mx-auto max-w-screen-xl px-3 mt-28'>
             <div className='flex justify-between items-center'>
                 <div>
                     <h3 className='text-primary text-xl font-bold'>Reviews</h3>

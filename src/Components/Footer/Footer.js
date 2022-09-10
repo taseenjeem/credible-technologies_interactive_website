@@ -6,7 +6,7 @@ import footerBg from '../../Assets/footer.png';
 const Footer = () => {
     return (
         <section className='bg-cover bg-no-repeat' style={{ backgroundImage: `url(${footerBg})` }}>
-            <footer className="footer p-10 text-base-content lg:px-24 px-3 grid lg:grid-cols-3 grid-cols-2">
+            <footer className="footer p-10 text-base-content mx-auto max-w-screen-xl px-3 grid lg:grid-cols-3 grid-cols-2">
                 <div className='mx-auto'>
                     <span className="footer-title">Services</span>
                     <Link to="/" className="link link-hover">Branding</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
                     <Link to="/" className="link link-hover">Cookie policy</Link>
                 </div>
             </footer>
-            <footer className="footer py-4 border-t text-base-content lg:px-24 px-3">
+            <footer className="footer py-4 border-t text-base-content mx-auto max-w-screen-xl px-3">
                 <div className="items-center grid-flow-col">
                     <img className='w-9' src={logo} alt="" />
                     <p><span className='font-bold'>Credible Technologies Ltd.</span> <br />Providing reliable tech since 2016</p>

@@ -7,7 +7,7 @@ import logo from '../../Assets/logo.png';
 
 const Community = () => {
     return (
-        <section className='lg:px-24 px-3 my-32'>
+        <section className='mx-auto max-w-screen-xl px-3 my-32'>
 
             <div>
                 <h1 className='text-primary text-center text-3xl lg:text-5xl font-semibold mt-20 mb-5'>Join Into Our Hub</h1>

@@ -5,7 +5,7 @@ import tech from '../../Assets/Icons/virtual-min.png';
 
 const Work = () => {
     return (
-        <section className='lg:px-24 px-3 my-32'>
+        <section className='mx-auto max-w-screen-xl px-3 my-32'>
 
             <div>
 

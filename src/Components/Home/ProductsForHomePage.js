@@ -16,7 +16,7 @@ const ProductsForHomePage = () => {
     }
 
     return (
-        <section className='lg:px-24 px-3 my-32'>
+        <section className='mx-auto max-w-screen-xl px-3 my-32'>
 
             <h1 className='text-primary text-center text-3xl lg:text-5xl font-semibold my-20'>Our Best Selling Products</h1>
             <div className='grid lg:grid-cols-3 gap-10'>

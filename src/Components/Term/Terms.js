@@ -3,7 +3,7 @@ import PageTitle from '../PageTitle/PageTitle';
 
 const Terms = () => {
     return (
-        <section className='lg:px-24 px-3 my-28'>
+        <section className='mx-auto max-w-screen-xl px-3 my-28'>
 
             <PageTitle title="Terms and Conditions" />
 

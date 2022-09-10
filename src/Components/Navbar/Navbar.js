@@ -14,18 +14,24 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    const logout = () => {
-        signOut(auth);
-        localStorage.removeItem('accessToken');
-        navigate("/");
+    const handleLogout = () => {
+
         Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Logout Successful',
-            showConfirmButton: false,
-            timer: 2000
+            title: `${user.displayName}, are you sure for logout?`,
+            showCancelButton: true,
+            icon: 'warning',
+            confirmButtonText: 'Logout',
+            denyButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                signOut(auth);
+                localStorage.removeItem('accessToken');
+                navigate("/");
+                Swal.fire('Logout Successful', '', 'success')
+            };
         })
-    };
+
+    }
 
     return (
 
@@ -45,7 +51,7 @@ const Navbar = () => {
                             user && <li className='mx-1 mt'><NavLink className="rounded-3xl font-semibold focus:text-white" to="/dashboard">Dashboard</NavLink></li>
                         }
 
-                        {!user ? <Link to="/login"><button to="/login" className="btn mt-2 btn-neutral w-full">LOG IN</button></Link> : <label htmlFor="logout-btn-2" className="btn mt-2 text-white modal-button">Log Out</label>}
+                        {!user ? <Link to="/login"><button to="/login" className="btn mt-2 btn-neutral w-full">LOG IN</button></Link> : <button onClick={() => handleLogout()} className="btn text-white">Log Out</button>}
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost hover:bg-white p-2 normal-case lg:text-2xl text-xl font-bold" style={{ fontFamily: "Ubuntu" }}><img className='w-9 mr-2 App-logo' src={logo} alt="" />Credible Technologies Ltd.</Link>
@@ -75,19 +81,8 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-64">
                             <li className='my-2 text-center'>{user?.displayName}</li>
-                            <li><label htmlFor="logout-btn" className="btn text-white modal-button">Log Out</label></li>
+                            <button onClick={() => handleLogout()} className="btn text-white">Log Out</button>
                         </ul>
-
-                        <input type="checkbox" id="logout-btn" className="modal-toggle" />
-                        <div className="modal modal-bottom sm:modal-middle">
-                            <div className="modal-box">
-                                <label htmlFor="logout-btn" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                <h3 className="font-bold text-lg">{user?.displayName}, are you sure for logout?</h3>
-                                <div className="modal-action">
-                                    <button htmlFor="logout-btn" onClick={() => logout()} className="btn btn-neutral hidden lg:block">Log out</button>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>}
             </div>

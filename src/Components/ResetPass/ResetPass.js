@@ -49,42 +49,45 @@ const ResetPass = () => {
 
                     :
 
-                    <div className="h-screen my-16 bg-cover bg-no-repeat pt-10" style={{ backgroundImage: `url(${bg})` }}>
+                    <div className="hero min-h-screen bg-fixed" style={{ backgroundImage: `url(${bg})` }}>
+                        <div className="hero-overlay bg-opacity-50"></div>
+                        <div className="hero-content text-center text-neutral-content">
+                            <div className="">
+                                <div className='mx-auto glass p-9 rounded-xl'>
 
-                        <div className='lg:w-[27%] w-[90%] mx-auto glass p-9 rounded-xl'>
+                                    <h1 className='text-center lg:text-2xl text-xl font-bold text-primary'><img className='w-8 contrast-200 App-logo inline-block mt-[-6px]' src={logo} alt="" /> Credible Technologies</h1>
+                                    <p className='text-center font-bold my-3 text-white'>USER LOGIN</p>
 
-                            <h1 className='text-center lg:text-2xl text-xl font-bold text-primary'><img className='w-8 contrast-200 App-logo inline-block mt-[-6px]' src={logo} alt="" /> Credible Technologies</h1>
-                            <p className='text-center font-bold my-3 text-white'>USER LOGIN</p>
+                                    <form onSubmit={handleSubmit(onSubmit)}>
+                                        <div className="form-control">
+                                            <label className="label">
+                                                <span className="label-text text-white">Your existing email</span>
+                                            </label>
+                                            <input type="email" placeholder="email" className="input input-bordered" {...register("email", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Email is required"
+                                                },
+                                                pattern: {
+                                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                    message: "Provide a valid email"
+                                                }
+                                            })} />
+                                            <label className="label">
+                                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                            </label>
+                                        </div>
 
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text text-white">Your existing email</span>
-                                    </label>
-                                    <input type="email" placeholder="email" className="input input-bordered" {...register("email", {
-                                        required: {
-                                            value: true,
-                                            message: "Email is required"
-                                        },
-                                        pattern: {
-                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                            message: "Provide a valid email"
-                                        }
-                                    })} />
-                                    <label className="label">
-                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                    </label>
+                                        <input type="submit" value='Reset Password' className="btn text-white w-full mt-3" />
+                                    </form>
+
+
+                                    <Link to="/Login" className="text-sm link link-hover flex justify-center mt-4 text-white">Return to login page</Link>
+
                                 </div>
-
-                                <input type="submit" value='Reset Password' className="btn text-white w-full mt-3" />
-                            </form>
-
-
-                            <Link to="/Login" className="text-sm link link-hover flex justify-center mt-4 text-white">Return to login page</Link>
-
+                            </div>
                         </div>
-
                     </div>
             }
         </section>

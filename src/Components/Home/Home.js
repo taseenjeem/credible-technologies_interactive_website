@@ -8,6 +8,7 @@ import Faq from './Faq';
 import OtherServices from './OtherServices';
 import ProductsForHomePage from './ProductsForHomePage';
 import Reviews from './Reviews';
+import Work from './Work';
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <Banner />
             <BusinessSummery />
             <OtherServices />
+            <Work />
             <ProductsForHomePage />
             <Delivery />
             <Reviews />

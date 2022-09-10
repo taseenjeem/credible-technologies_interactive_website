@@ -23,8 +23,8 @@ const HomepageProduct = ({ eachProduct }) => {
                     <p className='text-sm my-1'>Available Quantity: <strong>{qnt}</strong></p>
                     <p className='text-sm'>Minium Order Quantity: <strong>{minimumQnt}</strong></p>
                 </div>
-                <div className='overflow-y-auto h-40'>
-                    <p className='text-gray-500 leading-relaxed'>{description}</p>
+                <div className='overflow-y-auto h-40 p-1'>
+                    <p className='text-gray-500 leading-relaxed text-justify'>{description}</p>
                 </div>
             </div>
             <div className="card-actions justify-end px-8 pb-3">

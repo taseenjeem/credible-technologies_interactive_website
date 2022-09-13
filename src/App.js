@@ -33,6 +33,7 @@ import UpdateProfile from './Components/Dashboard/UpdateProfile';
 import AboutUs from './Components/About/AboutUs';
 import ContactUs from './Components/Contact/ContactUs';
 import Terms from './Components/Term/Terms';
+import Overview from './Components/Dashboard/AdminDashboard/Overview';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -62,7 +63,7 @@ function App() {
 
             {
               admin ?
-                <Route index element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
+                <Route index element={<RequireAdmin><Overview /></RequireAdmin>} />
                 :
                 <Route index element={<MyOrders />} />
             }
@@ -71,6 +72,7 @@ function App() {
             <Route path='update-profile/:id' element={<UpdateProfile />} />
             <Route path='payment/:id' element={<Payment />} />
             <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+            <Route path='overview' element={<RequireAdmin><Overview /></RequireAdmin>} />
             <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
             <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
             <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />

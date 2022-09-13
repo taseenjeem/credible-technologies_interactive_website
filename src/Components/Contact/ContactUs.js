@@ -55,7 +55,7 @@ const ContactUs = () => {
 
             </div>
 
-            <div className='lg:w-[1196px] sm:block lg:flex justify-around items-center mx-auto text-justify mt-24 lg:mt-0 lg:h-screen'>
+            <div className='lg:w-[1196px] sm:block lg:flex justify-around items-center mx-auto mt-24 lg:mt-0 lg:h-screen'>
 
                 <img src={contact} className="lg:w-[45%] drop-shadow-xl mb-10 lg:mb-0" alt="" />
 

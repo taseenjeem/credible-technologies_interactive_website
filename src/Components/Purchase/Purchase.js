@@ -160,7 +160,7 @@ const Purchase = () => {
                             <span className="label-text font-bold">Description :</span>
                         </label>
                         <div className='mb-7 h-32 p-4 border-2 rounded-2xl overflow-y-auto leading-relaxed'>
-                            <p className='text-justify'>{product?.description}</p>
+                            <p className='leading-relaxed'>{product?.description}</p>
                         </div>
                         <p className="text-base leading-4 mt-7 text-gray-600"><strong>Manufacturer :</strong> {product?.manufacturer}</p>
                         <p className="text-base leading-4 my-5 text-gray-600"><strong>Brand Name :</strong> {product?.brand}</p>

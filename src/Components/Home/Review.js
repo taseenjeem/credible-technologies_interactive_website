@@ -14,7 +14,7 @@ const Review = ({ review }) => {
                 <h2 className="text-gray-800 text-3xl font-semibold">{name}</h2>
                 <h2 className="text-gray-800 text-lg font-semibold my-2">{rate} out of 5<BsStarFill className='inline-block -mt-2 ml-2 text-yellow-500' /></h2>
                 <div className='overflow-y-auto h-[200px] p-1'>
-                    <p className="mt-2 text-gray-600 text-justify">{message}</p>
+                    <p className="mt-2 text-gray-600">{message}</p>
                 </div>
             </div>
             <div className="flex justify-end mt-4">

@@ -15,9 +15,9 @@ const ManageOrders = () => {
 
     return (
         <section className='lg:px-16 px-3 mb-24'>
-            <h1 className='text-center text-2xl font-semibold my-4'>Orders from Customers : {allOrders?.length}</h1>
+            <h1 className='text-center text-2xl font-semibold my-10'>Orders from Customers : {allOrders?.length}</h1>
 
-            <div className='grid lg:grid-cols-3 gap-6'>
+            <div className='grid lg:grid-cols-2 gap-16'>
 
                 {
                     allOrders?.map(order => <OrderRow

@@ -1,8 +1,12 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Legend, Bar, Line } from 'recharts';
 import CountUp from 'react-countup';
+import auth from '../../../Firebase/firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Overview = () => {
+
+    const [user] = useAuthState(auth)
 
     const data = [
         {
@@ -84,42 +88,44 @@ const Overview = () => {
     return (
         <section className='lg:overflow-hidden'>
 
+            <h1 className='text-2xl font-semibold lg:ml-10 ml-3 mt-7'>Welcome back, <span className='text-purple-600'>{user.displayName}</span></h1>
+
             <div className='flex justify-center mt-10'>
-                <div className="rounded-lg grid lg:grid-cols-6 grid-cols-2 bg-primary shadow-md">
+                <div className="rounded-lg grid lg:grid-cols-6 grid-cols-2 bg-primary w-full lg:mx-10 mx-3 shadow-md">
 
                     <div className="stat">
                         <div className="">Weekly Orders</div>
-                        <div className="stat-value my-1"><CountUp end={68} duration={5} />K</div>
+                        <div className="stat-value lg:my-3"><CountUp end={68} duration={5} />K</div>
                         <div className="">↗ 110 (42%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">New Users</div>
-                        <div className="stat-value my-1"><CountUp end={4200} duration={5} /></div>
+                        <div className="stat-value lg:my-3"><CountUp end={4200} duration={5} /></div>
                         <div className="">↗ 400 (22%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">New Registers</div>
-                        <div className="stat-value my-1"><CountUp end={1200} duration={5} /></div>
+                        <div className="stat-value lg:my-3"><CountUp end={1200} duration={5} /></div>
                         <div className="">↘︎ 90 (14%)</div>
                     </div>
 
                     <div className="stat">
-                        <div className="">Total Companies</div>
-                        <div className="stat-value my-1"><CountUp end={986} duration={5} /></div>
+                        <div className="">Traffic</div>
+                        <div className="stat-value lg:my-3"><CountUp end={350} duration={5} />K</div>
                         <div className="">↗ 60 (19%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">Total Feedback</div>
-                        <div className="stat-value my-1"><CountUp end={882} duration={5} /></div>
+                        <div className="stat-value lg:my-3"><CountUp end={882} duration={5} /></div>
                         <div className="">↗ 120 (39%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">Order Amount</div>
-                        <div className="stat-value my-1">$ <CountUp end={180} duration={5} />M</div>
+                        <div className="stat-value lg:my-3">$ <CountUp end={180} duration={5} />M</div>
                         <div className="">↗ 60 (19%)</div>
                     </div>
 

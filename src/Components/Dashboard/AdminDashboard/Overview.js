@@ -1,5 +1,6 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Legend, Bar, Line } from 'recharts';
+import CountUp from 'react-countup';
 
 const Overview = () => {
 
@@ -88,39 +89,38 @@ const Overview = () => {
 
                     <div className="stat">
                         <div className="">Weekly Orders</div>
-                        <div className="stat-value my-1">31K</div>
-                        <div className="">Jan 1st - Feb 1st</div>
+                        <div className="stat-value my-1"><CountUp end={68} duration={5} />K</div>
+                        <div className="">↗ 110 (42%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">New Users</div>
-                        <div className="stat-value my-1">4,200</div>
+                        <div className="stat-value my-1"><CountUp end={4200} duration={5} /></div>
                         <div className="">↗ 400 (22%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">New Registers</div>
-                        <div className="stat-value my-1">1,200</div>
+                        <div className="stat-value my-1"><CountUp end={1200} duration={5} /></div>
                         <div className="">↘︎ 90 (14%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">Total Companies</div>
-                        <div className="stat-value my-1">986</div>
+                        <div className="stat-value my-1"><CountUp end={986} duration={5} /></div>
                         <div className="">↗ 60 (19%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">Total Feedback</div>
-                        <div className="stat-value my-1">882</div>
+                        <div className="stat-value my-1"><CountUp end={882} duration={5} /></div>
                         <div className="">↗ 120 (39%)</div>
                     </div>
 
                     <div className="stat">
                         <div className="">Order Amount</div>
-                        <div className="stat-value my-1">$ 1.2M</div>
+                        <div className="stat-value my-1">$ <CountUp end={180} duration={5} />M</div>
                         <div className="">↗ 60 (19%)</div>
-                        <div className="text-sm mt-1">1 Feb - 2 March</div>
                     </div>
 
                 </div>

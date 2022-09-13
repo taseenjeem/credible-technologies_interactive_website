@@ -63,21 +63,25 @@ function App() {
 
             {
               admin ?
-                <Route index element={<RequireAdmin><Overview /></RequireAdmin>} />
+                <>
+                  <Route index element={<RequireAdmin><Overview /></RequireAdmin>} />
+                  <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+                  <Route path='overview' element={<RequireAdmin><Overview /></RequireAdmin>} />
+                  <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+                  <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
+                  <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
+                  <Route path='update-a-product/:id' element={<RequireAdmin><UpdateProduct /></RequireAdmin>} />
+                  <Route path='update-product-quantity/:id' element={<RequireAdmin><UpdateQuantity /></RequireAdmin>} />
+                </>
                 :
-                <Route index element={<MyOrders />} />
+                <>
+                  <Route index element={<MyOrders />} />
+                  <Route path='add-review' element={<AddAReview />} />
+                  <Route path='my-profile' element={<MyProfile />} />
+                  <Route path='update-profile/:id' element={<UpdateProfile />} />
+                  <Route path='payment/:id' element={<Payment />} />
+                </>
             }
-            <Route path='add-review' element={<AddAReview />} />
-            <Route path='my-profile' element={<MyProfile />} />
-            <Route path='update-profile/:id' element={<UpdateProfile />} />
-            <Route path='payment/:id' element={<Payment />} />
-            <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-            <Route path='overview' element={<RequireAdmin><Overview /></RequireAdmin>} />
-            <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
-            <Route path='manage-all-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
-            <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
-            <Route path='update-a-product/:id' element={<RequireAdmin><UpdateProduct /></RequireAdmin>} />
-            <Route path='update-product-quantity/:id' element={<RequireAdmin><UpdateQuantity /></RequireAdmin>} />
 
           </Route>
 

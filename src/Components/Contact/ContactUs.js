@@ -62,13 +62,13 @@ const ContactUs = () => {
                 <div className=' sm:w-full lg:w-[60%] sm:ml-0 mt-5 lg:mt-0 lg:ml-10'>
                     <form onSubmit={formControl}>
                         <div className='flex justify-between items-center'>
-                            <input type="text" name='fname' placeholder="First Name" class="input input-bordered text-[#0B1B28] p-4 bg-[#FFF9F9] w-full mr-2" />
-                            <input type="text" name='lname' placeholder="Last Name" class="input input-bordered text-[#0B1B28] p-4  bg-[#FFF9F9] w-full ml-2" />
+                            <input type="text" name='fname' placeholder="First Name" className="input input-bordered text-[#0B1B28] p-4 bg-[#FFF9F9] w-full mr-2" />
+                            <input type="text" name='lname' placeholder="Last Name" className="input input-bordered text-[#0B1B28] p-4  bg-[#FFF9F9] w-full ml-2" />
                         </div>
                         <br />
-                        <input type="email" name='email' placeholder="Email" class="input input-bordered text-[#0B1B28] p-4 bg-[#FFF9F9] w-full" />
+                        <input type="email" name='email' placeholder="Email" className="input input-bordered text-[#0B1B28] p-4 bg-[#FFF9F9] w-full" />
                         <br />
-                        <input type="text" name='msg' placeholder="Message" class="textarea mt-5 h-44 textarea-bordered text-[#0B1B28] p-4 bg-[#FFF9F9] w-full" />
+                        <input type="text" name='msg' placeholder="Message" className="textarea mt-5 h-44 textarea-bordered text-[#0B1B28] p-4 bg-[#FFF9F9] w-full" />
                         <input type="submit" className='btn w-full text-white mt-5' value="Submit" />
                     </form>
                 </div>

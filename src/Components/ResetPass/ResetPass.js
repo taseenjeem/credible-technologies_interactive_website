@@ -63,7 +63,7 @@ const ResetPass = () => {
                                             <label className="label">
                                                 <span className="label-text text-white">Your existing email</span>
                                             </label>
-                                            <input type="email" placeholder="email" className="input input-bordered" {...register("email", {
+                                            <input type="email" placeholder="email" className="input input-bordered text-black" {...register("email", {
                                                 required: {
                                                     value: true,
                                                     message: "Email is required"

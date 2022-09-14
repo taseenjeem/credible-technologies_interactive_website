@@ -83,7 +83,7 @@ const SignUp = () => {
                                             <label className="label">
                                                 <span className="label-text text-white">Name</span>
                                             </label>
-                                            <input type="text" placeholder="your name" className="input input-bordered" {...register("name", {
+                                            <input type="text" placeholder="your name" className="input input-bordered text-black" {...register("name", {
                                                 required: {
                                                     value: true,
                                                     message: "Name is required"
@@ -98,7 +98,7 @@ const SignUp = () => {
                                             <label className="label">
                                                 <span className="label-text text-white">Email</span>
                                             </label>
-                                            <input type="email" placeholder="email" className="input input-bordered" {...register("email", {
+                                            <input type="email" placeholder="email" className="input input-bordered text-black" {...register("email", {
                                                 required: {
                                                     value: true,
                                                     message: "Email is required"
@@ -118,7 +118,7 @@ const SignUp = () => {
                                             <label className="label">
                                                 <span className="label-text text-white">Password</span>
                                             </label>
-                                            <input type="password" placeholder="password" className="input input-bordered" {...register("password", {
+                                            <input type="password" placeholder="password" className="input input-bordered text-black" {...register("password", {
                                                 required: {
                                                     value: true,
                                                     message: "Password is required"

@@ -21,45 +21,47 @@ const Login = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    if (googleError?.message === "Firebase: Error (auth/popup-closed-by-user).") {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'You closed the popup',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    };
+    useEffect(() => {
+        if (googleError?.message === "Firebase: Error (auth/popup-closed-by-user).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'You closed the popup',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
 
-    if (error?.message === "Firebase: Error (auth/wrong-password).") {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'You entered a wrong password',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    };
+        if (error?.message === "Firebase: Error (auth/wrong-password).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'You entered a wrong password',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
 
-    if (error?.message === "Firebase: Error (auth/invalid-email).") {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Invalid Email',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    };
+        if (error?.message === "Firebase: Error (auth/invalid-email).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Invalid Email',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
 
-    if (error?.message === "Firebase: Error (auth/user-not-found).") {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'No user found. Please check your E-mail',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    };
+        if (error?.message === "Firebase: Error (auth/user-not-found).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'No user found. Please check your E-mail',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
+    }, [error?.message, googleError?.message])
 
     const onSubmit = async data => {
         await signInWithEmailAndPassword(data.email, data.password);

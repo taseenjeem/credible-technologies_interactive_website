@@ -3,14 +3,27 @@ import { Link, Outlet } from 'react-router-dom';
 import { IoMdOptions } from 'react-icons/io';
 import auth from '../../Firebase/firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import useAdmin from '../../hooks/useAdmin';
 import PageTitle from '../PageTitle/PageTitle';
+import { useQuery } from 'react-query';
+import Loading from '../Loading/Loading';
 
 const Dashboard = () => {
 
     const [user] = useAuthState(auth);
 
-    const [admin] = useAdmin(user);
+    const { data, isLoading } = useQuery('admin', () => fetch(`https://credible-technologies.herokuapp.com/admin/${user?.email}`,
+        {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res => res.json())
+    )
+    console.log(data);
+
+    if (isLoading) {
+        <Loading />
+    }
 
     return (
         <div>
@@ -30,7 +43,7 @@ const Dashboard = () => {
                 <div className="drawer-side shadow-2xl">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     {
-                        admin ?
+                        data?.admin ?
                             <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                                 <li><Link to="/dashboard/">Overview</Link></li>
                                 <li className='mt-2'><Link to="/dashboard/manage-all-orders">Manage Orders</Link></li>

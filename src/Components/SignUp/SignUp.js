@@ -47,15 +47,17 @@ const SignUp = () => {
         reset();
     };
 
-    if (googleError || error || updateError) {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Something went wrong. Please try again.',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    }
+    useEffect(() => {
+        if (googleError || error || updateError) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Something went wrong. Please try again.',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    }, [googleError, error, updateError])
 
     return (
         <section>

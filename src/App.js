@@ -59,11 +59,10 @@ function App() {
           {/* <Route path='/blogs' element={<Blogs />} />
             <Route path='/my-portfolio' element={<MyPortfolio />} /> */}
 
-          <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
-
-            {
-              admin ?
-                <>
+          {
+            admin ?
+              <>
+                <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
                   <Route index element={<RequireAdmin><Overview /></RequireAdmin>} />
                   <Route path='all-users' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
                   <Route path='overview' element={<RequireAdmin><Overview /></RequireAdmin>} />
@@ -72,18 +71,22 @@ function App() {
                   <Route path='manage-all-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
                   <Route path='update-a-product/:id' element={<RequireAdmin><UpdateProduct /></RequireAdmin>} />
                   <Route path='update-product-quantity/:id' element={<RequireAdmin><UpdateQuantity /></RequireAdmin>} />
-                </>
-                :
-                <>
+                  <Route path='my-profile' element={<MyProfile />} />
+                  <Route path='update-profile/:id' element={<UpdateProfile />} />
+                </Route>
+              </>
+              :
+              <>
+                <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
                   <Route index element={<MyOrders />} />
                   <Route path='add-review' element={<AddAReview />} />
+                  <Route path='my-orders' element={<MyOrders />} />
                   <Route path='my-profile' element={<MyProfile />} />
                   <Route path='update-profile/:id' element={<UpdateProfile />} />
                   <Route path='payment/:id' element={<Payment />} />
-                </>
-            }
-
-          </Route>
+                </Route>
+              </>
+          }
 
           <Route path='/purchase/:id' element={
             <RequireAuth>

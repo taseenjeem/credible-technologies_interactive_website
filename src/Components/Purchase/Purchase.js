@@ -122,7 +122,7 @@ const Purchase = () => {
 
     return (
         <>
-            <PageTitle title="Purchase" />
+            <PageTitle title={product?.name} />
             <div className="md:flex h-screen lg:my-16 lg:mb-16 mb-96 justify-center items-center z-50 py-12 2xl:px-20 md:px-6 px-4">
                 <div className="xl:w-2/6 lg:w-2/5 w-full">
                     <img className="w-full rounded-3xl shadow-2xl lg:mb-0 mb-16" alt="" src={product?.img} />

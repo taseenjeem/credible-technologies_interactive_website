@@ -5,7 +5,7 @@ import PageTitle from '../../PageTitle/PageTitle';
 import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
-    const { data: products, isLoading, refetch } = useQuery("manageProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products")
+    const { data: products, isLoading, refetch } = useQuery("manageProducts", () => fetch("https://credible-technologies-server.onrender.com/all-products")
         .then(res => res.json()));
 
     if (isLoading) {

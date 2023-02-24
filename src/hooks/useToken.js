@@ -12,7 +12,7 @@ const useToken = user => {
 
         if (email) {
 
-            fetch(`https://credible-technologies.herokuapp.com/user/${email}`,
+            fetch(`https://credible-technologies-server.onrender.com/user/${email}`,
                 {
                     method: 'PUT',
                     headers: {

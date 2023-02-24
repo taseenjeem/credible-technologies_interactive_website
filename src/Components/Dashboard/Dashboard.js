@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const [user] = useAuthState(auth);
 
-    const { data, isLoading } = useQuery('admin', () => fetch(`https://credible-technologies.herokuapp.com/admin/${user?.email}`,
+    const { data, isLoading } = useQuery('admin', () => fetch(`https://credible-technologies-server.onrender.com/admin/${user?.email}`,
         {
             method: 'GET',
             headers: {

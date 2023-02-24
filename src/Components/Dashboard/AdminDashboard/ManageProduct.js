@@ -33,7 +33,7 @@ const ManageProduct = ({ product, refetch }) => {
     const { _id, name, img, brand, manufacturer, price, qnt, description, minimumQnt } = product;
 
     const handleDelete = id => {
-        const url = `https://credible-technologies.herokuapp.com/delete-product/${id}`;
+        const url = `https://credible-technologies-server.onrender.com/delete-product/${id}`;
 
         fetch(url, {
             method: 'DELETE',

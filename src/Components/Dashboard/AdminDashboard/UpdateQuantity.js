@@ -11,7 +11,7 @@ const UpdateQuantity = () => {
 
     const onSubmit = data => {
 
-        const url = `https://credible-technologies.herokuapp.com/update-product-quantity/${id}`;
+        const url = `https://credible-technologies-server.onrender.com/update-product-quantity/${id}`;
 
         if (data.qnt < 0) {
             Swal.fire(

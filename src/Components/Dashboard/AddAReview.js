@@ -31,7 +31,7 @@ const AddAReview = () => {
                         message: data.message
                     }
 
-                    fetch("https://credible-technologies.herokuapp.com/add-review", {
+                    fetch("https://credible-technologies-server.onrender.com/add-review", {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

@@ -7,7 +7,7 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const ProductsForHomePage = () => {
 
-    const { data: products, isLoading } = useQuery("homePageProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products").then(res => res.json()));
+    const { data: products, isLoading } = useQuery("homePageProducts", () => fetch("https://credible-technologies-server.onrender.com/all-products").then(res => res.json()));
 
     const productsForHomePage = products?.slice(5, 11);
 

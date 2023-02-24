@@ -11,7 +11,7 @@ const UpdateProfile = () => {
 
     const onSubmit = data => {
 
-        const url = `https://credible-technologies.herokuapp.com/update-a-profile/${id}`;
+        const url = `https://credible-technologies-server.onrender.com/update-a-profile/${id}`;
 
         fetch(url,
             {

@@ -5,7 +5,7 @@ import SingleUser from '../SingleUser';
 
 const AllUsers = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch("https://credible-technologies.herokuapp.com/all-users",
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch("https://credible-technologies-server.onrender.com/all-users",
         {
             method: 'GET',
             headers: {

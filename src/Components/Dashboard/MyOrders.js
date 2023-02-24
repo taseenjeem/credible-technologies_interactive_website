@@ -12,7 +12,7 @@ const MyOrders = () => {
 
     const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery("getMyOrders", () => fetch(`https://credible-technologies.herokuapp.com/my-orders?customerEmail=${user?.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery("getMyOrders", () => fetch(`https://credible-technologies-server.onrender.com/my-orders?customerEmail=${user?.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

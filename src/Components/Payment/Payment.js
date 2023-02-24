@@ -12,7 +12,7 @@ const Payment = () => {
 
     const { id } = useParams();
 
-    const url = `https://credible-technologies.herokuapp.com/get-payment/${id}`;
+    const url = `https://credible-technologies-server.onrender.com/get-payment/${id}`;
 
     const { data, isLoading } = useQuery(["getPayment", id], () => fetch(url,
         {

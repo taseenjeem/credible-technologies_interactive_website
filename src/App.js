@@ -40,7 +40,7 @@ import { useState } from 'react';
 function App() {
   const [user] = useAuthState(auth);
 
-  const { data, isLoading, refetch } = useQuery('admin', () => fetch(`https://credible-technologies.herokuapp.com/admin/${user?.email}`,
+  const { data, isLoading, refetch } = useQuery('admin', () => fetch(`https://credible-technologies-server.onrender.com/admin/${user?.email}`,
     {
       method: 'GET',
       headers: {

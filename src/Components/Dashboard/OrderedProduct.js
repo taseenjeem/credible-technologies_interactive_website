@@ -42,7 +42,7 @@ const OrderedProduct = ({ order, refetch }) => {
     const totalPrice = Number(orderedQuantity) * Number(productPrice);
 
     const handleDelete = () => {
-        const url = `https://credible-technologies.herokuapp.com/delete-order/${_id}`;
+        const url = `https://credible-technologies-server.onrender.com/delete-order/${_id}`;
 
 
         fetch(url, {

@@ -33,7 +33,7 @@ const AddProduct = () => {
                         description: data.description
                     }
 
-                    fetch("https://credible-technologies.herokuapp.com/add-product", {
+                    fetch("https://credible-technologies-server.onrender.com/add-product", {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

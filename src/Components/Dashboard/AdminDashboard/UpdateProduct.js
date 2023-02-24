@@ -13,7 +13,7 @@ const UpdateProduct = () => {
 
         console.log(data);
 
-        const url = `https://credible-technologies.herokuapp.com/update-a-product/${id}`;
+        const url = `https://credible-technologies-server.onrender.com/update-a-product/${id}`;
 
         fetch(url, {
             method: 'PUT',

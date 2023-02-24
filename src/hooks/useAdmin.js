@@ -11,7 +11,7 @@ const useAdmin = user => {
 
         if (email) {
 
-            fetch(`https://credible-technologies.herokuapp.com/admin/${email}`, {
+            fetch(`https://credible-technologies-server.onrender.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

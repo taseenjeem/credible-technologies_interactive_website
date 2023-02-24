@@ -7,7 +7,7 @@ import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const Products = () => {
 
-    const { data: products, isLoading } = useQuery("allProducts", () => fetch("https://credible-technologies.herokuapp.com/all-products")
+    const { data: products, isLoading } = useQuery("allProducts", () => fetch("https://credible-technologies-server.onrender.com/all-products")
         .then(res => res.json()));
 
     if (isLoading) {

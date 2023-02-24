@@ -5,7 +5,7 @@ import OrderRow from './OrderRow';
 
 const ManageOrders = () => {
 
-    const { data: allOrders, isLoading, refetch } = useQuery("allOrders", () => fetch("https://credible-technologies.herokuapp.com/ordered-products")
+    const { data: allOrders, isLoading, refetch } = useQuery("allOrders", () => fetch("https://credible-technologies-server.onrender.com/ordered-products")
         .then(res => res.json())
     )
 

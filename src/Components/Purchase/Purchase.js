@@ -39,7 +39,7 @@ const Purchase = () => {
 
     const { id } = useParams();
 
-    const { data: product, isLoading } = useQuery("productCheckout", () => fetch(`https://credible-technologies.herokuapp.com/purchase/${id}`).then(res => res.json()))
+    const { data: product, isLoading } = useQuery("productCheckout", () => fetch(`https://credible-technologies-server.onrender.com/purchase/${id}`).then(res => res.json()))
 
 
     if (isLoading) {
@@ -91,7 +91,7 @@ const Purchase = () => {
 
             }
 
-            fetch("https://credible-technologies.herokuapp.com/order-bookings", {
+            fetch("https://credible-technologies-server.onrender.com/order-bookings", {
 
                 method: 'POST',
 

@@ -11,7 +11,7 @@ const Checkout = ({ price, productDetails }) => {
     console.log(price);
 
     useEffect(() => {
-        fetch('https://credible-technologies.herokuapp.com/create-payment-intent', {
+        fetch('https://credible-technologies-server.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -95,7 +95,7 @@ const Checkout = ({ price, productDetails }) => {
                 product: productDetails?._id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://credible-technologies.herokuapp.com/payment/${productDetails?._id}`, {
+            fetch(`https://credible-technologies-server.onrender.com/payment/${productDetails?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

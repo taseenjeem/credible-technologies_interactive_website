@@ -7,7 +7,7 @@ const SingleUser = ({ user, refetch }) => {
 
     const makeAdmin = () => {
 
-        fetch(`https://credible-technologies.herokuapp.com/user/admin/${email}`,
+        fetch(`https://credible-technologies-server.onrender.com/user/admin/${email}`,
             {
                 method: 'PUT',
                 headers: {
